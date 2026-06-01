@@ -37,6 +37,46 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "/images/default-profile.jpg",
     },
+
+    bio: {
+      type: String,
+      default: "",
+    },
+
+    city: {
+      type: String,
+      default: "",
+    },
+
+    state: {
+      type: String,
+      default: "",
+    },
+
+    danceExperience: {
+      type: String,
+      default: "",
+    },
+
+    skillLevel: {
+      type: String,
+      default: "",
+    },
+
+    danceFrequency: {
+      type: String,
+      default: "",
+    },
+
+    interests: {
+      type: [String],
+      default: [],
+    },
+
+    onboardingComplete: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
