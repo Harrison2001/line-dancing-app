@@ -15,6 +15,14 @@ type User = {
   id: string;
   username: string;
   email: string;
+  profileImage?: string;
+  bio?: string;
+  city?: string;
+  state?: string;
+  danceExperience?: string;
+  skillLevel?: string;
+  danceFrequency?: string;
+  interests?: string[];
 };
 
 type MainTab = "uploads" | "library";
@@ -131,13 +139,21 @@ export default function ProfilePage() {
 
   return (
     <main className="min-h-screen bg-[#100905] pb-24 text-white md:pb-0">
-      <section className="mx-auto max-w-7xl">
+      <section className="mx-auto max-w-7xl px-4 py-6">
         <div className="mb-8 rounded-3xl border border-white/10 bg-white/5 p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-5">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-orange-500 bg-orange-300 text-4xl font-bold text-black">
-                {user ? user.username.charAt(0).toUpperCase() : "?"}
-              </div>
+              {user?.profileImage ? (
+                <img
+                  src={user.profileImage}
+                  alt="Profile"
+                  className="h-24 w-24 rounded-full border-4 border-orange-500 object-cover"
+                />
+              ) : (
+                <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-orange-500 bg-orange-300 text-4xl font-bold text-black">
+                  {user ? user.username.charAt(0).toUpperCase() : "?"}
+                </div>
+              )}
 
               <div>
                 <h1 className="text-4xl font-bold">
@@ -149,8 +165,42 @@ export default function ProfilePage() {
                 </p>
 
                 <p className="mt-3 max-w-xl text-gray-300">
-                  My uploads, saved dances, and dance progress.
+                  {user?.bio || "No bio added yet."}
                 </p>
+
+                <div className="mt-4 flex flex-wrap gap-2 text-sm">
+                  <ProfileBadge>
+                    📍{" "}
+                    {user?.city && user?.state
+                      ? `${user.city}, ${user.state}`
+                      : "Location not set"}
+                  </ProfileBadge>
+
+                  <ProfileBadge>
+                    💃 {user?.skillLevel || "Skill not set"}
+                  </ProfileBadge>
+
+                  <ProfileBadge>
+                    ⭐ {user?.danceExperience || "Experience not set"}
+                  </ProfileBadge>
+
+                  <ProfileBadge>
+                    🕺 {user?.danceFrequency || "Frequency not set"}
+                  </ProfileBadge>
+                </div>
+
+                {user?.interests && user.interests.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {user.interests.map((interest) => (
+                      <span
+                        key={interest}
+                        className="rounded-full bg-orange-500/15 px-3 py-1 text-xs font-semibold text-orange-300"
+                      >
+                        {interest}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -208,6 +258,14 @@ export default function ProfilePage() {
   );
 }
 
+function ProfileBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-gray-300">
+      {children}
+    </span>
+  );
+}
+
 function UploadsSection({
   uploadedFiles,
   handleUpload,
@@ -222,7 +280,6 @@ function UploadsSection({
 
         <label className="cursor-pointer rounded-full bg-orange-500 px-5 py-2 font-semibold text-black">
           Upload Video
-
           <input
             type="file"
             accept="video/*,image/*"
