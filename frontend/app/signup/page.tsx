@@ -21,7 +21,7 @@ export default function SignupPage() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      router.push("/");
+      router.push("/onboarding");
     } catch (error) {
       console.error(error);
       alert("Signup failed");

@@ -20,7 +20,7 @@ export default function LoginPage() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      router.push("/");
+      router.push("/home");
     } catch (error) {
       console.error(error);
       alert("Login failed");

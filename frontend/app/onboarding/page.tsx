@@ -48,7 +48,19 @@ export default function OnboardingPage() {
   }
 
   async function handleFinish() {
-    const onboardingData = {
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+  if (!user.id) {
+    console.error("No user ID found");
+    return;
+  }
+
+  const res = await fetch(`http://localhost:5000/api/onboarding/${user.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
       city,
       state,
       danceExperience,
@@ -57,13 +69,20 @@ export default function OnboardingPage() {
       interests,
       bio,
       profileImage,
-      onboardingComplete: true,
-    };
+    }),
+  });
 
-    console.log("Onboarding Data:", onboardingData);
-
-    router.push("/home");
+  if (!res.ok) {
+    console.error("Failed to save onboarding");
+    return;
   }
+
+  const data = await res.json();
+
+  localStorage.setItem("user", JSON.stringify(data.user));
+
+  router.push("/home");
+}
 
   return (
     <main className="min-h-screen bg-black px-6 py-10 text-white">
