@@ -14,6 +14,7 @@ const app = express();
 const uploadRoutes = require("./routes/uploads");
 const followRoutes = require("./routes/follows");
 const onboardingRoutes = require("./routes/onboarding");
+const dancesRoutes = require("./routes/dances");
 
 connectDB();
 
@@ -29,6 +30,8 @@ app.use("/api/likes", likeRoutes);
 app.use("/api/saved-dances", savedDanceRoutes);
 app.use("/api/uploads", require("./routes/uploads"));
 app.use("/api/onboarding", onboardingRoutes);
+app.use("/api/dances", dancesRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("LineDance backend is running");
