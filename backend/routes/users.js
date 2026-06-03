@@ -104,5 +104,54 @@ router.get("/:userId", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch user" });
   }
 });
+// Update user profile
+router.put("/:userId/profile", async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const {
+      bio,
+      city,
+      state,
+      profileImage,
+      danceExperience,
+      skillLevel,
+      danceFrequency,
+      interests,
+    } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        bio,
+        city,
+        state,
+        profileImage,
+        danceExperience,
+        skillLevel,
+        danceFrequency,
+        interests,
+      },
+      { new: true }
+    ).select("-password");
+
+    if (!updatedUser) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    res.json({
+      message: "Profile updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error("Update profile error:", error);
+
+    res.status(500).json({
+      message: "Failed to update profile",
+    });
+  }
+});
 
 module.exports = router;

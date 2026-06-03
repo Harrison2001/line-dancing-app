@@ -54,6 +54,12 @@ export default function ProfilePage() {
     "wantToLearn"
   );
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [editBio, setEditBio] = useState("");
+  const [editCity, setEditCity] = useState("");
+  const [editState, setEditState] = useState("");
+  const [editProfileImage, setEditProfileImage] = useState("");
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
 
@@ -65,9 +71,52 @@ export default function ProfilePage() {
     const parsedUser: User = JSON.parse(storedUser);
     setUser(parsedUser);
 
+    setEditBio(parsedUser.bio || "");
+    setEditCity(parsedUser.city || "");
+    setEditState(parsedUser.state || "");
+    setEditProfileImage(parsedUser.profileImage || "");
+
     loadSavedDances(parsedUser.id);
     loadUserUploads(parsedUser.id);
   }, [router]);
+
+  async function handleSaveProfile() {
+    if (!user) return;
+
+    try {
+      const res = await fetch(`http://localhost:5000/api/profiles/${user.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          displayName: user.username,
+          bio: editBio,
+          location: `${editCity}, ${editState}`,
+          profileImage: editProfileImage,
+          favoriteStyles: user.interests || [],
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to update profile");
+      }
+
+      const updatedUser: User = {
+        ...user,
+        bio: editBio,
+        city: editCity,
+        state: editState,
+        profileImage: editProfileImage,
+      };
+
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Profile update failed:", error);
+    }
+  }
 
   async function loadSavedDances(userId: string) {
     try {
@@ -94,7 +143,6 @@ export default function ProfilePage() {
 
     try {
       const newDance = await saveDance(user.id, danceTitle, status);
-
       setSavedDances((prev) => [newDance, ...prev]);
       setDanceTitle("");
       setStatus("wantToLearn");
@@ -120,7 +168,6 @@ export default function ProfilePage() {
       );
 
       setUploadedFiles((prev) => [newPost, ...prev]);
-
       e.target.value = "";
     } catch (error) {
       console.error("Upload failed:", error);
@@ -128,11 +175,9 @@ export default function ProfilePage() {
   }
 
   const knownDances = savedDances.filter((dance) => dance.status === "known");
-
   const learningDances = savedDances.filter(
     (dance) => dance.status === "learning"
   );
-
   const wantToLearnDances = savedDances.filter(
     (dance) => dance.status === "wantToLearn"
   );
@@ -204,11 +249,67 @@ export default function ProfilePage() {
               </div>
             </div>
 
-            <button className="rounded-full bg-orange-500 px-6 py-3 font-semibold text-black">
+            <button
+              onClick={() => setIsEditing(true)}
+              className="rounded-full bg-orange-500 px-6 py-3 font-semibold text-black"
+            >
               Edit Profile
             </button>
           </div>
         </div>
+
+        {isEditing && (
+          <section className="mb-8 rounded-3xl border border-white/10 bg-white/5 p-6">
+            <h2 className="mb-4 text-2xl font-bold">Edit Profile</h2>
+
+            <div className="grid gap-4">
+              <textarea
+                value={editBio}
+                onChange={(e) => setEditBio(e.target.value)}
+                placeholder="Bio"
+                rows={4}
+                className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
+              />
+
+              <input
+                value={editCity}
+                onChange={(e) => setEditCity(e.target.value)}
+                placeholder="City"
+                className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
+              />
+
+              <input
+                value={editState}
+                onChange={(e) => setEditState(e.target.value)}
+                placeholder="State"
+                className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
+              />
+
+              <input
+                value={editProfileImage}
+                onChange={(e) => setEditProfileImage(e.target.value)}
+                placeholder="Profile image URL"
+                className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
+              />
+            </div>
+
+            <div className="mt-5 flex gap-3">
+              <button
+                onClick={handleSaveProfile}
+                className="rounded-full bg-orange-500 px-6 py-3 font-semibold text-black"
+              >
+                Save Changes
+              </button>
+
+              <button
+                onClick={() => setIsEditing(false)}
+                className="rounded-full border border-white/10 px-6 py-3 text-white"
+              >
+                Cancel
+              </button>
+            </div>
+          </section>
+        )}
 
         <div className="mb-8 flex rounded-full border border-white/10 bg-white/5 p-2">
           <button
