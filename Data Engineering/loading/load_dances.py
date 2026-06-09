@@ -1,48 +1,62 @@
 from pathlib import Path
 import json
-import pandas as pd
-
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
 BASE_DIR = Path(__file__).resolve().parents[1]
+PROJECT_DIR = BASE_DIR.parent
 
-PROCESSED_FILE = BASE_DIR / "data" / "processed" / "dances_processed.csv"
-EXPORTS_DIR = BASE_DIR / "data" / "exports"
-OUTPUT_FILE = EXPORTS_DIR / "dances_for_database.json"
+BACKEND_ENV = PROJECT_DIR / "backend" / ".env"
+DATA_FILE = BASE_DIR / "data" / "exports" / "dances_for_database.json"
 
+load_dotenv(BACKEND_ENV)
 
-def normalize_record(record):
-    return {
-        "source": str(record.get("source", "")).strip(),
-        "danceName": str(record.get("dance_name", "")).strip(),
-        "choreographer": str(record.get("choreographer", "")).strip(),
-        "count": int(record.get("count", 0)),
-        "wall": int(record.get("wall", 0)),
-        "level": str(record.get("level", "")).strip(),
-        "music": str(record.get("music", "")).strip(),
-        "stepsheetUrl": str(record.get("stepsheet_url", "")).strip(),
-        "scrapedAt": str(record.get("scraped_at", "")).strip(),
-    }
+MONGO_URI = os.getenv("MONGO_URI")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "line_dancing_app")
+
+if not MONGO_URI:
+    raise ValueError(f"MONGO_URI not found. Checked: {BACKEND_ENV}")
+
+client = MongoClient(MONGO_URI)
+
+try:
+    client.admin.command("ping")
+    print("✅ MongoDB connection successful")
+except Exception as e:
+    print(f"❌ MongoDB connection failed: {e}")
+    raise
+
+db = client[DATABASE_NAME]
+collection = db["dances"]
 
 
 def main():
-    if not PROCESSED_FILE.exists():
-        raise FileNotFoundError(f"Missing processed file: {PROCESSED_FILE}")
+    if not DATA_FILE.exists():
+        raise FileNotFoundError(f"Missing export file: {DATA_FILE}")
 
-    df = pd.read_csv(PROCESSED_FILE)
+    print(f"📂 Loading from: {DATA_FILE}")
 
-    records = []
+    with open(DATA_FILE, "r", encoding="utf-8") as file:
+        dances = json.load(file)
 
-    for _, row in df.iterrows():
-        record = normalize_record(row.to_dict())
-        records.append(record)
+    print(f"🕺 Found {len(dances)} dances")
 
-    EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    if not dances:
+        print("⚠️ No dances found. Nothing to load.")
+        return
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
-        json.dump(records, file, indent=2, ensure_ascii=False)
+    delete_result = collection.delete_many({})
+    print(f"🗑️ Deleted {delete_result.deleted_count} existing dances")
 
-    print(f"Prepared {len(records)} dance records for database loading")
-    print(f"Saved to: {OUTPUT_FILE}")
+    result = collection.insert_many(dances)
+
+    print(f"✅ Inserted {len(result.inserted_ids)} dances")
+    print(f"📊 Database: {DATABASE_NAME}")
+    print("📁 Collection: dances")
+
+    total = collection.count_documents({})
+    print(f"🔍 Verification: {total} documents currently in collection")
 
 
 if __name__ == "__main__":
