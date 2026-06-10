@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 const Dance = require("../models/Dance");
 
 function createSlug(text) {
-  return text
+  return String(text || "")
     .toLowerCase()
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
@@ -56,6 +56,8 @@ async function searchExternalDanceSource(query) {
 
     matchedDance = {
       title,
+      danceName: title,
+      slug: createSlug(title),
       difficulty: "Beginner",
       style: "Line Dance",
       songTitle: "",
@@ -68,11 +70,12 @@ async function searchExternalDanceSource(query) {
       demoUrl: "",
       stepsheetUrl: fullUrl,
       thumbnailUrl: "",
-      tags: ["imported", "line-dance"],
+      tags: ["imported", "line-dance", "linedancin"],
       sourceName: "LineDancin.net",
       sourceUrl: url,
       isVerified: false,
       isActive: true,
+      lastSearchedAt: new Date(),
     };
   });
 
@@ -90,19 +93,30 @@ async function lookupDance(query) {
   const cleanQuery = query.trim();
 
   const existingDances = await Dance.find({
-    isActive: true,
+    isActive: { $ne: false },
     $or: [
       { title: { $regex: cleanQuery, $options: "i" } },
+      { danceName: { $regex: cleanQuery, $options: "i" } },
       { songTitle: { $regex: cleanQuery, $options: "i" } },
       { artist: { $regex: cleanQuery, $options: "i" } },
       { choreographer: { $regex: cleanQuery, $options: "i" } },
+      { difficulty: { $regex: cleanQuery, $options: "i" } },
+      { sourceName: { $regex: cleanQuery, $options: "i" } },
       { tags: { $regex: cleanQuery, $options: "i" } },
     ],
   }).limit(20);
 
   if (existingDances.length > 0) {
+    const ids = existingDances.map((dance) => dance._id);
+
+    await Dance.updateMany(
+      { _id: { $in: ids } },
+      { $set: { lastSearchedAt: new Date() } }
+    );
+
     return {
       source: "database",
+      count: existingDances.length,
       dances: existingDances,
     };
   }
@@ -112,23 +126,23 @@ async function lookupDance(query) {
   if (!externalDance) {
     return {
       source: "external-not-found",
+      count: 0,
       dances: [],
     };
   }
 
-  const slug = createSlug(externalDance.title);
-
   const savedDance = await Dance.findOneAndUpdate(
-    { slug },
+    { slug: externalDance.slug },
     {
       ...externalDance,
-      slug,
+      lastSearchedAt: new Date(),
     },
     { upsert: true, new: true }
   );
 
   return {
     source: "external-imported",
+    count: 1,
     dances: [savedDance],
   };
 }
