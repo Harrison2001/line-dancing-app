@@ -1,6 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 const Dance = require("../models/Dance");
+const { searchCopperKnob } = require("./copperknobService");
 
 function createSlug(text) {
   return String(text || "")
@@ -86,6 +87,7 @@ async function lookupDance(query) {
   if (!query || !query.trim()) {
     return {
       source: "none",
+      count: 0,
       dances: [],
     };
   }
@@ -121,7 +123,22 @@ async function lookupDance(query) {
     };
   }
 
-  const externalDance = await searchExternalDanceSource(cleanQuery);
+  let externalDance = null;
+
+  try {
+    externalDance = await searchCopperKnob(cleanQuery);
+  } catch (error) {
+    console.error("CopperKnob search failed:", error.message);
+    console.error("Status:", error.response?.status);
+    console.error("URL:", error.config?.url);
+
+    return {
+      source: "copperknob-error",
+      count: 0,
+      dances: [],
+      error: error.message,
+    };
+  }
 
   if (!externalDance) {
     return {
@@ -141,7 +158,7 @@ async function lookupDance(query) {
   );
 
   return {
-    source: "external-imported",
+    source: "copperknob-imported",
     count: 1,
     dances: [savedDance],
   };
