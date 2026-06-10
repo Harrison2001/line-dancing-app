@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const danceCategories = [
@@ -85,7 +86,8 @@ export default function DiscoverPage() {
           </h1>
 
           <p className="mt-3 text-gray-400">
-            Search trending dances, tutorials, songs, and choreography from the community.
+            Search trending dances, tutorials, songs, and choreography from the
+            community.
           </p>
         </div>
 
@@ -148,20 +150,22 @@ export default function DiscoverPage() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {dances.map((dance) => (
-              <article
+              <Link
                 key={dance._id}
+                href={`/dances/${dance._id}`}
                 className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
               >
                 <div className="relative flex h-72 items-center justify-center bg-gradient-to-b from-orange-600/60 via-orange-900/40 to-black">
                   <button
                     type="button"
+                    onClick={(e) => e.preventDefault()}
                     className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-2xl backdrop-blur"
                   >
                     ▶
                   </button>
 
                   <span className="absolute left-4 top-4 rounded-full border border-orange-500 bg-black/30 px-3 py-1 text-xs font-semibold text-orange-500">
-                    {dance.difficulty}
+                    {dance.difficulty || "Unknown"}
                   </span>
                 </div>
 
@@ -186,6 +190,7 @@ export default function DiscoverPage() {
                   <div className="mt-5 flex gap-3">
                     <button
                       type="button"
+                      onClick={(e) => e.preventDefault()}
                       className="rounded-full border border-white/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10"
                     >
                       ✓ Know
@@ -193,13 +198,14 @@ export default function DiscoverPage() {
 
                     <button
                       type="button"
+                      onClick={(e) => e.preventDefault()}
                       className="rounded-full border border-orange-500 px-4 py-2 text-sm font-semibold text-orange-500 hover:bg-orange-500 hover:text-black"
                     >
                       📖 Learning
                     </button>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         )}
