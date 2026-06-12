@@ -9,7 +9,11 @@ from bs4 import BeautifulSoup
 
 
 BASE_URL = "https://www.copperknob.co.uk"
-RECENT_URL = f"{BASE_URL}/recentlyadded"
+POPULAR_URL = f"{BASE_URL}/mostpopular"
+
+MAX_DANCES = 100
+PAGE_SIZE = 20
+REQUEST_DELAY = 1.0
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 RAW_DIR = BASE_DIR / "data" / "raw"
@@ -32,21 +36,40 @@ def safe_print(value):
 
 
 def get_soup(url):
-    response = requests.get(url, headers=HEADERS, timeout=15)
+    response = requests.get(url, headers=HEADERS, timeout=20)
     response.raise_for_status()
     return BeautifulSoup(response.text, "html.parser")
 
 
-def get_recent_dance_links(limit=10):
-    soup = get_soup(RECENT_URL)
+def get_popular_page_url(recnum):
+    if recnum == 0:
+        return POPULAR_URL
 
+    return f"{POPULAR_URL}?recnum={recnum}"
+
+
+def get_popular_dance_links(limit=MAX_DANCES):
     links = []
     seen = set()
 
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
+    for recnum in range(0, limit, PAGE_SIZE):
+        page_url = get_popular_page_url(recnum)
+        safe_print(f"Getting popular page: {page_url}")
 
-        if "/stepsheets/" in href:
+        try:
+            soup = get_soup(page_url)
+        except requests.RequestException as error:
+            safe_print(f"Failed page {page_url}: {error}")
+            continue
+
+        page_links_found = 0
+
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+
+            if "/stepsheets/" not in href:
+                continue
+
             full_url = href if href.startswith("http") else BASE_URL + href
             title = clean_text(a.get_text())
 
@@ -56,11 +79,19 @@ def get_recent_dance_links(limit=10):
                     "dance_name": title,
                     "stepsheet_url": full_url,
                 })
+                page_links_found += 1
+
+            if len(links) >= limit:
+                break
+
+        safe_print(f"Found {page_links_found} new links on page.")
 
         if len(links) >= limit:
             break
 
-    return links
+        time.sleep(REQUEST_DELAY)
+
+    return links[:limit]
 
 
 def parse_detail_page(dance):
@@ -122,16 +153,16 @@ def save_to_csv(records):
 
 
 def main():
-    safe_print("Getting recent CopperKnob dance links...")
+    safe_print("Getting popular CopperKnob dance links...")
 
-    dance_links = get_recent_dance_links(limit=10)
-    safe_print(f"Found {len(dance_links)} dance links.")
+    dance_links = get_popular_dance_links(limit=MAX_DANCES)
+    safe_print(f"Found {len(dance_links)} total dance links.")
 
     records = []
 
-    for dance in dance_links:
+    for index, dance in enumerate(dance_links, start=1):
         safe_name = dance["dance_name"].encode("ascii", errors="replace").decode("ascii")
-        safe_print(f"Scraping: {safe_name}")
+        safe_print(f"[{index}/{len(dance_links)}] Scraping: {safe_name}")
 
         try:
             record = parse_detail_page(dance)
@@ -139,7 +170,7 @@ def main():
         except requests.RequestException as error:
             safe_print(f"Failed to scrape {safe_name}: {error}")
 
-        time.sleep(1)
+        time.sleep(REQUEST_DELAY)
 
     save_to_csv(records)
 
