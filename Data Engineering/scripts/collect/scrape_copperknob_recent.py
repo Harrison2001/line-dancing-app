@@ -11,9 +11,9 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://www.copperknob.co.uk"
 RECENT_URL = f"{BASE_URL}/recentlyadded"
 
-BASE_DIR = Path(__file__).resolve().parents[1]
+BASE_DIR = Path(__file__).resolve().parents[2]
 RAW_DIR = BASE_DIR / "data" / "raw"
-OUTPUT_FILE = RAW_DIR / "dances_raw.csv"
+OUTPUT_FILE = RAW_DIR / "copperknob_dances_raw.csv"
 
 HEADERS = {
     "User-Agent": "LineDanceDiscoveryApp/0.1 educational project"
@@ -24,6 +24,11 @@ def clean_text(value):
     if not value:
         return ""
     return re.sub(r"\s+", " ", value).strip()
+
+
+def safe_print(value):
+    safe_value = str(value).encode("ascii", errors="replace").decode("ascii")
+    print(safe_value)
 
 
 def get_soup(url):
@@ -49,7 +54,7 @@ def get_recent_dance_links(limit=10):
                 seen.add(full_url)
                 links.append({
                     "dance_name": title,
-                    "stepsheet_url": full_url
+                    "stepsheet_url": full_url,
                 })
 
         if len(links) >= limit:
@@ -60,6 +65,7 @@ def get_recent_dance_links(limit=10):
 
 def parse_detail_page(dance):
     soup = get_soup(dance["stepsheet_url"])
+
     text_lines = [clean_text(x) for x in soup.get_text("\n").splitlines()]
     text_lines = [x for x in text_lines if x]
 
@@ -79,16 +85,16 @@ def parse_detail_page(dance):
         if line == "Count:" and i + 1 < len(text_lines):
             record["count"] = text_lines[i + 1]
 
-        if line == "Wall:" and i + 1 < len(text_lines):
+        elif line == "Wall:" and i + 1 < len(text_lines):
             record["wall"] = text_lines[i + 1]
 
-        if line == "Level:" and i + 1 < len(text_lines):
+        elif line == "Level:" and i + 1 < len(text_lines):
             record["level"] = text_lines[i + 1]
 
-        if line == "Choreographer:" and i + 1 < len(text_lines):
+        elif line == "Choreographer:" and i + 1 < len(text_lines):
             record["choreographer"] = text_lines[i + 1]
 
-        if line == "Music:" and i + 1 < len(text_lines):
+        elif line == "Music:" and i + 1 < len(text_lines):
             record["music"] = text_lines[i + 1]
 
     return record
@@ -116,25 +122,29 @@ def save_to_csv(records):
 
 
 def main():
-    print("Getting recent CopperKnob dance links...")
+    safe_print("Getting recent CopperKnob dance links...")
 
     dance_links = get_recent_dance_links(limit=10)
-    print(f"Found {len(dance_links)} dance links.")
+    safe_print(f"Found {len(dance_links)} dance links.")
 
     records = []
 
     for dance in dance_links:
-        print(f"Scraping: {dance['dance_name']}")
-        record = parse_detail_page(dance)
-        records.append(record)
+        safe_name = dance["dance_name"].encode("ascii", errors="replace").decode("ascii")
+        safe_print(f"Scraping: {safe_name}")
 
-        # Be respectful. Do not hammer the site.
+        try:
+            record = parse_detail_page(dance)
+            records.append(record)
+        except requests.RequestException as error:
+            safe_print(f"Failed to scrape {safe_name}: {error}")
+
         time.sleep(1)
 
     save_to_csv(records)
 
-    print(f"Saved {len(records)} records to:")
-    print(OUTPUT_FILE)
+    safe_print(f"Saved {len(records)} records to:")
+    safe_print(OUTPUT_FILE)
 
 
 if __name__ == "__main__":
