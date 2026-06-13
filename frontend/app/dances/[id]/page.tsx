@@ -1,89 +1,163 @@
-async function getDance(id: string) {
-  const res = await fetch(`http://localhost:5000/api/dances/${id}`, {
-    cache: "no-store",
-  });
+"use client";
 
-  if (!res.ok) {
-    throw new Error("Failed to load dance");
-  }
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
-  return res.json();
+type Dance = {
+  _id: string;
+  title: string;
+  difficulty?: string;
+  choreographer?: string;
+  counts?: number;
+  walls?: number;
+  songTitle?: string;
+  artist?: string;
+  bestDemoVideo?: string;
+  bestTutorialVideo?: string;
+  sourceLinks?: string[];
+};
+
+function getYouTubeEmbedUrl(url?: string) {
+  if (!url) return "";
+
+  const watchMatch = url.match(/v=([^&]+)/);
+  const shortMatch = url.match(/youtu\.be\/([^?]+)/);
+
+  const videoId = watchMatch?.[1] || shortMatch?.[1];
+
+  return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
 }
 
-export default async function DanceDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-  const dance = await getDance(id);
+export default function DanceDetailPage() {
+  const params = useParams();
+  const id = params.id as string;
+
+  const [dance, setDance] = useState<Dance | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadDance() {
+      try {
+        const response = await fetch(`http://localhost:5000/api/dances/${id}`);
+        const data = await response.json();
+        setDance(data);
+      } catch (error) {
+        console.error("Failed to load dance:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    if (id) loadDance();
+  }, [id]);
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-black text-white p-6">
+        <p>Loading dance...</p>
+      </main>
+    );
+  }
+
+  if (!dance) {
+    return (
+      <main className="min-h-screen bg-black text-white p-6">
+        <p>Dance not found.</p>
+        <Link href="/discover" className="text-blue-400">
+          Back to Discover
+        </Link>
+      </main>
+    );
+  }
+
+  const videoUrl =
+    getYouTubeEmbedUrl(dance.bestDemoVideo) ||
+    getYouTubeEmbedUrl(dance.bestTutorialVideo);
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-8">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-6 rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 aspect-video flex items-center justify-center">
-          {dance.demoUrl ? (
+    <main className="min-h-screen bg-black text-white px-4 py-6">
+      <div className="max-w-5xl mx-auto space-y-6">
+        <Link href="/discover" className="text-sm text-gray-400 hover:text-white">
+          ← Back to Discover
+        </Link>
+
+        {videoUrl ? (
+          <div className="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-900">
             <iframe
-              src={dance.demoUrl}
+              src={videoUrl}
+              title={dance.title}
               className="h-full w-full"
               allowFullScreen
             />
-          ) : (
-            <div className="text-center">
-              <p className="text-zinc-400 text-lg">No video available yet</p>
-              <p className="text-zinc-600 text-sm mt-2">
-                Tutorial videos coming soon
-              </p>
-            </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="aspect-video w-full rounded-2xl bg-zinc-900 flex items-center justify-center text-gray-400">
+            No video found yet
+          </div>
+        )}
 
-        <h1 className="text-4xl font-bold mb-2">{dance.title}</h1>
+        <section>
+          <h1 className="text-3xl font-bold">{dance.title}</h1>
 
-        <p className="text-zinc-400">
-          {dance.difficulty || "Unknown level"} • {dance.counts || 0} counts •{" "}
-          {dance.walls || 0} walls
-        </p>
+          <div className="mt-3 flex flex-wrap gap-2 text-sm">
+            {dance.difficulty && (
+              <span className="rounded-full bg-purple-600 px-3 py-1">
+                {dance.difficulty}
+              </span>
+            )}
 
-        <div className="flex gap-3 mt-5 mb-6">
-          <button className="rounded-xl bg-white text-black px-5 py-2 font-semibold hover:bg-zinc-200">
-            Save Dance
-          </button>
+            {dance.counts && (
+              <span className="rounded-full bg-zinc-800 px-3 py-1">
+                {dance.counts} counts
+              </span>
+            )}
 
-          {dance.stepsheetUrl && (
-            <a
-              href={dance.stepsheetUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl bg-zinc-800 px-5 py-2 font-semibold hover:bg-zinc-700"
-            >
-              View Stepsheet
-            </a>
-          )}
-        </div>
+            {dance.walls && (
+              <span className="rounded-full bg-zinc-800 px-3 py-1">
+                {dance.walls} walls
+              </span>
+            )}
+          </div>
+        </section>
 
-        <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6 space-y-4">
-          <h2 className="text-2xl font-semibold">Dance Details</h2>
+        <section className="rounded-2xl bg-zinc-900 p-5 space-y-3">
+          <h2 className="text-xl font-semibold">Dance Info</h2>
 
           <p>
-            <span className="font-semibold text-zinc-300">Choreographer:</span>{" "}
+            <span className="text-gray-400">Choreographer:</span>{" "}
             {dance.choreographer || "Unknown"}
           </p>
 
           <p>
-            <span className="font-semibold text-zinc-300">Song:</span>{" "}
+            <span className="text-gray-400">Song:</span>{" "}
             {dance.songTitle || "Unknown"}
           </p>
 
           <p>
-            <span className="font-semibold text-zinc-300">Source:</span>{" "}
-            {dance.sourceName || "Unknown"}
+            <span className="text-gray-400">Artist:</span>{" "}
+            {dance.artist || "Unknown"}
           </p>
+        </section>
 
-          {dance.description && (
-            <p className="text-zinc-400 pt-2">{dance.description}</p>
-          )}
-        </div>
+        {dance.sourceLinks && dance.sourceLinks.length > 0 && (
+          <section className="rounded-2xl bg-zinc-900 p-5">
+            <h2 className="text-xl font-semibold mb-3">Source Links</h2>
+
+            <div className="space-y-2">
+              {dance.sourceLinks.map((link) => (
+                <a
+                  key={link}
+                  href={link}
+                  target="_blank"
+                  className="block text-blue-400 hover:underline"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </main>
   );

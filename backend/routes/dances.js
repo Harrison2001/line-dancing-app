@@ -40,6 +40,37 @@ router.get("/search", async (req, res) => {
   }
 });
 
+// GET related dances by id
+router.get("/:id/related", async (req, res) => {
+  try {
+    const dance = await Dance.findById(req.params.id);
+
+    if (!dance || dance.isActive === false) {
+      return res.status(404).json({ message: "Dance not found" });
+    }
+
+    const relatedDances = await Dance.find({
+      _id: { $ne: dance._id },
+      isActive: { $ne: false },
+      $or: [
+        { difficulty: dance.difficulty },
+        { style: dance.style },
+        { artist: dance.artist },
+        { choreographer: dance.choreographer },
+      ],
+    })
+      .limit(6)
+      .select(
+        "title difficulty style choreographer songTitle artist counts walls saves bestDemoVideo bestTutorialVideo"
+      );
+
+    res.json(relatedDances);
+  } catch (error) {
+    console.error("Failed to fetch related dances:", error);
+    res.status(500).json({ message: "Failed to fetch related dances" });
+  }
+});
+
 // GET one dance by id
 router.get("/:id", async (req, res) => {
   try {

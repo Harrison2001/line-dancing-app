@@ -16,11 +16,16 @@ const danceCategories = [
 type Dance = {
   _id: string;
   title: string;
-  difficulty: string;
+  difficulty?: string;
   style?: string;
+  choreographer?: string;
   songTitle?: string;
   artist?: string;
+  counts?: number;
+  walls?: number;
   saves?: number;
+  bestDemoVideo?: string;
+  bestTutorialVideo?: string;
 };
 
 export default function DiscoverPage() {
@@ -36,10 +41,11 @@ export default function DiscoverPage() {
       const response = await fetch("http://localhost:5000/api/dances");
       const data = await response.json();
 
-      setDances(data);
+      setDances(Array.isArray(data) ? data : []);
       setResultSource("all");
     } catch (error) {
       console.error("Failed to load dances:", error);
+      setDances([]);
     } finally {
       setIsLoading(false);
     }
@@ -64,10 +70,11 @@ export default function DiscoverPage() {
 
       const data = await response.json();
 
-      setDances(data.dances || []);
+      setDances(Array.isArray(data.dances) ? data.dances : []);
       setResultSource(data.source || "");
     } catch (error) {
       console.error("Search failed:", error);
+      setDances([]);
     } finally {
       setIsLoading(false);
     }
@@ -86,8 +93,8 @@ export default function DiscoverPage() {
           </h1>
 
           <p className="mt-3 text-gray-400">
-            Search trending dances, tutorials, songs, and choreography from the
-            community.
+            Search dances, songs, artists, choreographers, tutorials, and step
+            sheets.
           </p>
         </div>
 
@@ -149,64 +156,88 @@ export default function DiscoverPage() {
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {dances.map((dance) => (
-              <Link
-                key={dance._id}
-                href={`/dances/${dance._id}`}
-                className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
-              >
-                <div className="relative flex h-72 items-center justify-center bg-gradient-to-b from-orange-600/60 via-orange-900/40 to-black">
-                  <button
-                    type="button"
-                    onClick={(e) => e.preventDefault()}
-                    className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-2xl backdrop-blur"
-                  >
-                    ▶
-                  </button>
+            {dances.map((dance) => {
+              const hasVideo = dance.bestDemoVideo || dance.bestTutorialVideo;
 
-                  <span className="absolute left-4 top-4 rounded-full border border-orange-500 bg-black/30 px-3 py-1 text-xs font-semibold text-orange-500">
-                    {dance.difficulty || "Unknown"}
-                  </span>
-                </div>
+              return (
+                <Link
+                  key={dance._id}
+                  href={`/dances/${dance._id}`}
+                  className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
+                >
+                  <div className="relative flex h-72 items-center justify-center bg-gradient-to-b from-orange-600/60 via-orange-900/40 to-black">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-2xl backdrop-blur">
+                      ▶
+                    </div>
 
-                <div className="p-5">
-                  <div className="mb-3 flex items-center justify-between">
-                    <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">
-                      {dance.style || "Line Dance"}
+                    <span className="absolute left-4 top-4 rounded-full border border-orange-500 bg-black/30 px-3 py-1 text-xs font-semibold text-orange-500">
+                      {dance.difficulty || "Unknown"}
                     </span>
 
-                    <span className="text-sm text-gray-400">
-                      {dance.saves ?? 0} saves
+                    <span className="absolute right-4 top-4 rounded-full bg-black/40 px-3 py-1 text-xs text-gray-300">
+                      {hasVideo ? "Video Ready" : "Info Only"}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-bold">{dance.title}</h2>
+                  <div className="p-5">
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">
+                        {dance.style || "Line Dance"}
+                      </span>
 
-                  <p className="mt-2 text-gray-400">
-                    {dance.songTitle || "Unknown Song"} ·{" "}
-                    {dance.artist || "Unknown Artist"}
-                  </p>
+                      <span className="text-sm text-gray-400">
+                        {dance.saves ?? 0} saves
+                      </span>
+                    </div>
 
-                  <div className="mt-5 flex gap-3">
-                    <button
-                      type="button"
-                      onClick={(e) => e.preventDefault()}
-                      className="rounded-full border border-white/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10"
-                    >
-                      ✓ Know
-                    </button>
+                    <h2 className="text-2xl font-bold">{dance.title}</h2>
 
-                    <button
-                      type="button"
-                      onClick={(e) => e.preventDefault()}
-                      className="rounded-full border border-orange-500 px-4 py-2 text-sm font-semibold text-orange-500 hover:bg-orange-500 hover:text-black"
-                    >
-                      📖 Learning
-                    </button>
+                    <p className="mt-2 text-gray-400">
+                      {dance.songTitle || "Unknown Song"} ·{" "}
+                      {dance.artist || "Unknown Artist"}
+                    </p>
+
+                    {dance.choreographer && (
+                      <p className="mt-2 text-sm text-gray-500">
+                        Choreographer: {dance.choreographer}
+                      </p>
+                    )}
+
+                    <div className="mt-4 flex flex-wrap gap-2 text-xs text-gray-300">
+                      {dance.counts && (
+                        <span className="rounded-full bg-black/30 px-3 py-1">
+                          {dance.counts} counts
+                        </span>
+                      )}
+
+                      {dance.walls && (
+                        <span className="rounded-full bg-black/30 px-3 py-1">
+                          {dance.walls} walls
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="mt-5 flex gap-3">
+                      <button
+                        type="button"
+                        onClick={(e) => e.preventDefault()}
+                        className="rounded-full border border-white/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10"
+                      >
+                        ✓ Know
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={(e) => e.preventDefault()}
+                        className="rounded-full border border-orange-500 px-4 py-2 text-sm font-semibold text-orange-500 hover:bg-orange-500 hover:text-black"
+                      >
+                        📖 Learning
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         )}
       </section>
