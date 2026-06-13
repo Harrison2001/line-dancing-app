@@ -1,0 +1,75 @@
+
+Starting Line Dancing Data Pipeline
+
+==================================================
+RUNNING: Collect CopperKnob
+==================================================
+SKIPPED: Missing file
+C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\scripts\collect\scrape_copperknob_recent.py
+
+==================================================
+RUNNING: Collect BootStepper
+==================================================
+Collecting BootStepper dances...
+Saved 10 records to:
+C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\raw\bootstepper_dances_raw.csv
+
+COMPLETED: Collect BootStepper
+
+==================================================
+RUNNING: Clean CopperKnob dances
+==================================================
+Raw CopperKnob rows: 99
+Clean CopperKnob rows: 99
+Saved to: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\staging\dances_staging.csv
+
+COMPLETED: Clean CopperKnob dances
+
+==================================================
+RUNNING: Clean BootStepper dances
+==================================================
+Raw BootStepper rows: 10
+Cleaned BootStepper records: 5
+Saved to: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\staging\bootstepper_dances_clean.csv
+
+COMPLETED: Clean BootStepper dances
+
+==================================================
+RUNNING: Merge dance sources
+==================================================
+Loaded 104 source records
+Merged into 104 final dance records
+Saved processed file: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\processed\merged_dances.json
+Saved export file: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\exports\dances_for_database.json
+
+COMPLETED: Merge dance sources
+
+==================================================
+RUNNING: Validate final dances
+==================================================
+Processed records: 104
+Valid records: 104
+Invalid records: 0
+Export saved to: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\exports\dances_for_database.json
+Invalid saved to: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\processed\dances_invalid.csv
+
+COMPLETED: Validate final dances
+
+==================================================
+RUNNING: Load dances
+==================================================
+Loading from: C:\Users\wierc\OneDrive\Projects\Line dancing App\Data Engineering\data\exports\dances_for_database.json
+Found 104 raw dances
+MongoDB connection successful
+Loaded/upserted 104 dances
+Database: line_dancing_app
+Collection: dances
+Verification: 115 documents currently in collection
+
+COMPLETED: Load dances
+
+Pipeline Complete
+========================================== 
+Pipeline finished at Fri 06/12/2026 20:56:13.94 
+========================================== 
+ 

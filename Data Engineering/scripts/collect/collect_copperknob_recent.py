@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://www.copperknob.co.uk"
 POPULAR_URL = f"{BASE_URL}/mostpopular"
 
-MAX_DANCES = 100
+MAX_DANCES = 250
 PAGE_SIZE = 20
 REQUEST_DELAY = 1.0
 MAX_EMPTY_PAGES = 3
