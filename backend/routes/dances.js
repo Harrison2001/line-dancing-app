@@ -1,6 +1,7 @@
 const express = require("express");
 const Dance = require("../models/Dance");
 const { lookupDance } = require("../services/danceLookupService");
+const { findDanceVideo } = require("../services/youtubeService");
 
 const router = express.Router();
 
@@ -61,13 +62,48 @@ router.get("/:id/related", async (req, res) => {
     })
       .limit(6)
       .select(
-        "title difficulty style choreographer songTitle artist counts walls saves bestDemoVideo bestTutorialVideo"
+        "title difficulty style choreographer songTitle artist counts walls saves bestDemoVideo bestTutorialVideo youtubeThumbnail"
       );
 
     res.json(relatedDances);
   } catch (error) {
     console.error("Failed to fetch related dances:", error);
     res.status(500).json({ message: "Failed to fetch related dances" });
+  }
+});
+
+// PATCH enrich one dance with YouTube video
+router.patch("/:id/enrich-video", async (req, res) => {
+  try {
+    const dance = await Dance.findById(req.params.id);
+
+    if (!dance || dance.isActive === false) {
+      return res.status(404).json({ message: "Dance not found" });
+    }
+
+    const video = await findDanceVideo(dance);
+
+    if (!video) {
+      return res.status(404).json({ message: "No video found" });
+    }
+
+    dance.bestDemoVideo = video.url;
+    dance.youtubeVideoId = video.videoId;
+    dance.youtubeTitle = video.title;
+    dance.youtubeChannel = video.channelTitle;
+    dance.youtubeThumbnail = video.thumbnail;
+    dance.videoEnrichedAt = new Date();
+
+    await dance.save();
+
+    res.json({
+      message: "Video enriched successfully",
+      dance,
+      video,
+    });
+  } catch (error) {
+    console.error("Video enrichment failed:", error);
+    res.status(500).json({ message: "Video enrichment failed" });
   }
 });
 
