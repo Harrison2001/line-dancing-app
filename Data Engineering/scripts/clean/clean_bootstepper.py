@@ -24,27 +24,49 @@ def normalize_title(value):
 
 
 def is_bad_title(title):
+    normalized = normalize_title(title)
+
     bad_values = {
         "",
         "videos",
         "views",
         "restarts",
+        "for choreographers",
         "1",
         "4",
-        "for choreographers",
+        "0",
+        "nl",
+        "gb",
     }
 
-    return normalize_title(title) in bad_values
+    if normalized in bad_values:
+        return True
+
+    if len(normalized) <= 2:
+        return True
+
+    if normalized.isdigit():
+        return True
+
+    return False
 
 
 def main():
+    if not INPUT_FILE.exists():
+        raise FileNotFoundError(f"Missing input file: {INPUT_FILE}")
+
     df = pd.read_csv(INPUT_FILE)
+
+    print(f"Raw BootStepper rows: {len(df)}")
 
     df["dance_name"] = df["dance_name"].apply(normalize_text)
     df["normalized_title"] = df["dance_name"].apply(normalize_title)
     df["level"] = df["level"].apply(normalize_text)
     df["choreographer"] = df["choreographer"].apply(normalize_text)
     df["music"] = df["music"].apply(normalize_text)
+    df["stepsheet_url"] = df["stepsheet_url"].apply(normalize_text)
+    df["source"] = df["source"].apply(normalize_text)
+    df["scraped_at"] = df["scraped_at"].apply(normalize_text)
 
     df = df[~df["dance_name"].apply(is_bad_title)]
 
@@ -53,7 +75,7 @@ def main():
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(OUTPUT_FILE, index=False)
 
-    print(f"Cleaned {len(df)} BootStepper records")
+    print(f"Cleaned BootStepper records: {len(df)}")
     print(f"Saved to: {OUTPUT_FILE}")
 
 
