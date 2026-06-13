@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 import csv
 import re
 import time
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -14,6 +15,7 @@ POPULAR_URL = f"{BASE_URL}/mostpopular"
 MAX_DANCES = 100
 PAGE_SIZE = 20
 REQUEST_DELAY = 1.0
+MAX_EMPTY_PAGES = 3
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 RAW_DIR = BASE_DIR / "data" / "raw"
@@ -41,52 +43,84 @@ def get_soup(url):
     return BeautifulSoup(response.text, "html.parser")
 
 
-def get_popular_page_url(recnum):
-    if recnum == 0:
-        return POPULAR_URL
+def get_popular_page_urls():
+    urls = [POPULAR_URL]
 
-    return f"{POPULAR_URL}?recnum={recnum}"
+    for recnum in range(PAGE_SIZE, MAX_DANCES + PAGE_SIZE, PAGE_SIZE):
+        urls.append(f"{POPULAR_URL}?recnum={recnum}")
+        urls.append(f"{POPULAR_URL}/{recnum}")
+
+    return urls
+
+
+def extract_dance_links_from_page(soup):
+    page_links = []
+
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+
+        if "/stepsheets/" not in href:
+            continue
+
+        full_url = urljoin(BASE_URL, href)
+        title = clean_text(a.get_text())
+
+        if not title:
+            continue
+
+        page_links.append({
+            "dance_name": title,
+            "stepsheet_url": full_url,
+        })
+
+    return page_links
 
 
 def get_popular_dance_links(limit=MAX_DANCES):
     links = []
     seen = set()
+    empty_pages = 0
 
-    for recnum in range(0, limit, PAGE_SIZE):
-        page_url = get_popular_page_url(recnum)
+    for page_url in get_popular_page_urls():
+        if len(links) >= limit:
+            break
+
         safe_print(f"Getting popular page: {page_url}")
 
         try:
             soup = get_soup(page_url)
         except requests.RequestException as error:
             safe_print(f"Failed page {page_url}: {error}")
+            empty_pages += 1
+            if empty_pages >= MAX_EMPTY_PAGES:
+                break
             continue
 
-        page_links_found = 0
+        page_links = extract_dance_links_from_page(soup)
+        page_new_count = 0
 
-        for a in soup.find_all("a", href=True):
-            href = a["href"]
+        for dance in page_links:
+            full_url = dance["stepsheet_url"]
 
-            if "/stepsheets/" not in href:
+            if full_url in seen:
                 continue
 
-            full_url = href if href.startswith("http") else BASE_URL + href
-            title = clean_text(a.get_text())
-
-            if full_url not in seen and title:
-                seen.add(full_url)
-                links.append({
-                    "dance_name": title,
-                    "stepsheet_url": full_url,
-                })
-                page_links_found += 1
+            seen.add(full_url)
+            links.append(dance)
+            page_new_count += 1
 
             if len(links) >= limit:
                 break
 
-        safe_print(f"Found {page_links_found} new links on page.")
+        safe_print(f"Found {page_new_count} new links on page.")
 
-        if len(links) >= limit:
+        if page_new_count == 0:
+            empty_pages += 1
+        else:
+            empty_pages = 0
+
+        if empty_pages >= MAX_EMPTY_PAGES:
+            safe_print("Stopping after multiple empty pages.")
             break
 
         time.sleep(REQUEST_DELAY)
@@ -115,16 +149,12 @@ def parse_detail_page(dance):
     for i, line in enumerate(text_lines):
         if line == "Count:" and i + 1 < len(text_lines):
             record["count"] = text_lines[i + 1]
-
         elif line == "Wall:" and i + 1 < len(text_lines):
             record["wall"] = text_lines[i + 1]
-
         elif line == "Level:" and i + 1 < len(text_lines):
             record["level"] = text_lines[i + 1]
-
         elif line == "Choreographer:" and i + 1 < len(text_lines):
             record["choreographer"] = text_lines[i + 1]
-
         elif line == "Music:" and i + 1 < len(text_lines):
             record["music"] = text_lines[i + 1]
 

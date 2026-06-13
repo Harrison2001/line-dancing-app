@@ -1,11 +1,100 @@
-source,dance_name,choreographer,count,wall,level,music,stepsheet_url,scraped_at
-CopperKnob,Sama Na Na (Football Anthem 2026),Adelaine Ade,32,4,Beginner,Sama Na Na - Marc Sic,https://www.copperknob.co.uk/stepsheets/8SPH545/sama-na-na-football-anthem-2026,2026-06-08T18:26:42.360443+00:00
-CopperKnob,What an Awesome God,Heru Tian,32,2,Intermediate,What An Awesome God,https://www.copperknob.co.uk/stepsheets/J86B7LP/what-an-awesome-god,2026-06-08T18:26:44.013186+00:00
-CopperKnob,Dos Fuegos Bachata,K.Y. Park,32,4,Beginner,Dos Fuegos (2026) Bachata - Romeo Santos x Shakira,https://www.copperknob.co.uk/stepsheets/YP7BJRT/dos-fuegos-bachata,2026-06-08T18:26:45.648179+00:00
-CopperKnob,Don't Say You Love Me,Unknown - June 2026,48,1,Beginner,不要再我寂寞的时候说爱我 - Wanji Music,https://www.copperknob.co.uk/stepsheets/2WY9ZB5/dont-say-you-love-me,2026-06-08T18:26:47.277857+00:00
-CopperKnob,Kalau Suka Bilang Suka,Dwi Prilyani,32,4,Beginner,KALO SUKA BILANG SUKA (feat. Niken Soge),https://www.copperknob.co.uk/stepsheets/DVLFSB4/kalau-suka-bilang-suka,2026-06-08T18:26:48.916573+00:00
-CopperKnob,Siji,Helma Yoga,32,4,Beginner,SIJI PING SELAWE - lagu Jawa viral tiktok terbaru 2026 yang kalian cari!,https://www.copperknob.co.uk/stepsheets/QMC3F64/siji,2026-06-08T18:26:50.556178+00:00
-CopperKnob,Old and Rusty EZ,Kate Damgaard,32,4,Absolute Beginner,Im old and Rusty,https://www.copperknob.co.uk/stepsheets/6B46DMC/old-and-rusty-ez,2026-06-08T18:26:52.198354+00:00
-CopperKnob,Just Beat It,Fonna Queentarina,32,4,Beginner,"Beat It - Michael Jackson, Bachata Version",https://www.copperknob.co.uk/stepsheets/N3WHQDP/just-beat-it,2026-06-08T18:26:53.832542+00:00
-CopperKnob,Sweep Me Off My Feet,Andrina K Faulds,64,2,Improver,Sweep Me Off My Feet,https://www.copperknob.co.uk/stepsheets/LT4LNM4/sweep-me-off-my-feet,2026-06-08T18:26:55.486917+00:00
-CopperKnob,Texas Stomp EZ,Kate Damgaard,32,4,Absolute Beginner,Texas Stomp,https://www.copperknob.co.uk/stepsheets/62G9D8K/texas-stomp-ez,2026-06-08T18:26:57.105489+00:00
+source,dance_name,choreographer,count,wall,level,music,stepsheet_url,scraped_at,normalized_title
+CopperKnob,Your Love Amazes Me,Maggie Gallagher,28,2,High Improver,Your Love Amazes Me,https://www.copperknob.co.uk/stepsheets/XNFN6K7/your-love-amazes-me,2026-06-13T00:04:07.888823+00:00,your love amazes me
+CopperKnob,You're a Superstar,Gary O'Reilly,32,4,Absolute Beginner,Superstar (feat. Boy George),https://www.copperknob.co.uk/stepsheets/H8R7DHW/youre-a-superstar,2026-06-13T00:04:09.424457+00:00,you're a superstar
+CopperKnob,Alice (Tribal Version),Raymond Sarlemijn,32,4,Improver,Alice (Tribal Version),https://www.copperknob.co.uk/stepsheets/D4ZWH9G/alice-tribal-version,2026-06-13T00:04:10.983841+00:00,alice (tribal version)
+CopperKnob,Another Bar Song,Sierra Gil,32,4,Beginner,Cowgirl,https://www.copperknob.co.uk/stepsheets/7JWW9LL/another-bar-song,2026-06-13T00:04:12.674147+00:00,another bar song
+CopperKnob,Opalite,Simon Ward,32,4,Improver,Opalite,https://www.copperknob.co.uk/stepsheets/389MQZY/opalite,2026-06-13T00:04:14.468608+00:00,opalite
+CopperKnob,Baby Blues Cha,Simon Ward,32,4,Improver,baby blues,https://www.copperknob.co.uk/stepsheets/N4JCBZB/baby-blues-cha,2026-06-13T00:04:16.174206+00:00,baby blues cha
+CopperKnob,Rhumbumbumba,Rob Fowler,32,4,High Beginner,Rhumbumbumba,https://www.copperknob.co.uk/stepsheets/8RHKFN8/rhumbumbumba,2026-06-13T00:04:17.953856+00:00,rhumbumbumba
+CopperKnob,Choosin' Texas,Nidhi Risi,24,4,Beginner,Choosin' Texas,https://www.copperknob.co.uk/stepsheets/LRV9X25/choosin-texas,2026-06-13T00:04:19.566430+00:00,choosin' texas
+CopperKnob,Sweet Portland Dreams,Amy Glass,64,2,High Intermediate,Sweet Dreams (Are Made of This),https://www.copperknob.co.uk/stepsheets/L6P8PGC/sweet-portland-dreams,2026-06-13T00:04:21.097476+00:00,sweet portland dreams
+CopperKnob,Wild West & Wicked,Rob Fowler,64,2,Improver,Wild West & Wicked (Remix),https://www.copperknob.co.uk/stepsheets/LB8S443/wild-west-wicked,2026-06-13T00:04:22.769256+00:00,wild west & wicked
+CopperKnob,Jive All Night,Mark Furnell,32,4,Beginner,Because We Jive All Night Long,https://www.copperknob.co.uk/stepsheets/JCYWTJ7/jive-all-night,2026-06-13T00:04:24.492681+00:00,jive all night
+CopperKnob,Ziggy,Gary Lafferty,32,4,Absolute Beginner,I wanna dance with somebody,https://www.copperknob.co.uk/stepsheets/YTPDD72/ziggy,2026-06-13T00:04:26.047832+00:00,ziggy
+CopperKnob,More Than a Memory,José Miguel Belloque Vane,24,2,Beginner,Nothing More Than a Memory,https://www.copperknob.co.uk/stepsheets/SF8F8B6/more-than-a-memory,2026-06-13T00:04:27.489076+00:00,more than a memory
+CopperKnob,Teddy's Gone,Colin Ghys,32,4,Improver,Gone Gone Gone,https://www.copperknob.co.uk/stepsheets/6L5NRBZ/teddys-gone,2026-06-13T00:04:29.263596+00:00,teddy's gone
+CopperKnob,Fierce,Rob Fowler,32,4,Easy Intermediate,Fierce the Sundance Kid,https://www.copperknob.co.uk/stepsheets/S856K88/fierce,2026-06-13T00:04:30.804374+00:00,fierce
+CopperKnob,Role Model,Maddison Glover,48,4,High Improver,Be Her,https://www.copperknob.co.uk/stepsheets/R247MW4/role-model,2026-06-13T00:04:32.368463+00:00,role model
+CopperKnob,Fever Dream,Karl-Harry Winson,48,2,Intermediate,FEVER DREAM,https://www.copperknob.co.uk/stepsheets/P83Z3TP/fever-dream,2026-06-13T00:04:33.791236+00:00,fever dream
+CopperKnob,Bloody Mary,Gary Lafferty,32,4,Absolute Beginner,Vodka And Bloody Mary Mix,https://www.copperknob.co.uk/stepsheets/53MP48B/bloody-mary,2026-06-13T00:04:35.325794+00:00,bloody mary
+CopperKnob,Shimmer,Michelle Wright,32,4,Absolute Beginner,Shimmer,https://www.copperknob.co.uk/stepsheets/D2XSLTZ/shimmer,2026-06-13T00:04:36.752809+00:00,shimmer
+CopperKnob,Love Potion 666,Rob Fowler,32,2,Beginner,Love Potion 666,https://www.copperknob.co.uk/stepsheets/BXVY9W7/love-potion-666,2026-06-13T00:04:38.311749+00:00,love potion 666
+CopperKnob,Loca Loca,Raymond Sarlemijn,32,4,Improver,Loca Loca,https://www.copperknob.co.uk/stepsheets/H594TJJ/loca-loca,2026-06-13T00:04:39.900135+00:00,loca loca
+CopperKnob,Movimiento,Karl-Harry Winson,32,4,High Beginner,Movimiento,https://www.copperknob.co.uk/stepsheets/69SPXJB/movimiento,2026-06-13T00:04:41.401194+00:00,movimiento
+CopperKnob,Wild Little Cowgirl,Ben Murphy,32,4,Beginner,Cowgirl,https://www.copperknob.co.uk/stepsheets/D2WHY73/wild-little-cowgirl,2026-06-13T00:04:42.817018+00:00,wild little cowgirl
+CopperKnob,Fire in the Feet (Fuego en Los Pies),Daniel Trepat,32,2,Easy Intermediate,Fuego En Los Pies (Fire In The Feet) (feat. Eulalie),https://www.copperknob.co.uk/stepsheets/85GPZR9/fire-in-the-feet-fuego-en-los-pies,2026-06-13T00:04:44.356051+00:00,fire in the feet (fuego en los pies)
+CopperKnob,"Stomp 2,3,4",Rob Fowler,32,4,Improver,"Stomp 2,3,4",https://www.copperknob.co.uk/stepsheets/NP5W4YJ/stomp-234,2026-06-13T00:04:45.985418+00:00,"stomp 2,3,4"
+CopperKnob,Cyber Glow,Fred Whitehouse,64,2,Advanced,24K Gold,https://www.copperknob.co.uk/stepsheets/5JYGZQD/cyber-glow,2026-06-13T00:04:47.553964+00:00,cyber glow
+CopperKnob,"""A Bar Song""",Ben Murphy,32,4,Beginner,A Bar Song (Tipsy),https://www.copperknob.co.uk/stepsheets/9ZRL2CY/a-bar-song,2026-06-13T00:04:49.256727+00:00,"""a bar song"""
+CopperKnob,Hoedown,Gary O'Reilly,32,4,Absolute Beginner,Hoedown,https://www.copperknob.co.uk/stepsheets/H8Q99YY/hoedown,2026-06-13T00:04:50.920447+00:00,hoedown
+CopperKnob,Little Miss Rock-a-Round,Tara Bianco,32,4,Intermediate,Little Miss Rock-a-round,https://www.copperknob.co.uk/stepsheets/DG5N85G/little-miss-rock-a-round,2026-06-13T00:04:52.430202+00:00,little miss rock-a-round
+CopperKnob,Glass of Wine,Malene Jakobsen,32,4,Absolute Beginner,Cry to Me,https://www.copperknob.co.uk/stepsheets/26M97QX/glass-of-wine,2026-06-13T00:04:53.934635+00:00,glass of wine
+CopperKnob,Bottom of Your Boots,Paula-jayne Ogilvie,32,4,Improver,Bottom Of Your Boots,https://www.copperknob.co.uk/stepsheets/N88LSGX/bottom-of-your-boots,2026-06-13T00:04:55.402156+00:00,bottom of your boots
+CopperKnob,Dangerous Games,Maggie Gallagher,32,4,Intermediate,Dangerous Games,https://www.copperknob.co.uk/stepsheets/2RYQQK3/dangerous-games,2026-06-13T00:04:56.896801+00:00,dangerous games
+CopperKnob,Going Blonde,Gary O'Reilly,32,2,Beginner,Going Blonde,https://www.copperknob.co.uk/stepsheets/HTCDJ9R/going-blonde,2026-06-13T00:04:58.414715+00:00,going blonde
+CopperKnob,Cowgirl,Sara Honey-DeLong,32,2,Beginner,Cowgirl,https://www.copperknob.co.uk/stepsheets/NK5CJH5/cowgirl,2026-06-13T00:05:00.008542+00:00,cowgirl
+CopperKnob,Red Dress Rebel,Rob Fowler,32,4,Improver,Red Dress Rebel,https://www.copperknob.co.uk/stepsheets/KD8ZZFK/red-dress-rebel,2026-06-13T00:05:01.918113+00:00,red dress rebel
+CopperKnob,Here With Me,Paula-jayne Ogilvie,32,4,Absolute Beginner,Where We Go,https://www.copperknob.co.uk/stepsheets/8RK4G33/here-with-me,2026-06-13T00:05:03.367991+00:00,here with me
+CopperKnob,Gimme That Feeling,Fred Whitehouse,64,2,Intermediate,Feel Good,https://www.copperknob.co.uk/stepsheets/JPQS3J6/gimme-that-feeling,2026-06-13T00:05:05.006725+00:00,gimme that feeling
+CopperKnob,Stay With Me,Wil Bos,32,4,Beginner,Stay with me,https://www.copperknob.co.uk/stepsheets/M6NYWYJ/stay-with-me,2026-06-13T00:05:06.586433+00:00,stay with me
+CopperKnob,Hurts So Bad,Tina Subia,32,2,Beginner,Be Her,https://www.copperknob.co.uk/stepsheets/26XHW7W/hurts-so-bad,2026-06-13T00:05:08.209138+00:00,hurts so bad
+CopperKnob,Feel the Passion,Rhoda Lai,32,4,Absolute Beginner,What a Feeling (Radio Mix),https://www.copperknob.co.uk/stepsheets/3WV7RRF/feel-the-passion,2026-06-13T00:05:09.786978+00:00,feel the passion
+CopperKnob,Adiosito!,Gregory Danvoie,64,2,Intermediate,Adiós,https://www.copperknob.co.uk/stepsheets/98QVW4W/adiosito,2026-06-13T00:05:11.576960+00:00,adiosito!
+CopperKnob,The Vandalist,Scott Blevins,32,4,Intermediate,Vandalist,https://www.copperknob.co.uk/stepsheets/ZC4DQ6D/the-vandalist,2026-06-13T00:05:13.363049+00:00,the vandalist
+CopperKnob,He's in a Chevy,Rob Williams,38,4,High Beginner,I'm In Love,https://www.copperknob.co.uk/stepsheets/8626JQ2/hes-in-a-chevy,2026-06-13T00:05:15.260337+00:00,he's in a chevy
+CopperKnob,My Diamond Girl,Jamie Barnfield,64,2,Improver,My Diamond Girl,https://www.copperknob.co.uk/stepsheets/Q72Y9LH/my-diamond-girl,2026-06-13T00:05:17.006484+00:00,my diamond girl
+CopperKnob,If This Day,Shane McKeever,32,2,Intermediate,If This Day (From The Gray House Original Soundtrack),https://www.copperknob.co.uk/stepsheets/87GPB28/if-this-day,2026-06-13T00:05:18.750541+00:00,if this day
+CopperKnob,Stand By Me,Raymond Sarlemijn,32,4,Absolute Beginner,Stand by Me (Ivan Jack Remix),https://www.copperknob.co.uk/stepsheets/62BHLD2/stand-by-me,2026-06-13T00:05:20.536347+00:00,stand by me
+CopperKnob,Hold Me When I Break,Guyton Mundy,32,2,Intermediate,Hold Me When I Break - Official Blesser & Xania Monet,https://www.copperknob.co.uk/stepsheets/985CKYJ/hold-me-when-i-break,2026-06-13T00:05:22.167801+00:00,hold me when i break
+CopperKnob,Dance a Little Dirty,Rob Fowler,40,4,Easy Intermediate,Dance a Little Dirty,https://www.copperknob.co.uk/stepsheets/DX3HMF4/dance-a-little-dirty,2026-06-13T00:05:23.816483+00:00,dance a little dirty
+CopperKnob,Shirts and Skirts,Jamie Barnfield,32,4,Absolute Beginner,Man! I Feel Like A Woman! (Real Hypha Remix),https://www.copperknob.co.uk/stepsheets/2SGVJPC/shirts-and-skirts,2026-06-13T00:05:25.319890+00:00,shirts and skirts
+CopperKnob,Strummingbird,Maddison Glover,32,4,Absolute Beginner,ONE MORE,https://www.copperknob.co.uk/stepsheets/Q29FPC4/strummingbird,2026-06-13T00:05:26.911728+00:00,strummingbird
+CopperKnob,That Honky Tonk Highway,Maggie Shipley,32,4,Absolute Beginner,Honky Tonk Highway,https://www.copperknob.co.uk/stepsheets/CB8VKHC/that-honky-tonk-highway,2026-06-13T00:05:28.613718+00:00,that honky tonk highway
+CopperKnob,"Heel, Toe, Rodeo",Gary O'Reilly,32,4,Improver,Cowboy Up,https://www.copperknob.co.uk/stepsheets/DKK9HY6/heel-toe-rodeo,2026-06-13T00:05:30.235904+00:00,"heel, toe, rodeo"
+CopperKnob,Corner Table,Maddison Glover,32,4,Intermediate,You Don't Have to Tell Me Twice,https://www.copperknob.co.uk/stepsheets/5MS55MC/corner-table,2026-06-13T00:05:31.827054+00:00,corner table
+CopperKnob,3 Tequila Floor,Maddison Glover,32,4,Intermediate,3 Tequila Floor,https://www.copperknob.co.uk/stepsheets/K3PHTPZ/3-tequila-floor,2026-06-13T00:05:33.438173+00:00,3 tequila floor
+CopperKnob,Twenty Two (22),Michelle Risley,32,4,Absolute Beginner,you look like you love me,https://www.copperknob.co.uk/stepsheets/C8646RR/twenty-two-22,2026-06-13T00:05:35.141832+00:00,twenty two (22)
+CopperKnob,Digidi Digidi,Julaeha Pangngulu,32,4,Improver,DIGIDI DIGIDI,https://www.copperknob.co.uk/stepsheets/G389QCJ/digidi-digidi,2026-06-13T00:05:36.947221+00:00,digidi digidi
+CopperKnob,DJ's on Fire,Chris Adams,32,4,Intermediate,Djs on Fire,https://www.copperknob.co.uk/stepsheets/PY6CMG7/djs-on-fire,2026-06-13T00:05:38.516063+00:00,dj's on fire
+CopperKnob,Problematic,Dan Morrison,48,2,High Intermediate,Lose Control,https://www.copperknob.co.uk/stepsheets/L2X54QL/problematic,2026-06-13T00:05:40.052458+00:00,problematic
+CopperKnob,Dust Off of Me,Darren Bailey,48,2,High Improver,Dust Off of Me,https://www.copperknob.co.uk/stepsheets/HNZR5JY/dust-off-of-me,2026-06-13T00:05:41.584486+00:00,dust off of me
+CopperKnob,American Kids,Randy Pelletier,32,4,High Beginner,American Kids,https://www.copperknob.co.uk/stepsheets/ZYQMHP5/american-kids,2026-06-13T00:05:43.218628+00:00,american kids
+CopperKnob,Jazz It Up,Rob Fowler,32,4,Improver,Jazz It Up,https://www.copperknob.co.uk/stepsheets/YR4CF86/jazz-it-up,2026-06-13T00:05:45.002945+00:00,jazz it up
+CopperKnob,Dance The Blues Away,Lee Hamilton,32,4,Improver,baby blues,https://www.copperknob.co.uk/stepsheets/C6JVQ4V/dance-the-blues-away,2026-06-13T00:05:46.539063+00:00,dance the blues away
+CopperKnob,Baby Steps,Debbie Rushton,32,4,Advanced,Baby Steps,https://www.copperknob.co.uk/stepsheets/R5NQ2LR/baby-steps,2026-06-13T00:05:48.067737+00:00,baby steps
+CopperKnob,Footloose,Levi J. Hubbard,32,4,Improver,Footloose,https://www.copperknob.co.uk/stepsheets/YWVM4T6/footloose,2026-06-13T00:05:49.571787+00:00,footloose
+CopperKnob,Do Si Dough,Maddison Glover,32,4,High Beginner,Do Si Dough,https://www.copperknob.co.uk/stepsheets/CT3L6XC/do-si-dough,2026-06-13T00:05:51.324367+00:00,do si dough
+CopperKnob,Dance in the Moonlight,Gudrun Schneider,32,4,High Beginner,Moonlight,https://www.copperknob.co.uk/stepsheets/J3KHKHN/dance-in-the-moonlight,2026-06-13T00:05:52.957993+00:00,dance in the moonlight
+CopperKnob,Alligator Smile,Julie Heinrichs-Heisner,32,4,Absolute Beginner,Can't Keep Up,https://www.copperknob.co.uk/stepsheets/NXWN37N/alligator-smile,2026-06-13T00:05:54.480617+00:00,alligator smile
+CopperKnob,Blame Texas,Dustin Valcalda,32,4,High Beginner,Blame Texas,https://www.copperknob.co.uk/stepsheets/4KCWB4S/blame-texas,2026-06-13T00:05:56.022477+00:00,blame texas
+CopperKnob,Rocket to the Sun,Maddison Glover,32,4,Absolute Beginner,What You've Done To Me,https://www.copperknob.co.uk/stepsheets/T948HNL/rocket-to-the-sun,2026-06-13T00:05:57.755618+00:00,rocket to the sun
+CopperKnob,The Door,Jeff Smilko,32,4,Beginner,The Door,https://www.copperknob.co.uk/stepsheets/YXL6CLQ/the-door,2026-06-13T00:05:59.280033+00:00,the door
+CopperKnob,Dooset Daram,Gary O'Reilly,96,1,Advanced,Dooset Daram,https://www.copperknob.co.uk/stepsheets/FKJGCL5/dooset-daram,2026-06-13T00:06:00.849972+00:00,dooset daram
+CopperKnob,Ah Si!,Rita Masur,32,4,Absolute Beginner,Levantando las Manos,https://www.copperknob.co.uk/stepsheets/8SXWZ3L/ah-si,2026-06-13T00:06:02.484447+00:00,ah si!
+CopperKnob,Lonely Drum,Darren Mitchell,32,4,Improver,Lonely Drum,https://www.copperknob.co.uk/stepsheets/5J6K2GP/lonely-drum,2026-06-13T00:06:04.126140+00:00,lonely drum
+CopperKnob,Do Ya Love Me?,Paula-jayne Ogilvie,48,4,Easy Improver,Do You Love Me,https://www.copperknob.co.uk/stepsheets/5YJKZRK/do-ya-love-me,2026-06-13T00:06:05.969439+00:00,do ya love me?
+CopperKnob,Wings To Fly,Rhoda Lai,32,4,Absolute Beginner,The Power Of Love x I'm Alive,https://www.copperknob.co.uk/stepsheets/J79NC8Z/wings-to-fly,2026-06-13T00:06:07.706018+00:00,wings to fly
+CopperKnob,Mamma Maria,Frank Trace,32,4,Absolute Beginner,Mamma Maria,https://www.copperknob.co.uk/stepsheets/X7JG6DH/mamma-maria,2026-06-13T00:06:09.409637+00:00,mamma maria
+CopperKnob,Body & Soul,Gary O'Reilly,48,2,Intermediate,Body & Soul,https://www.copperknob.co.uk/stepsheets/NVZ45MR/body-soul,2026-06-13T00:06:11.103568+00:00,body & soul
+CopperKnob,Miles On It,Andrew Hayes,32,4,Absolute Beginner,Miles On It,https://www.copperknob.co.uk/stepsheets/92N3YBX/miles-on-it,2026-06-13T00:06:12.830068+00:00,miles on it
+CopperKnob,Give Me a Break !,Neville Fitzgerald,64,2,Easy Advanced,Madness,https://www.copperknob.co.uk/stepsheets/ZFTM49C/give-me-a-break,2026-06-13T00:06:14.401716+00:00,give me a break !
+CopperKnob,First Time Flyers,Hayley Wheatley,32,4,Absolute Beginner,Do It All Over Again,https://www.copperknob.co.uk/stepsheets/G4HX329/first-time-flyers,2026-06-13T00:06:15.980706+00:00,first time flyers
+CopperKnob,Sticks and Stones,Maddison Glover,96,1,Intermediate,Sticks & Stones,https://www.copperknob.co.uk/stepsheets/4B7RQTM/sticks-and-stones,2026-06-13T00:06:17.965127+00:00,sticks and stones
+CopperKnob,A Rattlesnake Kiss,Maddison Glover,32,4,Improver,Ain't In Kansas Anymore,https://www.copperknob.co.uk/stepsheets/24BDZKQ/a-rattlesnake-kiss,2026-06-13T00:06:19.454386+00:00,a rattlesnake kiss
+CopperKnob,Honky Tonk Romp,Glynn Rodgers,32,4,Absolute Beginner,Cheatin' On My Honky Tonk (feat. Braxton Keith),https://www.copperknob.co.uk/stepsheets/DBPYPR5/honky-tonk-romp,2026-06-13T00:06:20.909796+00:00,honky tonk romp
+CopperKnob,Everybody Dance!,Ben Murphy,32,4,Absolute Beginner,Everybody Dance (Joe Mangione Edit Mix),https://www.copperknob.co.uk/stepsheets/DY2FKX7/everybody-dance,2026-06-13T00:06:22.484806+00:00,everybody dance!
+CopperKnob,Come Dance With Me,Jo Thompson Szymanski,32,4,Beginner,Come Dance With Me,https://www.copperknob.co.uk/stepsheets/9VFPSH2/come-dance-with-me,2026-06-13T00:06:23.922261+00:00,come dance with me
+CopperKnob,Chill Factor,Daniel Whittaker,48,4,Intermediate,Last Night (feat. DJ Robbie),https://www.copperknob.co.uk/stepsheets/Z72W2JN/chill-factor,2026-06-13T00:06:25.428536+00:00,chill factor
+CopperKnob,The Last Shanty,Gary O'Reilly,32,4,Absolute Beginner,The Last Shanty,https://www.copperknob.co.uk/stepsheets/96R9H5P/the-last-shanty,2026-06-13T00:06:26.961876+00:00,the last shanty
+CopperKnob,Love You Again,Ria Vos,32,2,Intermediate,If I Could Love You Again,https://www.copperknob.co.uk/stepsheets/696YK82/love-you-again,2026-06-13T00:06:28.424534+00:00,love you again
+CopperKnob,We're Good to Go,Rob Fowler,32,4,Beginner,Good to Go (feat. Daphne Willis),https://www.copperknob.co.uk/stepsheets/TQH5MCT/were-good-to-go,2026-06-13T00:06:30.633914+00:00,we're good to go
+CopperKnob,7:31 (Baby Blues),Joshua Talbot,32,4,Intermediate,baby blues,https://www.copperknob.co.uk/stepsheets/S87B43W/731-baby-blues,2026-06-13T00:06:32.184273+00:00,7:31 (baby blues)
+CopperKnob,Gives Me Shivers,Brandon Zahorsky,32,4,Improver,Shivers,https://www.copperknob.co.uk/stepsheets/QLFNPD9/gives-me-shivers,2026-06-13T00:06:33.716752+00:00,gives me shivers
+CopperKnob,Hey Caballero,Roy Verdonk,32,4,Beginner,Hey Senorita,https://www.copperknob.co.uk/stepsheets/9GL9JFK/hey-caballero,2026-06-13T00:06:35.268959+00:00,hey caballero
+CopperKnob,Bigger Houses (WDM25),Helen Parkyn,16,2,Beginner,Bigger Houses,https://www.copperknob.co.uk/stepsheets/FYPRFH5/bigger-houses-wdm25,2026-06-13T00:06:36.767349+00:00,bigger houses (wdm25)
+CopperKnob,The Vibe,Tim Johnson,32,4,Intermediate,Vibe,https://www.copperknob.co.uk/stepsheets/DKJHK4D/the-vibe,2026-06-13T00:06:38.302734+00:00,the vibe
+CopperKnob,Boot Scootin' Boogie,Bill Bader,32,4,Beginner,Boot Scootin' Boogie,https://www.copperknob.co.uk/stepsheets/QGCF4T9/boot-scootin-boogie,2026-06-13T00:06:40.094061+00:00,boot scootin' boogie
+CopperKnob,The Wolf,Jonno Liberman,32,4,Improver,The Wolf,https://www.copperknob.co.uk/stepsheets/93HFRDG/the-wolf,2026-06-13T00:06:42.230268+00:00,the wolf
+CopperKnob,Island Seoul,Mark Furnell,32,4,Improver,Island Soul,https://www.copperknob.co.uk/stepsheets/BC4W925/island-seoul,2026-06-13T00:06:43.947937+00:00,island seoul
+CopperKnob,West of Fort Worth,Tim Johnson,48,2,Intermediate,West of Fort Worth,https://www.copperknob.co.uk/stepsheets/6PT87XJ/west-of-fort-worth,2026-06-13T00:06:46.148661+00:00,west of fort worth
+CopperKnob,Date Nite,Roy Hadisubroto,64,2,Easy Advanced,Date Nite,https://www.copperknob.co.uk/stepsheets/RXDH363/date-nite,2026-06-13T00:06:48.584223+00:00,date nite
