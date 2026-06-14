@@ -6,16 +6,25 @@ import Link from "next/link";
 
 type Dance = {
   _id: string;
-  title: string;
+  title?: string;
+  danceName?: string;
+  slug?: string;
   difficulty?: string;
+  style?: string;
   choreographer?: string;
   counts?: number;
   walls?: number;
   songTitle?: string;
   artist?: string;
+  demoUrl?: string;
+  tutorialUrl?: string;
   bestDemoVideo?: string;
   bestTutorialVideo?: string;
+  stepsheetUrl?: string;
+  sourceUrl?: string;
+  sourceName?: string;
   sourceLinks?: string[];
+  description?: string;
 };
 
 function getYouTubeEmbedUrl(url?: string) {
@@ -23,8 +32,9 @@ function getYouTubeEmbedUrl(url?: string) {
 
   const watchMatch = url.match(/v=([^&]+)/);
   const shortMatch = url.match(/youtu\.be\/([^?]+)/);
+  const embedMatch = url.match(/embed\/([^?]+)/);
 
-  const videoId = watchMatch?.[1] || shortMatch?.[1];
+  const videoId = watchMatch?.[1] || shortMatch?.[1] || embedMatch?.[1];
 
   return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
 }
@@ -40,10 +50,17 @@ export default function DanceDetailPage() {
     async function loadDance() {
       try {
         const response = await fetch(`http://localhost:5000/api/dances/${id}`);
+
+        if (!response.ok) {
+          setDance(null);
+          return;
+        }
+
         const data = await response.json();
         setDance(data);
       } catch (error) {
         console.error("Failed to load dance:", error);
+        setDance(null);
       } finally {
         setIsLoading(false);
       }
@@ -54,111 +71,160 @@ export default function DanceDetailPage() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-black text-white p-6">
-        <p>Loading dance...</p>
+      <main className="min-h-screen bg-[#100905] px-8 py-10 text-white">
+        <p className="text-gray-400">Loading dance...</p>
       </main>
     );
   }
 
   if (!dance) {
     return (
-      <main className="min-h-screen bg-black text-white p-6">
-        <p>Dance not found.</p>
-        <Link href="/discover" className="text-blue-400">
-          Back to Discover
-        </Link>
+      <main className="min-h-screen bg-[#100905] px-8 py-10 text-white">
+        <section className="mx-auto max-w-5xl">
+          <h1 className="text-4xl font-bold">Dance not found</h1>
+
+          <Link
+            href="/discover"
+            className="mt-6 inline-block text-orange-500 hover:text-orange-400"
+          >
+            ← Back to Discover
+          </Link>
+        </section>
       </main>
     );
   }
 
+  const fallbackTitle = dance.title || dance.danceName || "Untitled Dance";
+  const songName = dance.songTitle || fallbackTitle;
+
   const videoUrl =
+    getYouTubeEmbedUrl(dance.demoUrl) ||
+    getYouTubeEmbedUrl(dance.tutorialUrl) ||
     getYouTubeEmbedUrl(dance.bestDemoVideo) ||
     getYouTubeEmbedUrl(dance.bestTutorialVideo);
 
+  const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(
+    `${songName} line dance`
+  )}`;
+
+  const sourceLinks = [
+    ...(dance.sourceLinks || []),
+    dance.stepsheetUrl,
+    dance.sourceUrl,
+  ].filter(Boolean) as string[];
+
   return (
-    <main className="min-h-screen bg-black text-white px-4 py-6">
-      <div className="max-w-5xl mx-auto space-y-6">
-        <Link href="/discover" className="text-sm text-gray-400 hover:text-white">
+    <main className="min-h-screen bg-[#100905] px-4 py-6 pb-24 text-white md:px-8 md:py-10">
+      <section className="mx-auto max-w-6xl">
+        <Link
+          href="/discover"
+          className="mb-6 inline-block text-sm text-gray-400 hover:text-orange-500"
+        >
           ← Back to Discover
         </Link>
 
-        {videoUrl ? (
-          <div className="aspect-video w-full overflow-hidden rounded-2xl bg-zinc-900">
-            <iframe
-              src={videoUrl}
-              title={dance.title}
-              className="h-full w-full"
-              allowFullScreen
-            />
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+          <div className="p-6 md:p-8">
+            <h1 className="text-4xl font-bold md:text-5xl">{songName}</h1>
           </div>
-        ) : (
-          <div className="aspect-video w-full rounded-2xl bg-zinc-900 flex items-center justify-center text-gray-400">
-            No video found yet
-          </div>
-        )}
 
-        <section>
-          <h1 className="text-3xl font-bold">{dance.title}</h1>
-
-          <div className="mt-3 flex flex-wrap gap-2 text-sm">
-            {dance.difficulty && (
-              <span className="rounded-full bg-purple-600 px-3 py-1">
-                {dance.difficulty}
-              </span>
-            )}
-
-            {dance.counts && (
-              <span className="rounded-full bg-zinc-800 px-3 py-1">
-                {dance.counts} counts
-              </span>
-            )}
-
-            {dance.walls && (
-              <span className="rounded-full bg-zinc-800 px-3 py-1">
-                {dance.walls} walls
-              </span>
-            )}
-          </div>
-        </section>
-
-        <section className="rounded-2xl bg-zinc-900 p-5 space-y-3">
-          <h2 className="text-xl font-semibold">Dance Info</h2>
-
-          <p>
-            <span className="text-gray-400">Choreographer:</span>{" "}
-            {dance.choreographer || "Unknown"}
-          </p>
-
-          <p>
-            <span className="text-gray-400">Song:</span>{" "}
-            {dance.songTitle || "Unknown"}
-          </p>
-
-          <p>
-            <span className="text-gray-400">Artist:</span>{" "}
-            {dance.artist || "Unknown"}
-          </p>
-        </section>
-
-        {dance.sourceLinks && dance.sourceLinks.length > 0 && (
-          <section className="rounded-2xl bg-zinc-900 p-5">
-            <h2 className="text-xl font-semibold mb-3">Source Links</h2>
-
-            <div className="space-y-2">
-              {dance.sourceLinks.map((link) => (
-                <a
-                  key={link}
-                  href={link}
-                  target="_blank"
-                  className="block text-blue-400 hover:underline"
-                >
-                  {link}
-                </a>
-              ))}
+          {videoUrl ? (
+            <div className="aspect-video w-full overflow-hidden bg-black">
+              <iframe
+                src={videoUrl}
+                title={songName}
+                className="h-full w-full"
+                allowFullScreen
+              />
             </div>
-          </section>
-        )}
-      </div>
+          ) : (
+            <div className="flex aspect-video w-full items-center justify-center bg-gradient-to-b from-orange-700/60 via-orange-950/60 to-black">
+              <div className="text-center">
+                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white/20 text-3xl">
+                  ▶
+                </div>
+
+                <h2 className="text-2xl font-bold">Video not available yet</h2>
+
+                <p className="mt-2 text-gray-400">
+                  Search YouTube or view the step sheet below.
+                </p>
+
+                <a
+                  href={youtubeSearchUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-block rounded-full bg-orange-500 px-6 py-3 font-semibold text-black hover:bg-orange-400"
+                >
+                  Search YouTube
+                </a>
+              </div>
+            </div>
+          )}
+
+          <div className="p-6 md:p-8">
+            <div className="mb-8 flex flex-wrap gap-3">
+              <span className="rounded-full border border-orange-500 px-4 py-2 text-sm font-semibold text-orange-500">
+                {dance.difficulty || "Unknown Difficulty"}
+              </span>
+
+              <span className="rounded-full bg-white/10 px-4 py-2 text-sm text-gray-300">
+                {dance.style || "Line Dance"}
+              </span>
+
+              <span className="rounded-full bg-white/10 px-4 py-2 text-sm text-gray-300">
+                {dance.sourceName || "Database"}
+              </span>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard label="Choreographer" value={dance.choreographer} />
+              <InfoCard label="Counts" value={dance.counts?.toString()} />
+              <InfoCard label="Walls" value={dance.walls?.toString()} />
+              <InfoCard label="Difficulty" value={dance.difficulty} />
+            </div>
+
+            {dance.description && (
+              <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+                <h2 className="mb-2 text-xl font-bold">About this dance</h2>
+                <p className="text-gray-400">{dance.description}</p>
+              </div>
+            )}
+
+            {sourceLinks.length > 0 && (
+              <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+                <h2 className="mb-4 text-xl font-bold">Source Links</h2>
+
+                <div className="flex flex-wrap gap-3">
+                  {sourceLinks.map((link, index) => (
+                    <a
+                      key={`${link}-${index}`}
+                      href={link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-gray-300 hover:bg-white/10"
+                    >
+                      {index === 0 ? "View Step Sheet" : "View Source"}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
     </main>
+  );
+}
+
+function InfoCard({ label, value }: { label: string; value?: string }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+      <p className="text-sm text-gray-500">{label}</p>
+
+      <p className="mt-1 text-lg font-semibold text-white">
+        {value || "Unknown"}
+      </p>
+    </div>
   );
 }

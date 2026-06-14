@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const API_BASE_URL = "http://localhost:5000";
+
 const danceCategories = [
   "Trending",
   "Beginner",
@@ -15,7 +17,9 @@ const danceCategories = [
 
 type Dance = {
   _id: string;
-  title: string;
+  title?: string;
+  danceName?: string;
+  slug?: string;
   difficulty?: string;
   style?: string;
   choreographer?: string;
@@ -24,21 +28,25 @@ type Dance = {
   counts?: number;
   walls?: number;
   saves?: number;
+  demoUrl?: string;
+  tutorialUrl?: string;
   bestDemoVideo?: string;
   bestTutorialVideo?: string;
+  sourceName?: string;
+  sourceUrl?: string;
 };
 
 export default function DiscoverPage() {
   const [dances, setDances] = useState<Dance[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [resultSource, setResultSource] = useState("");
+  const [resultSource, setResultSource] = useState("all");
 
   async function loadAllDances() {
     try {
       setIsLoading(true);
 
-      const response = await fetch("http://localhost:5000/api/dances");
+      const response = await fetch(`${API_BASE_URL}/api/dances`);
       const data = await response.json();
 
       setDances(Array.isArray(data) ? data : []);
@@ -63,15 +71,13 @@ export default function DiscoverPage() {
       setIsLoading(true);
 
       const response = await fetch(
-        `http://localhost:5000/api/dances/search?q=${encodeURIComponent(
-          searchTerm
-        )}`
+        `${API_BASE_URL}/api/dances/search?q=${encodeURIComponent(searchTerm)}`
       );
 
       const data = await response.json();
 
       setDances(Array.isArray(data.dances) ? data.dances : []);
-      setResultSource(data.source || "");
+      setResultSource(data.source || "search");
     } catch (error) {
       console.error("Search failed:", error);
       setDances([]);
@@ -115,17 +121,10 @@ export default function DiscoverPage() {
           </button>
         </form>
 
-        {resultSource === "external-imported" && (
-          <p className="mb-6 rounded-2xl border border-orange-500/30 bg-orange-500/10 px-5 py-3 text-sm text-orange-300">
-            New dance found online and saved to your database.
-          </p>
-        )}
-
-        {resultSource === "database" && (
-          <p className="mb-6 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300">
-            Showing results from your dance database.
-          </p>
-        )}
+        <p className="mb-6 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300">
+          Showing {dances.length} dances from{" "}
+          {resultSource === "all" ? "your database" : resultSource}.
+        </p>
 
         <div className="mb-10 flex flex-wrap gap-4">
           {danceCategories.map((category, index) => (
@@ -157,7 +156,13 @@ export default function DiscoverPage() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {dances.map((dance) => {
-              const hasVideo = dance.bestDemoVideo || dance.bestTutorialVideo;
+              const title = dance.title || dance.danceName || "Untitled Dance";
+
+              const hasVideo =
+                dance.demoUrl ||
+                dance.tutorialUrl ||
+                dance.bestDemoVideo ||
+                dance.bestTutorialVideo;
 
               return (
                 <Link
@@ -186,22 +191,20 @@ export default function DiscoverPage() {
                       </span>
 
                       <span className="text-sm text-gray-400">
-                        {dance.saves ?? 0} saves
+                        {dance.sourceName || "Database"}
                       </span>
                     </div>
 
-                    <h2 className="text-2xl font-bold">{dance.title}</h2>
+                    <h2 className="text-2xl font-bold">{title}</h2>
 
                     <p className="mt-2 text-gray-400">
-                      {dance.songTitle || "Unknown Song"} ·{" "}
-                      {dance.artist || "Unknown Artist"}
+                      {dance.songTitle || "Unknown Song"}
+                      {dance.artist ? ` · ${dance.artist}` : ""}
                     </p>
 
-                    {dance.choreographer && (
-                      <p className="mt-2 text-sm text-gray-500">
-                        Choreographer: {dance.choreographer}
-                      </p>
-                    )}
+                    <p className="mt-2 text-sm text-gray-500">
+                      Choreographer: {dance.choreographer || "Unknown"}
+                    </p>
 
                     <div className="mt-4 flex flex-wrap gap-2 text-xs text-gray-300">
                       {dance.counts && (
@@ -215,24 +218,6 @@ export default function DiscoverPage() {
                           {dance.walls} walls
                         </span>
                       )}
-                    </div>
-
-                    <div className="mt-5 flex gap-3">
-                      <button
-                        type="button"
-                        onClick={(e) => e.preventDefault()}
-                        className="rounded-full border border-white/10 px-4 py-2 text-sm text-gray-300 hover:bg-white/10"
-                      >
-                        ✓ Know
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={(e) => e.preventDefault()}
-                        className="rounded-full border border-orange-500 px-4 py-2 text-sm font-semibold text-orange-500 hover:bg-orange-500 hover:text-black"
-                      >
-                        📖 Learning
-                      </button>
                     </div>
                   </div>
                 </Link>
