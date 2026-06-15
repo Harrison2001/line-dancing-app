@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 
+const API_BASE_URL = "http://localhost:5000";
+
 type Dance = {
   _id: string;
   title?: string;
@@ -30,11 +32,12 @@ type Dance = {
 function getYouTubeEmbedUrl(url?: string) {
   if (!url) return "";
 
+  if (url.includes("/embed/")) return url;
+
   const watchMatch = url.match(/v=([^&]+)/);
   const shortMatch = url.match(/youtu\.be\/([^?]+)/);
-  const embedMatch = url.match(/embed\/([^?]+)/);
 
-  const videoId = watchMatch?.[1] || shortMatch?.[1] || embedMatch?.[1];
+  const videoId = watchMatch?.[1] || shortMatch?.[1];
 
   return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
 }
@@ -44,12 +47,15 @@ export default function DanceDetailPage() {
   const id = params.id as string;
 
   const [dance, setDance] = useState<Dance | null>(null);
+  const [videoUrl, setVideoUrl] = useState("");
+  const [youtubeTitle, setYoutubeTitle] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
 
   useEffect(() => {
     async function loadDance() {
       try {
-        const response = await fetch(`http://localhost:5000/api/dances/${id}`);
+        const response = await fetch(`${API_BASE_URL}/api/dances/${id}`);
 
         if (!response.ok) {
           setDance(null);
@@ -58,11 +64,43 @@ export default function DanceDetailPage() {
 
         const data = await response.json();
         setDance(data);
+
+        const fallbackTitle = data.title || data.danceName || "Untitled Dance";
+        const songName = data.songTitle || fallbackTitle;
+
+        const existingVideoUrl =
+          getYouTubeEmbedUrl(data.demoUrl) ||
+          getYouTubeEmbedUrl(data.tutorialUrl) ||
+          getYouTubeEmbedUrl(data.bestDemoVideo) ||
+          getYouTubeEmbedUrl(data.bestTutorialVideo);
+
+        if (existingVideoUrl) {
+          setVideoUrl(existingVideoUrl);
+          return;
+        }
+
+        setIsVideoLoading(true);
+
+        const youtubeResponse = await fetch(
+          `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(
+            `${songName} line dance`
+          )}`
+        );
+
+        if (!youtubeResponse.ok) return;
+
+        const youtubeData = await youtubeResponse.json();
+
+        if (youtubeData.videoUrl) {
+          setVideoUrl(youtubeData.videoUrl);
+          setYoutubeTitle(youtubeData.title || "");
+        }
       } catch (error) {
         console.error("Failed to load dance:", error);
         setDance(null);
       } finally {
         setIsLoading(false);
+        setIsVideoLoading(false);
       }
     }
 
@@ -97,12 +135,6 @@ export default function DanceDetailPage() {
   const fallbackTitle = dance.title || dance.danceName || "Untitled Dance";
   const songName = dance.songTitle || fallbackTitle;
 
-  const videoUrl =
-    getYouTubeEmbedUrl(dance.demoUrl) ||
-    getYouTubeEmbedUrl(dance.tutorialUrl) ||
-    getYouTubeEmbedUrl(dance.bestDemoVideo) ||
-    getYouTubeEmbedUrl(dance.bestTutorialVideo);
-
   const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(
     `${songName} line dance`
   )}`;
@@ -126,6 +158,12 @@ export default function DanceDetailPage() {
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
           <div className="p-6 md:p-8">
             <h1 className="text-4xl font-bold md:text-5xl">{songName}</h1>
+
+            {youtubeTitle && (
+              <p className="mt-2 text-sm text-gray-400">
+                YouTube match: {youtubeTitle}
+              </p>
+            )}
           </div>
 
           {videoUrl ? (
@@ -144,7 +182,9 @@ export default function DanceDetailPage() {
                   ▶
                 </div>
 
-                <h2 className="text-2xl font-bold">Video not available yet</h2>
+                <h2 className="text-2xl font-bold">
+                  {isVideoLoading ? "Finding video..." : "Video not available yet"}
+                </h2>
 
                 <p className="mt-2 text-gray-400">
                   Search YouTube or view the step sheet below.

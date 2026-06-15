@@ -205,7 +205,7 @@ export default function DiscoverPage() {
                     <p className="mt-2 text-sm text-gray-500">
                       Choreographer: {dance.choreographer || "Unknown"}
                     </p>
-
+                    
                     <div className="mt-4 flex flex-wrap gap-2 text-xs text-gray-300">
                       {dance.counts && (
                         <span className="rounded-full bg-black/30 px-3 py-1">
