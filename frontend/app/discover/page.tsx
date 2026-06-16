@@ -5,6 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 
 const API_BASE_URL = "http://localhost:5000";
 
+const difficultyTabs = [
+  "Recommended",
+  "Beginner",
+  "Improver",
+  "Intermediate",
+  "Advanced",
+];
+
 type Dance = {
   _id: string;
   title?: string;
@@ -108,6 +116,7 @@ export default function DiscoverPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [resultSource, setResultSource] = useState("all");
   const [isSearching, setIsSearching] = useState(false);
+  const [activeTab, setActiveTab] = useState("Recommended");
 
   async function loadAllDances() {
     try {
@@ -160,15 +169,23 @@ export default function DiscoverPage() {
     loadAllDances();
   }, []);
 
-  const recommended = useMemo(() => {
-    const videoReady = dances.filter(hasVideo);
+  const filteredDances = useMemo(() => {
+    if (activeTab === "Recommended") {
+      const videoReady = dances.filter(hasVideo);
 
-    if (videoReady.length > 0) {
-      return videoReady.slice(0, 12);
+      if (videoReady.length > 0) {
+        return videoReady.slice(0, 12);
+      }
+
+      return dances.slice(0, 12);
     }
 
-    return dances.slice(0, 12);
-  }, [dances]);
+    return dances
+      .filter((dance) =>
+        dance.difficulty?.toLowerCase().includes(activeTab.toLowerCase())
+      )
+      .slice(0, 12);
+  }, [dances, activeTab]);
 
   return (
     <main className="min-h-screen bg-[#100905] px-6 py-10 pb-24 text-white md:px-8 md:pb-10">
@@ -200,6 +217,25 @@ export default function DiscoverPage() {
             Search
           </button>
         </form>
+
+        {!isSearching && (
+          <div className="mb-8 flex flex-wrap gap-3">
+            {difficultyTabs.map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActiveTab(tab)}
+                className={`rounded-full px-5 py-2 font-medium transition ${
+                  activeTab === tab
+                    ? "bg-orange-500 text-black"
+                    : "border border-white/10 bg-white/5 text-gray-300 hover:bg-white/10"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        )}
 
         {isSearching && (
           <button
@@ -239,27 +275,33 @@ export default function DiscoverPage() {
         ) : (
           <section>
             <p className="mb-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300">
-              Showing {recommended.length} recommended dances from{" "}
-              {dances.length} dances in your database.
+              Showing {filteredDances.length} dances from {dances.length} dances
+              in your database.
             </p>
 
             <div className="mb-8">
-              <h2 className="mb-2 text-3xl font-bold">Recommended For You</h2>
+              <h2 className="mb-2 text-3xl font-bold">
+                {activeTab === "Recommended"
+                  ? "Recommended For You"
+                  : activeTab}
+              </h2>
 
               <p className="mb-6 text-gray-400">
-                Popular dances and tutorials to get started.
+                {activeTab === "Recommended"
+                  ? "Popular dances and tutorials to get started."
+                  : `Showing ${activeTab.toLowerCase()} level dances.`}
               </p>
 
-              {recommended.length === 0 ? (
+              {filteredDances.length === 0 ? (
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
-                  <h2 className="text-2xl font-bold">No dances loaded yet</h2>
+                  <h2 className="text-2xl font-bold">No dances found</h2>
                   <p className="mt-2 text-gray-400">
-                    Check your backend or database connection.
+                    No dances match this tab yet.
                   </p>
                 </div>
               ) : (
                 <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                  {recommended.map((dance) => (
+                  {filteredDances.map((dance) => (
                     <DanceCard key={dance._id} dance={dance} />
                   ))}
                 </div>
