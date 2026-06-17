@@ -6,10 +6,16 @@ import Link from "next/link";
 import {
   checkSavedDance,
   saveDance,
+  unsaveDance,
   updateSavedDanceStatus,
   type SavedDanceRecord,
   type SavedDanceStatus,
 } from "@/services/api";
+import {
+  getStoredUser as readStoredUser,
+  getUserId,
+  type StoredUser,
+} from "@/lib/user";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -49,8 +55,7 @@ type Dance = {
   description?: string;
 };
 
-type User = {
-  id: string;
+type User = StoredUser & {
   username: string;
   email: string;
 };
@@ -99,15 +104,10 @@ function getTutorialVideo(dance: Dance) {
   );
 }
 
-function getStoredUser(): User | null {
-  if (typeof window === "undefined") return null;
-
-  try {
-    const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  } catch {
-    return null;
-  }
+function getInitialUser(): User | null {
+  const user = readStoredUser();
+  if (!user || !getUserId(user)) return null;
+  return user as User;
 }
 
 export default function DanceDetailPage() {
@@ -127,7 +127,7 @@ export default function DanceDetailPage() {
   const [isTutorialLoading, setIsTutorialLoading] = useState(false);
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
-  const [user] = useState<User | null>(getStoredUser);
+  const [user] = useState<User | null>(getInitialUser);
   const [savedRecord, setSavedRecord] = useState<SavedDanceRecord | null>(null);
   const [saveStatus, setSaveStatus] = useState<SavedDanceStatus | null>(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -137,11 +137,12 @@ export default function DanceDetailPage() {
     let isCancelled = false;
 
     async function loadSaveStatus() {
-      if (!user || !id || isLoading) return;
+      const userId = getUserId(user);
+      if (!userId || !id || isLoading) return;
 
       try {
         setSaveError("");
-        const result = await checkSavedDance(user.id, id);
+        const result = await checkSavedDance(userId, id);
 
         if (isCancelled) return;
 
@@ -168,7 +169,8 @@ export default function DanceDetailPage() {
   }, [user, id, isLoading]);
 
   async function handleStatusChange(status: SavedDanceStatus) {
-    if (!user || !dance || isSaving) return;
+    const userId = getUserId(user);
+    if (!userId || !dance || isSaving) return;
 
     setSaveError("");
     setIsSaving(true);
@@ -180,7 +182,7 @@ export default function DanceDetailPage() {
         setSaveStatus(updated.status);
       } else {
         const fallbackTitle = dance.title || dance.danceName || "Untitled Dance";
-        const created = await saveDance(user.id, dance._id, status, {
+        const created = await saveDance(userId, dance._id, status, {
           danceTitle: fallbackTitle,
           song: dance.songTitle || "",
           artist: dance.artist || "",
@@ -193,6 +195,24 @@ export default function DanceDetailPage() {
     } catch (error) {
       console.error("Failed to save dance:", error);
       setSaveError("Failed to save dance. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  async function handleUnsave() {
+    if (!savedRecord || isSaving) return;
+
+    setSaveError("");
+    setIsSaving(true);
+
+    try {
+      await unsaveDance(savedRecord._id);
+      setSavedRecord(null);
+      setSaveStatus(null);
+    } catch (error) {
+      console.error("Failed to unsave dance:", error);
+      setSaveError("Failed to remove dance from library.");
     } finally {
       setIsSaving(false);
     }
@@ -430,6 +450,17 @@ export default function DanceDetailPage() {
                       </button>
                     ))}
                   </div>
+
+                  {savedRecord && (
+                    <button
+                      type="button"
+                      onClick={handleUnsave}
+                      disabled={isSaving}
+                      className="mt-3 text-sm font-semibold text-gray-400 transition hover:text-red-400 disabled:opacity-60"
+                    >
+                      Remove from library
+                    </button>
+                  )}
 
                   {saveError && (
                     <p className="mt-2 text-sm text-red-400">{saveError}</p>

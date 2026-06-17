@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getStoredUser, getUserId, persistUser } from "@/lib/user";
 
 const interestOptions = [
   "Learning new dances",
@@ -48,14 +49,15 @@ export default function OnboardingPage() {
   }
 
   async function handleFinish() {
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const user = getStoredUser();
 
-  if (!user.id) {
+  const userId = getUserId(user);
+  if (!userId) {
     console.error("No user ID found");
     return;
   }
 
-  const res = await fetch(`http://localhost:5000/api/onboarding/${user.id}`, {
+  const res = await fetch(`http://localhost:5000/api/onboarding/${userId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -79,7 +81,7 @@ export default function OnboardingPage() {
 
   const data = await res.json();
 
-  localStorage.setItem("user", JSON.stringify(data.user));
+  persistUser(data.user);
 
   router.push("/home");
 }

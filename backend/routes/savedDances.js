@@ -1,7 +1,12 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const SavedDance = require("../models/SavedDance");
 
 const router = express.Router();
+
+function isValidObjectId(value) {
+  return mongoose.Types.ObjectId.isValid(value);
+}
 
 // Check if a dance is saved for a user
 router.get("/check", async (req, res) => {
@@ -11,6 +16,12 @@ router.get("/check", async (req, res) => {
     if (!userId || !danceId) {
       return res.status(400).json({
         message: "userId and danceId are required",
+      });
+    }
+
+    if (!isValidObjectId(userId) || !isValidObjectId(danceId)) {
+      return res.status(400).json({
+        message: "Invalid userId or danceId",
       });
     }
 
@@ -33,6 +44,12 @@ router.get("/check", async (req, res) => {
 // Get all saved dances for a user
 router.get("/:userId", async (req, res) => {
   try {
+    if (!isValidObjectId(req.params.userId)) {
+      return res.status(400).json({
+        message: "Invalid user ID",
+      });
+    }
+
     const savedDances = await SavedDance.find({
       userId: req.params.userId,
     }).sort({ createdAt: -1 });
@@ -60,6 +77,12 @@ router.post("/", async (req, res) => {
     } = req.body;
 
     if (danceId) {
+      if (!isValidObjectId(userId) || !isValidObjectId(danceId)) {
+        return res.status(400).json({
+          message: "Invalid userId or danceId",
+        });
+      }
+
       const savedDance = await SavedDance.findOneAndUpdate(
         { userId, danceId },
         {
@@ -78,6 +101,12 @@ router.post("/", async (req, res) => {
       return res.status(201).json(savedDance);
     }
 
+    if (!userId || !isValidObjectId(userId)) {
+      return res.status(400).json({
+        message: "Invalid user ID",
+      });
+    }
+
     const savedDance = await SavedDance.create({
       userId,
       danceTitle,
@@ -90,6 +119,7 @@ router.post("/", async (req, res) => {
 
     res.status(201).json(savedDance);
   } catch (error) {
+    console.error("Failed to save dance:", error);
     res.status(400).json({
       message: "Failed to save dance",
     });

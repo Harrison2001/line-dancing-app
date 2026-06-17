@@ -42,7 +42,21 @@ router.put("/:userId", async (req, res) => {
 
     res.status(200).json({
       message: "Onboarding completed successfully",
-      user: updatedUser,
+      user: {
+        id: updatedUser._id,
+        username: updatedUser.username,
+        email: updatedUser.email,
+        role: updatedUser.role,
+        profileImage: updatedUser.profileImage,
+        bio: updatedUser.bio,
+        city: updatedUser.city,
+        state: updatedUser.state,
+        danceExperience: updatedUser.danceExperience,
+        skillLevel: updatedUser.skillLevel,
+        danceFrequency: updatedUser.danceFrequency,
+        interests: updatedUser.interests,
+        onboardingComplete: updatedUser.onboardingComplete,
+      },
     });
   } catch (error) {
     console.error("Onboarding error:", error);

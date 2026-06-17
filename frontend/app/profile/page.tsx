@@ -7,23 +7,21 @@ import Link from "next/link";
 import {
   getSavedDances,
   saveDance,
+  unsaveDance,
   uploadMedia,
   createMediaPost,
   getUserUploads,
 } from "@/services/api";
+import {
+  getStoredUser,
+  getUserId,
+  persistUser,
+  type StoredUser,
+} from "@/lib/user";
 
-type User = {
-  id: string;
+type User = StoredUser & {
   username: string;
   email: string;
-  profileImage?: string;
-  bio?: string;
-  city?: string;
-  state?: string;
-  danceExperience?: string;
-  skillLevel?: string;
-  danceFrequency?: string;
-  interests?: string[];
 };
 
 type MainTab = "uploads" | "library";
@@ -63,30 +61,36 @@ export default function ProfilePage() {
   const [editProfileImage, setEditProfileImage] = useState("");
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const parsedUser = getStoredUser();
 
-    if (!storedUser) {
+    if (!parsedUser || !getUserId(parsedUser)) {
       router.push("/login");
       return;
     }
 
-    const parsedUser: User = JSON.parse(storedUser);
-    setUser(parsedUser);
+    const user = parsedUser as User;
+    setUser(user);
 
-    setEditBio(parsedUser.bio || "");
-    setEditCity(parsedUser.city || "");
-    setEditState(parsedUser.state || "");
-    setEditProfileImage(parsedUser.profileImage || "");
+    setEditBio(user.bio || "");
+    setEditCity(user.city || "");
+    setEditState(user.state || "");
+    setEditProfileImage(user.profileImage || "");
 
-    loadSavedDances(parsedUser.id);
-    loadUserUploads(parsedUser.id);
+    const userId = getUserId(user);
+    if (userId) {
+      loadSavedDances(userId);
+      loadUserUploads(userId);
+    }
   }, [router]);
 
   async function handleSaveProfile() {
     if (!user) return;
 
+    const userId = getUserId(user);
+    if (!userId) return;
+
     try {
-      const res = await fetch(`http://localhost:5000/api/profiles/${user.id}`, {
+      const res = await fetch(`http://localhost:5000/api/profiles/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -113,7 +117,7 @@ export default function ProfilePage() {
       };
 
       setUser(updatedUser);
-      localStorage.setItem("user", JSON.stringify(updatedUser));
+      persistUser(updatedUser);
       setIsEditing(false);
     } catch (error) {
       console.error("Profile update failed:", error);
@@ -143,8 +147,11 @@ export default function ProfilePage() {
 
     if (!user || !danceTitle.trim()) return;
 
+    const userId = getUserId(user);
+    if (!userId) return;
+
     try {
-      const newDance = await saveDance(user.id, undefined, status, {
+      const newDance = await saveDance(userId, undefined, status, {
         danceTitle,
       });
       setSavedDances((prev) => [newDance, ...prev]);
@@ -155,16 +162,28 @@ export default function ProfilePage() {
     }
   }
 
+  async function handleRemoveDance(savedDanceId: string) {
+    try {
+      await unsaveDance(savedDanceId);
+      setSavedDances((prev) => prev.filter((dance) => dance._id !== savedDanceId));
+    } catch (error) {
+      console.error("Failed to remove saved dance:", error);
+    }
+  }
+
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
 
     if (!file || !user) return;
 
+    const userId = getUserId(user);
+    if (!userId) return;
+
     try {
       const uploaded = await uploadMedia(file);
 
       const newPost = await createMediaPost(
-        user.id,
+        userId,
         "",
         uploaded.mediaUrl,
         uploaded.publicId,
@@ -353,6 +372,7 @@ export default function ProfilePage() {
             setDanceTitle={setDanceTitle}
             setStatus={setStatus}
             handleAddDance={handleAddDance}
+            handleRemoveDance={handleRemoveDance}
             knownDances={knownDances}
             learningDances={learningDances}
             wantToLearnDances={wantToLearnDances}
@@ -434,6 +454,7 @@ function DanceLibrarySection({
   setDanceTitle,
   setStatus,
   handleAddDance,
+  handleRemoveDance,
   knownDances,
   learningDances,
   wantToLearnDances,
@@ -443,6 +464,7 @@ function DanceLibrarySection({
   setDanceTitle: (value: string) => void;
   setStatus: (value: "known" | "learning" | "wantToLearn") => void;
   handleAddDance: (e: React.FormEvent) => void;
+  handleRemoveDance: (savedDanceId: string) => void;
   knownDances: SavedDance[];
   learningDances: SavedDance[];
   wantToLearnDances: SavedDance[];
@@ -486,9 +508,21 @@ function DanceLibrarySection({
       </form>
 
       <section className="grid gap-6 lg:grid-cols-3">
-        <DanceColumn title="Dances I Know" dances={knownDances} />
-        <DanceColumn title="Currently Learning" dances={learningDances} />
-        <DanceColumn title="Want To Learn" dances={wantToLearnDances} />
+        <DanceColumn
+          title="Dances I Know"
+          dances={knownDances}
+          onRemove={handleRemoveDance}
+        />
+        <DanceColumn
+          title="Currently Learning"
+          dances={learningDances}
+          onRemove={handleRemoveDance}
+        />
+        <DanceColumn
+          title="Want To Learn"
+          dances={wantToLearnDances}
+          onRemove={handleRemoveDance}
+        />
       </section>
     </section>
   );
@@ -497,9 +531,11 @@ function DanceLibrarySection({
 function DanceColumn({
   title,
   dances,
+  onRemove,
 }: {
   title: string;
   dances: SavedDance[];
+  onRemove: (savedDanceId: string) => void;
 }) {
   return (
     <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
@@ -510,31 +546,35 @@ function DanceColumn({
           <p className="text-sm text-gray-400">No dances added yet.</p>
         )}
 
-        {dances.map((dance) => {
-          const cardContent = (
-            <>
-              <h3 className="font-semibold">{dance.danceTitle}</h3>
-              <p className="mt-1 text-sm text-gray-400">Saved dance</p>
-            </>
-          );
+        {dances.map((dance) => (
+          <div
+            key={dance._id}
+            className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+          >
+            <div className="flex items-start justify-between gap-3">
+              {dance.danceId ? (
+                <Link href={`/dances/${dance.danceId}`} className="min-w-0 flex-1">
+                  <h3 className="font-semibold">{dance.danceTitle}</h3>
+                  <p className="mt-1 text-sm text-gray-400">Saved dance</p>
+                </Link>
+              ) : (
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-semibold">{dance.danceTitle}</h3>
+                  <p className="mt-1 text-sm text-gray-400">Saved dance</p>
+                </div>
+              )}
 
-          return dance.danceId ? (
-            <Link
-              key={dance._id}
-              href={`/dances/${dance.danceId}`}
-              className="block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
-            >
-              {cardContent}
-            </Link>
-          ) : (
-            <div
-              key={dance._id}
-              className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
-            >
-              {cardContent}
+              <button
+                type="button"
+                onClick={() => onRemove(dance._id)}
+                aria-label={`Remove ${dance.danceTitle} from library`}
+                className="shrink-0 rounded-full px-2 py-1 text-sm text-gray-500 transition hover:bg-white/10 hover:text-red-400"
+              >
+                Remove
+              </button>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );

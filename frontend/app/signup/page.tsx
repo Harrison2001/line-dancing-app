@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { signupUser } from "@/services/api";
+import { persistUser } from "@/lib/user";
 import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
@@ -19,7 +20,7 @@ export default function SignupPage() {
       const data = await signupUser(username, email, password);
 
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      persistUser(data.user);
 
       router.push("/onboarding");
     } catch (error) {

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { loginUser } from "@/services/api";
+import { persistUser } from "@/lib/user";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginPage() {
@@ -20,7 +21,7 @@ export default function LoginPage() {
       const data = await loginUser(email, password);
 
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      persistUser(data.user);
 
       router.push(redirect);
     } catch (error) {

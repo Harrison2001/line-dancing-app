@@ -261,6 +261,23 @@ export async function updateSavedDanceStatus(
   return response.json();
 }
 
+export async function unsaveDance(id: string) {
+  const response = await fetch(
+    `${API_URL}/api/saved-dances/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      "Failed to remove saved dance"
+    );
+  }
+
+  return response.json();
+}
+
 
 // MEDIA
 
