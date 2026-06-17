@@ -3,13 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { loginUser } from "@/services/api";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect") || "/home";
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -20,10 +22,10 @@ export default function LoginPage() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      router.push("/home");
+      router.push(redirect);
     } catch (error) {
       console.error(error);
-      alert("Login failed");
+      alert(error instanceof Error ? error.message : "Login failed");
     }
   }
 

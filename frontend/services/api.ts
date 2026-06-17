@@ -67,9 +67,16 @@ export async function loginUser(
   );
 
   if (!response.ok) {
-    throw new Error(
-      "Login failed"
-    );
+    let message = "Login failed";
+
+    try {
+      const data = await response.json();
+      if (data.message) message = data.message;
+    } catch {
+      // keep default message
+    }
+
+    throw new Error(message);
   }
 
   return response.json();
@@ -130,6 +137,28 @@ export async function getUserUploads(
 
 // SAVED DANCES
 
+export type SavedDanceStatus = "known" | "learning" | "wantToLearn";
+
+export type SavedDanceRecord = {
+  _id: string;
+  userId: string;
+  danceId?: string;
+  danceTitle: string;
+  song?: string;
+  artist?: string;
+  choreographer?: string;
+  difficulty?: string;
+  status: SavedDanceStatus;
+};
+
+export type SaveDanceMetadata = {
+  danceTitle: string;
+  song?: string;
+  artist?: string;
+  choreographer?: string;
+  difficulty?: string;
+};
+
 export async function getSavedDances(
   userId: string
 ) {
@@ -146,10 +175,36 @@ export async function getSavedDances(
   return response.json();
 }
 
+export async function checkSavedDance(
+  userId: string,
+  danceId: string
+) {
+  const params = new URLSearchParams({
+    userId,
+    danceId,
+  });
+
+  const response = await fetch(
+    `${API_URL}/api/saved-dances/check?${params.toString()}`
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      "Failed to check saved dance"
+    );
+  }
+
+  return response.json() as Promise<{
+    saved: boolean;
+    record?: SavedDanceRecord;
+  }>;
+}
+
 export async function saveDance(
   userId: string,
-  danceTitle: string,
-  status: string
+  danceId: string | undefined,
+  status: string,
+  metadata?: SaveDanceMetadata
 ) {
   const response = await fetch(
     `${API_URL}/api/saved-dances`,
@@ -161,8 +216,13 @@ export async function saveDance(
       },
       body: JSON.stringify({
         userId,
-        danceTitle,
+        danceId,
         status,
+        danceTitle: metadata?.danceTitle,
+        song: metadata?.song,
+        artist: metadata?.artist,
+        choreographer: metadata?.choreographer,
+        difficulty: metadata?.difficulty,
       }),
     }
   );
@@ -170,6 +230,31 @@ export async function saveDance(
   if (!response.ok) {
     throw new Error(
       "Failed to save dance"
+    );
+  }
+
+  return response.json();
+}
+
+export async function updateSavedDanceStatus(
+  id: string,
+  status: string
+) {
+  const response = await fetch(
+    `${API_URL}/api/saved-dances/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type":
+          "application/json",
+      },
+      body: JSON.stringify({ status }),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      "Failed to update saved dance"
     );
   }
 

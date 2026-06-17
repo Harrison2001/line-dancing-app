@@ -8,6 +8,11 @@ const savedDanceSchema = new mongoose.Schema(
       required: true,
     },
 
+    danceId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Dance",
+    },
+
     danceTitle: {
       type: String,
       required: true,
@@ -42,6 +47,14 @@ const savedDanceSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+  }
+);
+
+savedDanceSchema.index(
+  { userId: 1, danceId: 1 },
+  {
+    unique: true,
+    partialFilterExpression: { danceId: { $exists: true, $ne: null } },
   }
 );
 

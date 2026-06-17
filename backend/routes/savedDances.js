@@ -3,6 +3,33 @@ const SavedDance = require("../models/SavedDance");
 
 const router = express.Router();
 
+// Check if a dance is saved for a user
+router.get("/check", async (req, res) => {
+  try {
+    const { userId, danceId } = req.query;
+
+    if (!userId || !danceId) {
+      return res.status(400).json({
+        message: "userId and danceId are required",
+      });
+    }
+
+    const record = await SavedDance.findOne({
+      userId,
+      danceId,
+    });
+
+    res.json({
+      saved: !!record,
+      ...(record && { record }),
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to check saved dance",
+    });
+  }
+});
+
 // Get all saved dances for a user
 router.get("/:userId", async (req, res) => {
   try {
@@ -21,14 +48,44 @@ router.get("/:userId", async (req, res) => {
 // Save a dance
 router.post("/", async (req, res) => {
   try {
+    const {
+      userId,
+      danceId,
+      danceTitle,
+      song,
+      artist,
+      choreographer,
+      difficulty,
+      status,
+    } = req.body;
+
+    if (danceId) {
+      const savedDance = await SavedDance.findOneAndUpdate(
+        { userId, danceId },
+        {
+          userId,
+          danceId,
+          danceTitle,
+          song: song || "",
+          artist: artist || "",
+          choreographer: choreographer || "",
+          difficulty: difficulty || "",
+          status: status || "wantToLearn",
+        },
+        { new: true, upsert: true, runValidators: true }
+      );
+
+      return res.status(201).json(savedDance);
+    }
+
     const savedDance = await SavedDance.create({
-      userId: req.body.userId,
-      danceTitle: req.body.danceTitle,
-      song: req.body.song,
-      artist: req.body.artist,
-      choreographer: req.body.choreographer,
-      difficulty: req.body.difficulty,
-      status: req.body.status || "wantToLearn",
+      userId,
+      danceTitle,
+      song: song || "",
+      artist: artist || "",
+      choreographer: choreographer || "",
+      difficulty: difficulty || "",
+      status: status || "wantToLearn",
     });
 
     res.status(201).json(savedDance);

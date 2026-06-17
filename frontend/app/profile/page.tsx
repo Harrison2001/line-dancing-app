@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import {
   getSavedDances,
@@ -30,6 +31,7 @@ type MainTab = "uploads" | "library";
 type SavedDance = {
   _id: string;
   danceTitle: string;
+  danceId?: string;
   status: "known" | "learning" | "wantToLearn";
 };
 
@@ -142,7 +144,9 @@ export default function ProfilePage() {
     if (!user || !danceTitle.trim()) return;
 
     try {
-      const newDance = await saveDance(user.id, danceTitle, status);
+      const newDance = await saveDance(user.id, undefined, status, {
+        danceTitle,
+      });
       setSavedDances((prev) => [newDance, ...prev]);
       setDanceTitle("");
       setStatus("wantToLearn");
@@ -506,15 +510,31 @@ function DanceColumn({
           <p className="text-sm text-gray-400">No dances added yet.</p>
         )}
 
-        {dances.map((dance) => (
-          <div
-            key={dance._id}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
-          >
-            <h3 className="font-semibold">{dance.danceTitle}</h3>
-            <p className="mt-1 text-sm text-gray-400">Saved dance</p>
-          </div>
-        ))}
+        {dances.map((dance) => {
+          const cardContent = (
+            <>
+              <h3 className="font-semibold">{dance.danceTitle}</h3>
+              <p className="mt-1 text-sm text-gray-400">Saved dance</p>
+            </>
+          );
+
+          return dance.danceId ? (
+            <Link
+              key={dance._id}
+              href={`/dances/${dance.danceId}`}
+              className="block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+            >
+              {cardContent}
+            </Link>
+          ) : (
+            <div
+              key={dance._id}
+              className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+            >
+              {cardContent}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

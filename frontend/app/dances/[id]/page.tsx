@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import {
+  checkSavedDance,
+  saveDance,
+  updateSavedDanceStatus,
+  type SavedDanceRecord,
+  type SavedDanceStatus,
+} from "@/services/api";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -42,6 +49,21 @@ type Dance = {
   description?: string;
 };
 
+type User = {
+  id: string;
+  username: string;
+  email: string;
+};
+
+const SAVE_STATUS_OPTIONS: {
+  value: SavedDanceStatus;
+  label: string;
+}[] = [
+  { value: "wantToLearn", label: "Want to Learn" },
+  { value: "learning", label: "Learning" },
+  { value: "known", label: "I Know This" },
+];
+
 function getYouTubeEmbedUrl(url?: string) {
   if (!url) return "";
 
@@ -77,6 +99,17 @@ function getTutorialVideo(dance: Dance) {
   );
 }
 
+function getStoredUser(): User | null {
+  if (typeof window === "undefined") return null;
+
+  try {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  } catch {
+    return null;
+  }
+}
+
 export default function DanceDetailPage() {
   const params = useParams();
   const id = params.id as string;
@@ -94,6 +127,77 @@ export default function DanceDetailPage() {
   const [isTutorialLoading, setIsTutorialLoading] = useState(false);
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
+  const [user] = useState<User | null>(getStoredUser);
+  const [savedRecord, setSavedRecord] = useState<SavedDanceRecord | null>(null);
+  const [saveStatus, setSaveStatus] = useState<SavedDanceStatus | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function loadSaveStatus() {
+      if (!user || !id || isLoading) return;
+
+      try {
+        setSaveError("");
+        const result = await checkSavedDance(user.id, id);
+
+        if (isCancelled) return;
+
+        if (result.saved && result.record) {
+          setSavedRecord(result.record);
+          setSaveStatus(result.record.status);
+        } else {
+          setSavedRecord(null);
+          setSaveStatus(null);
+        }
+      } catch (error) {
+        if (!isCancelled) {
+          console.error("Failed to check saved dance:", error);
+          setSaveError("Could not load save status.");
+        }
+      }
+    }
+
+    loadSaveStatus();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [user, id, isLoading]);
+
+  async function handleStatusChange(status: SavedDanceStatus) {
+    if (!user || !dance || isSaving) return;
+
+    setSaveError("");
+    setIsSaving(true);
+
+    try {
+      if (savedRecord) {
+        const updated = await updateSavedDanceStatus(savedRecord._id, status);
+        setSavedRecord(updated);
+        setSaveStatus(updated.status);
+      } else {
+        const fallbackTitle = dance.title || dance.danceName || "Untitled Dance";
+        const created = await saveDance(user.id, dance._id, status, {
+          danceTitle: fallbackTitle,
+          song: dance.songTitle || "",
+          artist: dance.artist || "",
+          choreographer: dance.choreographer || "",
+          difficulty: dance.difficulty || "",
+        });
+        setSavedRecord(created);
+        setSaveStatus(created.status);
+      }
+    } catch (error) {
+      console.error("Failed to save dance:", error);
+      setSaveError("Failed to save dance. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
   useEffect(() => {
     let isCancelled = false;
 
@@ -104,6 +208,9 @@ export default function DanceDetailPage() {
       setYoutubeTitle("");
       setShowMoreInfo(false);
       setRelatedDances([]);
+      setSavedRecord(null);
+      setSaveStatus(null);
+      setSaveError("");
       setIsDemoLoading(false);
       setIsTutorialLoading(false);
 
@@ -290,6 +397,45 @@ export default function DanceDetailPage() {
               >
                 Tutorial
               </button>
+            </div>
+
+            <div className="mb-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="mb-3 text-sm font-semibold text-gray-300">
+                Save to Dance Library
+              </p>
+
+              {!user ? (
+                <Link
+                  href={`/login?redirect=/dances/${id}`}
+                  className="inline-block rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-black transition hover:bg-orange-400"
+                >
+                  Sign in to save this dance
+                </Link>
+              ) : (
+                <>
+                  <div className="flex flex-wrap gap-3">
+                    {SAVE_STATUS_OPTIONS.map(({ value, label }) => (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => handleStatusChange(value)}
+                        disabled={isSaving}
+                        className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                          saveStatus === value
+                            ? "bg-orange-500 text-black"
+                            : "bg-white/10 text-gray-300 hover:bg-white/20"
+                        } ${isSaving ? "cursor-not-allowed opacity-60" : ""}`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+
+                  {saveError && (
+                    <p className="mt-2 text-sm text-red-400">{saveError}</p>
+                  )}
+                </>
+              )}
             </div>
 
             <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
