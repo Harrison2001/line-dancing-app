@@ -3,5 +3,6 @@ node_modules
 .env
 .env.local
 .DS_Store
+.cursor/
 backend/docs/credentials.txt
 credentials.txt

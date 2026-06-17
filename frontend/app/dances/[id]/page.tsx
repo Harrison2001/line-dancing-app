@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 type Dance = {
   _id: string;
@@ -56,9 +57,9 @@ function getYouTubeEmbedUrl(url?: string) {
 
 function getDemoVideo(dance: Dance) {
   return (
-    getYouTubeEmbedUrl(dance.demoUrl) ||
     getYouTubeEmbedUrl(dance.bestDemoVideo) ||
     getYouTubeEmbedUrl(dance.best_demo_video) ||
+    getYouTubeEmbedUrl(dance.demoUrl) ||
     getYouTubeEmbedUrl(dance.demo_video_url) ||
     getYouTubeEmbedUrl(dance.videoUrl) ||
     getYouTubeEmbedUrl(dance.video_url) ||
@@ -69,9 +70,9 @@ function getDemoVideo(dance: Dance) {
 
 function getTutorialVideo(dance: Dance) {
   return (
-    getYouTubeEmbedUrl(dance.tutorialUrl) ||
     getYouTubeEmbedUrl(dance.bestTutorialVideo) ||
     getYouTubeEmbedUrl(dance.best_tutorial_video) ||
+    getYouTubeEmbedUrl(dance.tutorialUrl) ||
     getYouTubeEmbedUrl(dance.tutorial_video_url)
   );
 }
@@ -89,15 +90,29 @@ export default function DanceDetailPage() {
   const [youtubeTitle, setYoutubeTitle] = useState("");
 
   const [isLoading, setIsLoading] = useState(true);
-  const [isVideoLoading, setIsVideoLoading] = useState(false);
+  const [isDemoLoading, setIsDemoLoading] = useState(false);
+  const [isTutorialLoading, setIsTutorialLoading] = useState(false);
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   useEffect(() => {
+    let isCancelled = false;
+
     async function loadDance() {
+      setActiveVideo("demo");
+      setDemoVideoUrl("");
+      setTutorialVideoUrl("");
+      setYoutubeTitle("");
+      setShowMoreInfo(false);
+      setRelatedDances([]);
+      setIsDemoLoading(false);
+      setIsTutorialLoading(false);
+
       try {
         setIsLoading(true);
 
         const response = await fetch(`${API_BASE_URL}/api/dances/${id}`);
+
+        if (isCancelled) return;
 
         if (!response.ok) {
           setDance(null);
@@ -117,48 +132,79 @@ export default function DanceDetailPage() {
         setTutorialVideoUrl(existingTutorialVideo);
 
         if (!existingDemoVideo) {
-          setIsVideoLoading(true);
+          setIsDemoLoading(true);
 
-          const youtubeResponse = await fetch(
+          const demoResponse = await fetch(
             `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(
               `${songName} line dance demo`
             )}`
           );
 
-          if (youtubeResponse.ok) {
-            const youtubeData = await youtubeResponse.json();
+          if (isCancelled) return;
 
-            if (youtubeData.videoUrl) {
-              const fallbackDemo =
-                getYouTubeEmbedUrl(youtubeData.videoUrl) || youtubeData.videoUrl;
+          if (demoResponse.ok) {
+            const demoData = await demoResponse.json();
 
-              setDemoVideoUrl(fallbackDemo);
-              setYoutubeTitle(youtubeData.title || "");
+            if (demoData.videoUrl) {
+              setDemoVideoUrl(getYouTubeEmbedUrl(demoData.videoUrl));
+              setYoutubeTitle(demoData.title || "");
             }
           }
+
+          setIsDemoLoading(false);
         }
 
-        const relatedResponse = await fetch(`${API_BASE_URL}/api/dances`);
+        if (!existingTutorialVideo) {
+          setIsTutorialLoading(true);
+
+          const tutorialResponse = await fetch(
+            `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(
+              `${songName} line dance tutorial`
+            )}`
+          );
+
+          if (isCancelled) return;
+
+          if (tutorialResponse.ok) {
+            const tutorialData = await tutorialResponse.json();
+
+            if (tutorialData.videoUrl) {
+              setTutorialVideoUrl(getYouTubeEmbedUrl(tutorialData.videoUrl));
+            }
+          }
+
+          setIsTutorialLoading(false);
+        }
+
+        const relatedResponse = await fetch(
+          `${API_BASE_URL}/api/dances/${id}/related`
+        );
+
+        if (isCancelled) return;
 
         if (relatedResponse.ok) {
           const relatedData: Dance[] = await relatedResponse.json();
-
-          const filtered = relatedData
-            .filter((item) => item._id !== data._id)
-            .slice(0, 8);
-
-          setRelatedDances(filtered);
+          setRelatedDances(relatedData);
         }
       } catch (error) {
-        console.error("Failed to load dance:", error);
-        setDance(null);
+        if (!isCancelled) {
+          console.error("Failed to load dance:", error);
+          setDance(null);
+        }
       } finally {
-        setIsLoading(false);
-        setIsVideoLoading(false);
+        if (!isCancelled) {
+          setIsLoading(false);
+          setIsDemoLoading(false);
+          setIsTutorialLoading(false);
+        }
       }
     }
 
     if (id) loadDance();
+
+    return () => {
+      isCancelled = true;
+    };
   }, [id]);
 
   if (isLoading) {
@@ -192,16 +238,23 @@ export default function DanceDetailPage() {
   const selectedVideo =
     activeVideo === "demo" ? demoVideoUrl : tutorialVideoUrl;
 
+  const isActiveVideoLoading =
+    activeVideo === "demo" ? isDemoLoading : isTutorialLoading;
+
   const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(
-    `${songName} line dance`
+    `${songName} line dance${activeVideo === "tutorial" ? " tutorial" : " demo"}`
   )}`;
 
-  const sourceLinks = [
-    ...(dance.sourceLinks || []),
-    dance.stepsheetUrl,
-    dance.stepSheetUrl,
-    dance.sourceUrl,
-  ].filter(Boolean) as string[];
+  const sourceLinks = Array.from(
+    new Set(
+      [
+        ...(dance.sourceLinks || []),
+        dance.stepsheetUrl,
+        dance.stepSheetUrl,
+        dance.sourceUrl,
+      ].filter(Boolean)
+    )
+  ) as string[];
 
   return (
     <main className="min-h-screen bg-[#100905] px-4 py-6 pb-24 text-white md:px-8 md:py-10">
@@ -246,6 +299,7 @@ export default function DanceDetailPage() {
                     src={selectedVideo}
                     title={songName}
                     className="h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                   />
                 </div>
@@ -257,7 +311,7 @@ export default function DanceDetailPage() {
                     </div>
 
                     <h2 className="text-2xl font-bold">
-                      {isVideoLoading
+                      {isActiveVideoLoading
                         ? "Finding video..."
                         : `${activeVideo === "demo" ? "Demo" : "Tutorial"} not available yet`}
                     </h2>
@@ -366,7 +420,7 @@ export default function DanceDetailPage() {
                   return (
                     <Link
                       key={item._id}
-                      href={`/discover/${item._id}`}
+                      href={`/dances/${item._id}`}
                       className="block rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:bg-white/10"
                     >
                       <h3 className="line-clamp-1 font-semibold">
