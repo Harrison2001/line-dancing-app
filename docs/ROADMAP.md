@@ -1,303 +1,175 @@
-# Line Dancing App Roadmap
+# Roadmap
 
-## Vision
-
-Build the go-to platform for the line dancing community by combining:
-
-* Social networking
-* Dance discovery
-* Dance education
-* Event discovery
-* Venue information
-* Community building
-
-The goal is to create a single place where dancers can discover new dances, find local events, connect with other dancers, and stay informed about the line dancing scene.
+**Vision:** Build the go-to platform for the line dancing community.  
+**Target deployment:** August 31, 2026
 
 ---
 
-# Deployment Goal
+## Completed
 
-**Target Deployment Date:** August 31, 2026
+### Authentication and Onboarding
 
-The objective is not perfection.
+- [x] User registration
+- [x] Login/logout
+- [x] JWT session management
+- [x] Onboarding flow (location, experience, interests)
+- [x] User profile fields on User model
+- [ ] Profile picture upload (field exists, upload flow incomplete)
 
-The objective is to launch a usable product that provides value to line dancers and can continue improving after deployment.
+### Feed System
 
----
+- [x] Text posts
+- [x] Media posts (image/video via Cloudinary)
+- [x] Like system (toggle + counter)
+- [x] Comments
+- [ ] Event posts (type exists in schema, not wired in UI)
 
-# Version 1 Requirements
+### Dance Library
 
-## User Accounts & Onboarding
+- [x] Search dances (MongoDB + external fallback)
+- [x] Dance detail pages
+- [x] Tutorial/demo video tabs
+- [x] Difficulty levels and style categories
+- [x] Song information
+- [x] Related dances
+- [x] YouTube video enrichment
+- [x] ETL pipeline (CopperKnob + BootStepper, 100+ records)
 
-### Features
+### Discover Dances
 
-* User registration
-* Login/logout
-* User profiles
-* Profile picture upload
-* Bio section
-* Location selection during onboarding
+- [x] Recommendation-based layout
+- [x] Difficulty tabs
+- [x] MongoDB-backed catalog
+- [ ] Trending/popular sorting (partial — UI tabs exist)
 
-### Future Expansion
+### Personal Dance Library
 
-* Dance experience level
-* Favorite dance styles
-* Favorite venues
-* Personalized recommendations
+- [x] Save dances with status (`known`, `learning`, `wantToLearn`)
+- [x] Link saved dances to catalog via `danceId`
+- [x] Profile library tab
+- [x] Status management from detail and profile pages
 
----
+### Data Engineering
 
-## Feed System
-
-### Features
-
-* Video posts
-* Image posts
-* Text posts
-* Event posts
-* Like system
-* Comments
-
-### Goal
-
-Create a feed that feels active and provides value beyond videos alone.
-
----
-
-## Dance Library
-
-### Features
-
-* Search dances
-* Dance detail pages
-* Tutorial links
-* Difficulty levels
-* Style categories
-* Song information
-
-### Goal
-
-Become a central resource for discovering and learning dances.
+- [x] Automated ETL pipeline
+- [x] Validation layer
+- [x] MongoDB loader
+- [x] YouTube collection script
+- [x] Scheduled batch job (Windows)
 
 ---
 
-## Discover Dances
+## In Progress
 
-### Features
+### Documentation
 
-* Trending dances
-* New dances
-* Popular dances
-* Search functionality
-* Filtering system
+- [x] README, API, database, frontend, pipeline docs
+- [ ] Deployment instructions
 
-### Goal
+### Frontend Polish
 
-Help users find new dances quickly.
-
----
-
-## Events System
-
-### Features
-
-* Event listings
-* Event detail pages
-* Event creation
-* Local event discovery
-* Venue information
-
-### Goal
-
-Help users find places to dance.
+- [ ] Align mobile/desktop home routes (`/` vs `/home`)
+- [ ] Wire discover page to `NEXT_PUBLIC_API_URL`
+- [ ] Complete logout flow in TopNavbar
 
 ---
 
-## Location-Based Features
+## Planned — Version 1 (by August 31, 2026)
 
-### Features
+### Events System
 
-* Save user location
-* Recommend nearby venues
-* Recommend nearby events
-* Personalized local content
+- [ ] Event listings (database-backed)
+- [ ] Event detail pages
+- [ ] Event creation
+- [ ] Local event discovery
+- [ ] Venue information
 
-### Goal
+### Location-Based Features
 
-Make it easier for new dancers to discover their local scene.
+- [ ] Save user location (partial — city/state on User model)
+- [ ] Recommend nearby venues
+- [ ] Recommend nearby events
+- [ ] Personalized local content
 
----
+### Friends System
 
-## Friends System
+- [ ] Send/accept friend requests
+- [ ] Friends list page (`/friends`)
 
-### Features
+### Groups
 
-* Send friend request
-* Accept friend request
-* Friends list
+- [ ] Create groups
+- [ ] Join groups
+- [ ] Group discussions
 
-### Goal
+### Messaging
 
-Allow users to build connections within the community.
+- [ ] Direct messages
+- [ ] Friend-to-friend conversations
 
----
+### Launch Preparation
 
-## Groups
-
-### Features
-
-* Create groups
-* Join groups
-* Group discussions
-
-### Goal
-
-Create local and interest-based communities.
-
----
-
-## Messaging
-
-### Features
-
-* Direct messages
-* Basic conversations
-* Friend-to-friend communication
-
-### Goal
-
-Allow dancers to communicate without leaving the platform.
+- [ ] Bug fixes and UI polish
+- [ ] Mobile testing
+- [ ] Performance testing
+- [ ] Deployment
 
 ---
 
-# Post-Launch Features (Version 2)
+## Planned — Version 2 (Post-Launch)
 
-## Automated Event Collection
+### Automated Event Collection
 
-Potential future system:
+- Monitor venue websites for new events
+- Event suggestions with admin review
 
-* Monitor venue websites
-* Detect new line dancing events
-* Detect concerts
-* Detect special dance nights
-* Create event suggestions
+### Notification System
 
-Events should initially be reviewed before publishing.
+- New local events, dances, venue announcements
+- Group and friend activity alerts
 
----
+### AI Recommendations
 
-## Notification System
+- Dance, event, venue, and content recommendations
 
-### Future Features
+### Premium Features
 
-* New local events
-* New dances
-* Venue announcements
-* Group activity
-* Friend activity
+- Advanced discovery tools
+- Premium event notifications
+- Enhanced profiles
 
 ---
 
-## AI Recommendations
-
-### Future Features
-
-* Dance recommendations
-* Event recommendations
-* Venue recommendations
-* Content recommendations
-
----
-
-## Premium Features
-
-Potential future monetization:
-
-* Advanced discovery tools
-* Premium event notifications
-* Enhanced profiles
-* Additional group features
-
----
-
-# Development Schedule
-
-## Phase 1
-
-Authentication & Onboarding
-
-* User accounts
-* Login system
-* Profile creation
-* Location setup
-
----
-
-## Phase 2
-
-Feed Improvements
-
-* Better posting system
-* Multiple content types
-* Database integration
-
----
-
-## Phase 3
-
-Dance Systems
-
-* Dance library
-* Discover dances
-* Search functionality
-
----
-
-## Phase 4
-
-Events & Venues
-
-* Events page redesign
-* Event management
-* Local venue recommendations
-
----
-
-## Phase 5
-
-Community
-
-* Friends
-* Groups
-* Messaging
-
----
-
-## Phase 6
-
-Launch Preparation
-
-* Bug fixes
-* UI improvements
-* Mobile testing
-* Performance testing
-* Deployment
-
----
-
-# Success Criteria
+## Success Criteria (Version 1)
 
 A user should be able to:
 
-1. Create an account
-2. Set their location
-3. Discover dances
-4. Learn dances
-5. Find events
-6. Find nearby venues
-7. Connect with friends
-8. Join groups
-9. Send messages
-10. Participate in the community
+1. ~~Create an account~~ ✓
+2. ~~Set their location~~ ✓ (onboarding)
+3. ~~Discover dances~~ ✓
+4. ~~Learn dances~~ ✓ (detail pages with videos)
+5. Find events — **static UI only**
+6. Find nearby venues — **not started**
+7. Connect with friends — **not started**
+8. Join groups — **not started**
+9. Send messages — **not started**
+10. ~~Participate in the community~~ ✓ (feed, posts, comments)
 
-If these goals are achieved, Version 1 is ready for deployment.
+**Progress:** 5 of 10 success criteria met.
+
+---
+
+## Development Phases
+
+| Phase | Focus | Status |
+|---|---|---|
+| 1 | Authentication and onboarding | Complete |
+| 2 | Feed improvements | Mostly complete |
+| 3 | Dance systems | Complete |
+| 4 | Events and venues | Not started |
+| 5 | Community (friends, groups, messaging) | Not started |
+| 6 | Launch preparation | Not started |
+
+---
+
+> This file supersedes `docs/ROADMAP.md` for tracking implementation status. The original roadmap vision document is preserved at [ROADMAP.md](ROADMAP.md).
