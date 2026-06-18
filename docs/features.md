@@ -1,471 +1,161 @@
-# Line Dance Platform - Features
+# Features
 
-## Overview
-
-This document contains the planned features for the Line Dance Platform. Features are separated into:
-- MVP Features (Minimum Viable Product)
-- Core Features
-- Social Features
-- Event Features
-- Analytics Features
-- Future AI Features
-- Long-Term Expansion Features
-
-The goal is to keep the first version simple while allowing the platform to grow over time.
+Features are split into **Implemented** (working in the codebase) and **Planned** (not yet built).
 
 ---
 
-# MVP Features (Version 1)
+## Implemented
 
-The MVP should focus on the most important core functionality needed to make the platform usable.
+### User Accounts
 
-## MVP Goals
+- Signup with username, email, password
+- Login with email/password
+- JWT token generation (7-day expiry)
+- Session stored in `localStorage`
+- User profile fields (bio, city, state, experience, skill level, interests)
+- Onboarding flow with `onboardingComplete` flag
+- Protected profile page (redirects to login)
 
-The first version should allow users to:
-- create accounts
-- browse dances
-- save dances
-- like dances
-- comment on dances
-- submit dance requests
+### Community Feed
+
+- Text post creation
+- Media post creation (image/video via Cloudinary)
+- Feed loading from MongoDB
+- Post likes (toggle via Like model + counter on Post)
+- Comments on posts
+- Filter tabs UI on feed
+
+### Dance Catalog
+
+- MongoDB-backed dance library (100+ dances from ETL pipeline)
+- Discover page with difficulty tabs (Recommended, Beginner, Improver, Intermediate, Advanced)
+- Dance detail pages with full metadata
+- Related dances suggestions
+- Dance search (MongoDB + external fallback to CopperKnob and linedancin.net)
+- YouTube video search and enrichment on detail pages
+- Video tabs (demo, tutorial, YouTube fallback)
+
+### Personal Dance Library
+
+- Save dances from detail page with learning status
+- Three statuses: `known`, `learning`, `wantToLearn`
+- Upsert by `(userId, danceId)` — links to catalog entries
+- Check saved state before displaying UI
+- Profile library tab with status management
+- Library cards link to catalog dance detail when `danceId` exists
+- Login redirect with return URL when saving unauthenticated
+
+### Social
+
+- Follow/unfollow toggle between users
+- Follower and following counts
+
+### Data Pipeline
+
+- Automated ETL: collect → clean → merge → validate → load
+- Sources: CopperKnob, BootStepper
+- YouTube video collection (separate script)
+- Validation layer with quality scoring
+- MongoDB upsert by slug
+- Scheduled Windows batch job
+
+### Media
+
+- Cloudinary upload for images and videos
+- Media posts linked to user profiles
 
 ---
 
-# User Authentication Features
+## Planned
 
-## User Signup
+### User Accounts (future)
 
-Users can:
-- create an account
-- choose a username
-- add an email and password
-- create a basic profile
+- Google, Apple, Facebook login
+- Email verification
+- Forgot password
+- JWT middleware on backend routes
+- Refresh tokens
+- Profile picture upload (field exists, upload flow TODO)
 
-### Future Expansion
-- Google login
-- Apple login
-- Facebook login
+### Social Features
+
+- Friends system (`/friends` page linked but not built)
+- Replies, mentions, discussion threads
+- Notifications (`/notifications` page linked but not built)
+- In-app messaging
+- Direct messages between friends
+
+### Events
+
+- Event listings backed by database (currently static mock UI)
+- Event detail pages
+- Event creation
+- Local event discovery
+- Venue information
+- RSVP system
+- Map integration
+
+### Groups
+
+- Create and join groups
+- Group discussions
+
+### Search
+
+- Global search across dances, songs, choreographers, users, events
+- Advanced filters (popularity, genre, location, trending)
+
+### Analytics
+
+- Trending dances
+- Popular songs
+- User engagement metrics
+- Analytics dashboards
+
+### Recommendations
+
+- Personalized dance recommendations
+- Personalized event/venue recommendations
+- Dance discovery feed
+
+### Moderation
+
+- Content moderation by admins
+- Dance submission approval workflow
+- User reporting
+
+### Mobile
+
+- Push notifications
+- Offline saved dances
+- Camera uploads
+
+### Monetization (long-term)
+
+- Premium features
+- Subscription tiers
+- Event ticket integration
+
+### AI / ML (long-term)
+
+- Recommendation engine
+- Trend prediction
+- User behavior analysis
 
 ---
 
-## User Login
-
-Users can:
-- log into their account
-- stay authenticated
-- securely access their saved content
-
----
-
-## User Profiles
-
-Each user profile may include:
-- username
-- profile picture
-- bio
-- saved dances
-- liked dances
-- uploaded dances
-- local dance community
-## Profile Page
-
-The Profile Page shows a user’s personal dance journey.
-
-### Main Profile Information
-
-- username
-- profile picture
-- bio
-- location / local dance community
-- favorite dance styles
-- favorite venues
-
-### Dance Progress Sections
-
-Users can organize dances into three main groups:
+## How Features Connect
 
 ```txt
-Dances I Know
-Dances I Am Learning
-Dances I Want To Learn
----
-
-# Dance Features
-
-## Dance Library
-
-Users can:
-- browse all dances
-- search dances
-- filter dances
-- sort dances
-
-### Possible Filters
-- beginner
-- intermediate
-- advanced
-- genre
-- popularity
-- newest dances
-
----
-
-## Dance Detail Page
-
-Each dance page may include:
-- dance title
-- song title
-- artist
-- choreographer
-- difficulty
-- tutorial links
-- demo videos
-- comments
-- likes
-- save button
-- tags
-
----
-
-## Add Dance Feature
-
-Users can submit:
-- dance title
-- song title
-- artist
-- choreographer
-- tutorial links
-- demo links
-- dance descriptions
-
-### Future Moderation
-Admins may later approve dances before publishing.
-
----
-
-## Saved Dances
-
-Users can:
-- save dances
-- create personal dance lists
-- revisit favorite dances later
-
----
-
-## Likes
-
-Users can:
-- like dances
-- support choreography content
-- help identify trending dances
-
----
-
-## Dance Requests
-
-Users can request:
-- dances they want added
-- songs they want tutorials for
-- requested choreography
-
-### Possible Request Information
-- dance name
-- song title
-- artist
-- request reason
-
----
-
-# Social Features
-
-## Comments
-
-Users can:
-- comment on dances
-- ask questions
-- discuss choreography
-- help beginners learn
-
----
-
-## Community Interaction
-
-Future community interaction features may include:
-- replies
-- mentions
-- discussion threads
-- reactions
-
----
-
-## Following System
-
-Future versions may allow users to:
-- follow choreographers
-- follow dancers
-- follow instructors
-- follow event organizers
-
----
-
-## Notifications
-
-Users may later receive notifications for:
-- comments
-- likes
-- saved dance updates
-- new events
-- trending dances
-
----
-
-# Event Features
-
-## Event Listings
-
-Users can:
-- browse dance events
-- see local socials
-- find workshops
-- discover competitions
-
----
-
-## Event Details
-
-Each event page may include:
-- title
-- location
-- date
-- time
-- description
-- venue information
-- external links
-
----
-
-## Event Discovery
-
-Future versions may support:
-- local recommendations
-- map integration
-- city/state filters
-- nearby dance events
-
----
-
-## RSVP System
-
-Possible future feature:
-- users can RSVP to events
-- organizers can track attendance
-
----
-
-# Search Features
-
-## Global Search
-
-Users can search for:
-- dances
-- songs
-- choreographers
-- users
-- events
-
----
-
-## Search Filters
-
-Possible filters:
-- popularity
-- newest
-- difficulty
-- genre
-- location
-- trending
-
----
-
-# Analytics Features
-
-## Trending Dances
-
-The system may track:
-- most liked dances
-- fastest growing dances
-- most saved dances
-- most viewed dances
-
----
-
-## Popular Songs
-
-Track:
-- songs connected to dances
-- trending music
-- frequently requested songs
-
----
-
-## User Engagement Metrics
-
-Possible analytics:
-- likes
-- saves
-- comments
-- dance popularity
-- active users
-- engagement rates
-
----
-
-# Recommendation Features
-
-## Personalized Recommendations
-
-Future recommendations may include:
-- dances similar to saved dances
-- trending dances in a user’s area
-- choreographers users may enjoy
-- suggested events
-
----
-
-## Dance Discovery Feed
-
-Possible personalized home feed:
-- recommended dances
-- trending tutorials
-- community activity
-- local dance updates
-
----
-
-# AI / Machine Learning Features
-
-## Recommendation System
-
-Machine learning may later help:
-- recommend dances
-- recommend songs
-- predict trending dances
-- identify user interests
-
----
-
-## Trend Prediction
-
-Potential future analytics:
-- viral dance prediction
-- popularity forecasting
-- engagement forecasting
-
----
-
-## User Behavior Analysis
-
-Potential future analysis:
-- what users engage with most
-- which tutorials are most effective
-- what dances grow fastest
-
----
-
-# Moderation Features
-
-## Content Moderation
-
-Admins may later:
-- remove spam
-- approve dance submissions
-- moderate comments
-- review reports
-
----
-
-## User Reporting
-
-Future feature:
-- report inappropriate content
-- report spam
-- report fake events
-
----
-
-# Security Features
-
-## Authentication Security
-
-- encrypted passwords
-- secure login sessions
-- JWT authentication
-- protected API routes
-
----
-
-## Data Protection
-
-- user data protection
-- permission checks
-- input validation
-- rate limiting later
-
----
-
-# Mobile Features
-
-Future mobile features may include:
-- mobile notifications
-- offline saved dances
-- mobile-friendly layouts
-- camera uploads
-- quick event check-ins
-
----
-
-# Long-Term Expansion Features
-
-Possible future expansion:
-- in-app messaging
-- live streams
-- dance tutorials uploaded directly
-- subscription features
-- premium choreography content
-- event ticket integration
-- leaderboard systems
-- regional dance communities
-- instructor verification
-- analytics dashboards for choreographers
-
----
-
-# MVP Development Priority
-
-The first version should focus ONLY on:
-
-```txt
-1. User accounts
-2. Dance library
-3. Dance detail pages
-4. Add dance feature
-5. Saved dances
-6. Likes
-7. Comments
-8. Dance requests
+ETL Pipeline → MongoDB dances → Discover page → Dance detail
+                                                    ↓
+                                            Save to library
+                                                    ↓
+                                            Profile library tab
+
+Signup/Login → Onboarding → Home feed → Posts/Comments/Likes
+                              ↓
+                         Media upload (Cloudinary)
 ```
 
-The goal of the MVP is to create a working foundation, not a fully completed platform.
-
----
-
-# Development Philosophy
-
-The platform should:
-- start simple
-- stay organized
-- scale over time
-- focus on community needs
-- combine fragmented dancer experiences into one ecosystem
-
-The long-term goal is to create a centralized platform specifically designed for the line dancing community.
+See [frontend.md](frontend.md) for user journeys and [api.md](api.md) for endpoint details.
