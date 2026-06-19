@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 import {
@@ -42,6 +42,7 @@ type UploadedFile = {
 
 export default function ProfilePage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [user, setUser] = useState<User | null>(null);
   const [activeTab, setActiveTab] = useState<MainTab>("uploads");
@@ -82,6 +83,12 @@ export default function ProfilePage() {
       loadUserUploads(userId);
     }
   }, [router]);
+
+  useEffect(() => {
+    if (searchParams.get("tab") === "library") {
+      setActiveTab("library");
+    }
+  }, [searchParams]);
 
   async function handleSaveProfile() {
     if (!user) return;
@@ -541,7 +548,7 @@ function DanceColumn({
     <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
       <h2 className="mb-5 text-2xl font-bold">{title}</h2>
 
-      <div className="space-y-4">
+      <div className="space-y-1">
         {dances.length === 0 && (
           <p className="text-sm text-gray-400">No dances added yet.</p>
         )}
@@ -549,30 +556,29 @@ function DanceColumn({
         {dances.map((dance) => (
           <div
             key={dance._id}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+            className="flex items-center justify-between gap-3 py-1"
           >
-            <div className="flex items-start justify-between gap-3">
-              {dance.danceId ? (
-                <Link href={`/dances/${dance.danceId}`} className="min-w-0 flex-1">
-                  <h3 className="font-semibold">{dance.danceTitle}</h3>
-                  <p className="mt-1 text-sm text-gray-400">Saved dance</p>
-                </Link>
-              ) : (
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-semibold">{dance.danceTitle}</h3>
-                  <p className="mt-1 text-sm text-gray-400">Saved dance</p>
-                </div>
-              )}
-
-              <button
-                type="button"
-                onClick={() => onRemove(dance._id)}
-                aria-label={`Remove ${dance.danceTitle} from library`}
-                className="shrink-0 rounded-full px-2 py-1 text-sm text-gray-500 transition hover:bg-white/10 hover:text-red-400"
+            {dance.danceId ? (
+              <Link
+                href={`/dances/${dance.danceId}`}
+                className="min-w-0 flex-1 font-semibold text-white transition hover:text-orange-400"
               >
-                Remove
-              </button>
-            </div>
+                {dance.danceTitle}
+              </Link>
+            ) : (
+              <p className="min-w-0 flex-1 font-semibold text-white">
+                {dance.danceTitle}
+              </p>
+            )}
+
+            <button
+              type="button"
+              onClick={() => onRemove(dance._id)}
+              aria-label={`Remove ${dance.danceTitle} from library`}
+              className="shrink-0 text-sm text-gray-500 transition hover:text-red-400"
+            >
+              Remove
+            </button>
           </div>
         ))}
       </div>

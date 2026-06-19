@@ -176,7 +176,11 @@ export default function DanceDetailPage() {
     setIsSaving(true);
 
     try {
-      if (savedRecord) {
+      if (savedRecord && saveStatus === status) {
+        await unsaveDance(savedRecord._id);
+        setSavedRecord(null);
+        setSaveStatus(null);
+      } else if (savedRecord) {
         const updated = await updateSavedDanceStatus(savedRecord._id, status);
         setSavedRecord(updated);
         setSaveStatus(updated.status);
@@ -195,24 +199,6 @@ export default function DanceDetailPage() {
     } catch (error) {
       console.error("Failed to save dance:", error);
       setSaveError("Failed to save dance. Please try again.");
-    } finally {
-      setIsSaving(false);
-    }
-  }
-
-  async function handleUnsave() {
-    if (!savedRecord || isSaving) return;
-
-    setSaveError("");
-    setIsSaving(true);
-
-    try {
-      await unsaveDance(savedRecord._id);
-      setSavedRecord(null);
-      setSaveStatus(null);
-    } catch (error) {
-      console.error("Failed to unsave dance:", error);
-      setSaveError("Failed to remove dance from library.");
     } finally {
       setIsSaving(false);
     }
@@ -420,10 +406,6 @@ export default function DanceDetailPage() {
             </div>
 
             <div className="mb-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p className="mb-3 text-sm font-semibold text-gray-300">
-                Save to Dance Library
-              </p>
-
               {!user ? (
                 <Link
                   href={`/login?redirect=/dances/${id}`}
@@ -450,17 +432,6 @@ export default function DanceDetailPage() {
                       </button>
                     ))}
                   </div>
-
-                  {savedRecord && (
-                    <button
-                      type="button"
-                      onClick={handleUnsave}
-                      disabled={isSaving}
-                      className="mt-3 text-sm font-semibold text-gray-400 transition hover:text-red-400 disabled:opacity-60"
-                    >
-                      Remove from library
-                    </button>
-                  )}
 
                   {saveError && (
                     <p className="mt-2 text-sm text-red-400">{saveError}</p>

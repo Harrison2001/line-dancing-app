@@ -80,9 +80,16 @@ def normalize_dance(record):
         "sourceName": str(source_name).strip(),
         "sourceUrl": str(record.get("sourceUrl") or stepsheet_url).strip(),
         "stepsheetUrl": str(stepsheet_url).strip(),
+        "sourceLinks": record.get("sourceLinks") or record.get("source_links") or [],
 
         "demoUrl": str(record.get("demoUrl", "")).strip(),
         "tutorialUrl": str(record.get("tutorialUrl", "")).strip(),
+        "bestDemoVideo": str(
+            record.get("bestDemoVideo") or record.get("best_demo_video") or ""
+        ).strip(),
+        "bestTutorialVideo": str(
+            record.get("bestTutorialVideo") or record.get("best_tutorial_video") or ""
+        ).strip(),
         "thumbnailUrl": str(record.get("thumbnailUrl", "")).strip(),
 
         "description": str(

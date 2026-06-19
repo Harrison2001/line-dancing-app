@@ -13,7 +13,7 @@ const settingsSections = [
     title: "App Preferences",
     items: [
       { label: "Notifications", description: "Manage event, dance, and message alerts.", href: "/notifications" },
-      { label: "Saved Dances", description: "View dances you saved for later.", href: "/saved" },
+      { label: "Saved Dances", description: "View dances you saved for later.", href: "/profile?tab=library" },
       { label: "Appearance", description: "Theme and display preferences.", href: "#" },
     ],
   },

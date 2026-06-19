@@ -81,7 +81,10 @@ async function importDances() {
     for (const dance of uniqueDances) {
       await Dance.findOneAndUpdate(
         { slug: dance.slug },
-        dance,
+        {
+          ...dance,
+          danceName: dance.title || dance.danceName || dance.slug,
+        },
         { upsert: true, new: true }
       );
     }

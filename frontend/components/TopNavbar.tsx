@@ -104,7 +104,7 @@ export default function TopNav() {
                   </Link>
 
                   <Link
-                    href="/saved"
+                    href="/profile?tab=library"
                     onClick={() => setIsMenuOpen(false)}
                     className="block px-5 py-3 text-sm font-medium text-gray-200 hover:bg-white/10 hover:text-white"
                   >

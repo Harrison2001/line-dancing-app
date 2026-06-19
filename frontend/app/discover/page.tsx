@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 const difficultyTabs = [
   "Recommended",
@@ -47,6 +48,97 @@ function hasVideo(dance: Dance) {
   );
 }
 
+const DANCES_PER_SUBLEVEL = 4;
+
+const TAB_SUBLEVELS: Record<string, string[]> = {
+  Beginner: ["absolute beginner", "beginner", "high beginner"],
+  Improver: ["easy improver", "improver", "high improver"],
+  Intermediate: ["easy intermediate", "intermediate", "high intermediate"],
+  Advanced: ["easy advanced", "advanced"],
+};
+
+const DIFFICULTY_RANK: Record<string, number> = {
+  "absolute beginner": 0,
+  beginner: 10,
+  "high beginner": 20,
+  "easy improver": 30,
+  improver: 40,
+  "high improver": 50,
+  "easy intermediate": 60,
+  intermediate: 70,
+  "high intermediate": 80,
+  "easy advanced": 90,
+  advanced: 100,
+};
+
+type DanceSection = {
+  label: string;
+  dances: Dance[];
+};
+
+function formatDifficultyLabel(value: string) {
+  return value
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function normalizeDifficultyLabel(difficulty?: string) {
+  const normalized = (difficulty || "").toLowerCase().trim();
+  if (!normalized) return null;
+
+  if (normalized in DIFFICULTY_RANK) {
+    return normalized;
+  }
+
+  const matchedKey = Object.keys(DIFFICULTY_RANK)
+    .sort((a, b) => b.length - a.length)
+    .find((key) => normalized === key || normalized.includes(key));
+
+  return matchedKey || null;
+}
+
+function sortByEasiestFirst(danceList: Dance[]) {
+  return [...danceList].sort(
+    (a, b) =>
+      getDifficultyRank(a.difficulty) - getDifficultyRank(b.difficulty)
+  );
+}
+
+function getDancesForSubLevel(dances: Dance[], subLevel: string) {
+  return sortByEasiestFirst(
+    dances.filter(
+      (dance) => normalizeDifficultyLabel(dance.difficulty) === subLevel
+    )
+  ).slice(0, DANCES_PER_SUBLEVEL);
+}
+
+function getSectionsForTab(dances: Dance[], tab: string): DanceSection[] {
+  if (tab === "Recommended") {
+    const videoReady = dances.filter(hasVideo);
+    const pool = videoReady.length > 0 ? videoReady : dances;
+    const recommended = sortByEasiestFirst(pool).slice(0, 12);
+
+    return recommended.length
+      ? [{ label: "Recommended For You", dances: recommended }]
+      : [];
+  }
+
+  const subLevels = TAB_SUBLEVELS[tab] || [];
+
+  return subLevels
+    .map((subLevel) => ({
+      label: formatDifficultyLabel(subLevel),
+      dances: getDancesForSubLevel(dances, subLevel),
+    }))
+    .filter((section) => section.dances.length > 0);
+}
+
+function getDifficultyRank(difficulty?: string) {
+  const normalized = normalizeDifficultyLabel(difficulty);
+  return normalized ? DIFFICULTY_RANK[normalized] : 999;
+}
+
 function DanceCard({ dance }: { dance: Dance }) {
   const title = getTitle(dance);
 
@@ -59,10 +151,6 @@ function DanceCard({ dance }: { dance: Dance }) {
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-xl backdrop-blur">
           ▶
         </div>
-
-        <span className="absolute left-3 top-3 rounded-full border border-orange-500 bg-black/40 px-3 py-1 text-xs font-semibold text-orange-400">
-          {dance.difficulty || "Unknown"}
-        </span>
 
         <span className="absolute right-3 top-3 rounded-full bg-black/40 px-3 py-1 text-xs text-gray-300">
           {hasVideo(dance) ? "Video" : "Info"}
@@ -117,12 +205,19 @@ export default function DiscoverPage() {
   const [resultSource, setResultSource] = useState("all");
   const [isSearching, setIsSearching] = useState(false);
   const [activeTab, setActiveTab] = useState("Recommended");
+  const [loadError, setLoadError] = useState("");
 
   async function loadAllDances() {
     try {
       setIsLoading(true);
+      setLoadError("");
 
       const response = await fetch(`${API_BASE_URL}/api/dances`);
+
+      if (!response.ok) {
+        throw new Error("Failed to load dances");
+      }
+
       const data = await response.json();
 
       setDances(Array.isArray(data) ? data : []);
@@ -132,6 +227,9 @@ export default function DiscoverPage() {
     } catch (error) {
       console.error("Failed to load dances:", error);
       setDances([]);
+      setLoadError(
+        "Could not load dances. Make sure the backend is running on port 5000."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -169,23 +267,19 @@ export default function DiscoverPage() {
     loadAllDances();
   }, []);
 
-  const filteredDances = useMemo(() => {
-    if (activeTab === "Recommended") {
-      const videoReady = dances.filter(hasVideo);
+  const danceSections = useMemo(
+    () => getSectionsForTab(dances, activeTab),
+    [dances, activeTab]
+  );
 
-      if (videoReady.length > 0) {
-        return videoReady.slice(0, 12);
-      }
+  const hasVisibleDances = danceSections.some(
+    (section) => section.dances.length > 0
+  );
 
-      return dances.slice(0, 12);
-    }
-
-    return dances
-      .filter((dance) =>
-        dance.difficulty?.toLowerCase().includes(activeTab.toLowerCase())
-      )
-      .slice(0, 12);
-  }, [dances, activeTab]);
+  const sortedSearchResults = useMemo(
+    () => sortByEasiestFirst(searchResults),
+    [searchResults]
+  );
 
   return (
     <main className="min-h-screen bg-[#100905] px-6 py-10 pb-24 text-white md:px-8 md:pb-10">
@@ -254,10 +348,10 @@ export default function DiscoverPage() {
         ) : isSearching ? (
           <section>
             <p className="mb-6 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300">
-              Showing {searchResults.length} search results from {resultSource}.
+              Showing {sortedSearchResults.length} search results from {resultSource}.
             </p>
 
-            {searchResults.length === 0 ? (
+            {sortedSearchResults.length === 0 ? (
               <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
                 <h2 className="text-2xl font-bold">No dances found</h2>
                 <p className="mt-2 text-gray-400">
@@ -266,7 +360,7 @@ export default function DiscoverPage() {
               </div>
             ) : (
               <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                {searchResults.map((dance) => (
+                {sortedSearchResults.map((dance) => (
                   <DanceCard key={dance._id} dance={dance} />
                 ))}
               </div>
@@ -274,10 +368,11 @@ export default function DiscoverPage() {
           </section>
         ) : (
           <section>
-            <p className="mb-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300">
-              Showing {filteredDances.length} dances from {dances.length} dances
-              in your database.
-            </p>
+            {loadError && (
+              <p className="mb-6 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 text-sm text-red-300">
+                {loadError}
+              </p>
+            )}
 
             <div className="mb-8">
               <h2 className="mb-2 text-3xl font-bold">
@@ -289,10 +384,10 @@ export default function DiscoverPage() {
               <p className="mb-6 text-gray-400">
                 {activeTab === "Recommended"
                   ? "Popular dances and tutorials to get started."
-                  : `Showing ${activeTab.toLowerCase()} level dances.`}
+                  : `Up to ${DANCES_PER_SUBLEVEL} dances in each ${activeTab.toLowerCase()} level.`}
               </p>
 
-              {filteredDances.length === 0 ? (
+              {!hasVisibleDances ? (
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
                   <h2 className="text-2xl font-bold">No dances found</h2>
                   <p className="mt-2 text-gray-400">
@@ -300,9 +395,15 @@ export default function DiscoverPage() {
                   </p>
                 </div>
               ) : (
-                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                  {filteredDances.map((dance) => (
-                    <DanceCard key={dance._id} dance={dance} />
+                <div className="space-y-10">
+                  {danceSections.map((section, index) => (
+                    <div key={`${section.label}-${index}`}>
+                      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                        {section.dances.map((dance) => (
+                          <DanceCard key={dance._id} dance={dance} />
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
