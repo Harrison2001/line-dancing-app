@@ -57,7 +57,7 @@ def map_bootstepper_record(row):
         "walls": "",
         "choreographer": clean_value(row.get("choreographer")),
         "songTitle": clean_value(row.get("music")),
-        "artist": "",
+        "artist": clean_value(row.get("artist")),
         "sourceName": "BootStepper",
         "sourceUrl": clean_value(row.get("stepsheet_url")),
         "stepsheetUrl": clean_value(row.get("stepsheet_url")),

@@ -6,3 +6,9 @@ node_modules
 .cursor/
 backend/docs/credentials.txt
 credentials.txt
+
+# Data Engineering — local pipeline artifacts (may contain API errors/secrets)
+Data Engineering/Data/raw/youtube_enrichment_audit.json
+Data Engineering/data/raw/youtube_enrichment_audit.json
+Data Engineering/logs/
+Data Engineering/Logs/

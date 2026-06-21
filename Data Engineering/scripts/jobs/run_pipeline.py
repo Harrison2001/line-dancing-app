@@ -5,17 +5,14 @@ import sys
 BASE_DIR = Path(__file__).resolve().parents[2]
 
 PIPELINE_STEPS = [
-    # 1. Collect raw data
     (
         "Collect CopperKnob",
-        BASE_DIR / "scripts" / "collect" / "scrape_copperknob_recent.py",
+        BASE_DIR / "scripts" / "collect" / "collect_copperknob_recent.py",
     ),
     (
         "Collect BootStepper",
         BASE_DIR / "scripts" / "collect" / "collect_bootstepper.py",
     ),
-
-    # 2. Clean source files into staging
     (
         "Clean CopperKnob dances",
         BASE_DIR / "scripts" / "clean" / "clean_copperknob.py",
@@ -24,25 +21,31 @@ PIPELINE_STEPS = [
         "Clean BootStepper dances",
         BASE_DIR / "scripts" / "clean" / "clean_bootstepper.py",
     ),
-
-    # 3. Merge cleaned staging files
     (
         "Merge dance sources",
         BASE_DIR / "scripts" / "merge" / "merge_dance_sources.py",
     ),
-
-    # 4. Validate merged final data
     (
         "Validate final dances",
         BASE_DIR / "scripts" / "validate" / "validate_final_dance.py",
     ),
-
-    # 5. Load final export into MongoDB
+    (
+        "Enrich YouTube videos",
+        BASE_DIR / "scripts" / "enrich" / "enrich_youtube.py",
+    ),
     (
         "Load dances",
         BASE_DIR / "scripts" / "load" / "load_dances.py",
     ),
 ]
+
+
+def safe_print_output(text):
+    if not text:
+        return
+    encoding = getattr(sys.stdout, "encoding", None) or "utf-8"
+    safe_text = text.encode(encoding, errors="replace").decode(encoding, errors="replace")
+    print(safe_text)
 
 
 def run_step(step_name, script_path):
@@ -64,10 +67,10 @@ def run_step(step_name, script_path):
     )
 
     if result.stdout:
-        print(result.stdout)
+        safe_print_output(result.stdout)
 
     if result.stderr:
-        print(result.stderr)
+        safe_print_output(result.stderr)
 
     if result.returncode != 0:
         raise RuntimeError(f"Pipeline failed at: {step_name}")

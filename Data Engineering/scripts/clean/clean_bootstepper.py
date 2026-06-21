@@ -64,6 +64,10 @@ def main():
     df["level"] = df["level"].apply(normalize_text)
     df["choreographer"] = df["choreographer"].apply(normalize_text)
     df["music"] = df["music"].apply(normalize_text)
+    if "artist" in df.columns:
+        df["artist"] = df["artist"].apply(normalize_text)
+    else:
+        df["artist"] = ""
     df["stepsheet_url"] = df["stepsheet_url"].apply(normalize_text)
     df["source"] = df["source"].apply(normalize_text)
     df["scraped_at"] = df["scraped_at"].apply(normalize_text)
