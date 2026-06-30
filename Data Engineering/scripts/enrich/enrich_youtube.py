@@ -2,6 +2,7 @@ from pathlib import Path
 import json
 import os
 import re
+import sys
 import time
 
 import requests
@@ -10,6 +11,9 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 PROJECT_DIR = BASE_DIR.parent
+sys.path.insert(0, str(BASE_DIR))
+
+from config.youtube_utils import pick_best_line_dance_video
 
 BACKEND_ENV = PROJECT_DIR / "backend" / ".env"
 EXPORT_FILE = BASE_DIR / "data" / "exports" / "dances_for_database.json"
@@ -18,6 +22,7 @@ AUDIT_FILE = BASE_DIR / "data" / "raw" / "youtube_enrichment_audit.json"
 DELAY_SECONDS = 2.0
 MAX_DANCES = 0
 SKIP_IF_HAS_VIDEOS = True
+FORCE_REENRICH = os.getenv("YOUTUBE_FORCE_REENRICH", "").lower() in ("1", "true", "yes")
 MAX_RETRIES = 4
 RETRY_BACKOFF_SECONDS = 15
 
@@ -65,7 +70,7 @@ def youtube_api_error(response):
     return RuntimeError(f"YouTube API error {response.status_code}")
 
 
-def search_youtube(query, max_results=3):
+def search_youtube(query, max_results=10):
     if not YOUTUBE_API_KEY:
         raise ValueError(f"Missing YOUTUBE_API_KEY. Checked: {BACKEND_ENV}")
 
@@ -120,21 +125,10 @@ def search_youtube(query, max_results=3):
     return results
 
 
-def pick_best_video(results, search_type):
-    if not results:
-        return None
-
-    keywords = ["tutorial", "teach", "walkthrough"] if search_type == "tutorial" else ["demo", "dance"]
-
-    for result in results:
-        title = result["title"].lower()
-        if any(keyword in title for keyword in keywords):
-            return result
-
-    return results[0]
-
-
 def needs_enrichment(record):
+    if FORCE_REENRICH:
+        return True
+
     if not SKIP_IF_HAS_VIDEOS:
         return True
 
@@ -145,6 +139,8 @@ def needs_enrichment(record):
 
 def enrich_record(record, audit_entry):
     title = normalize_text(record.get("title"))
+    song_title = normalize_text(record.get("songTitle"))
+
     if not title:
         audit_entry["skipped"] = "missing_title"
         return record
@@ -154,7 +150,12 @@ def enrich_record(record, audit_entry):
 
     if not normalize_text(record.get("best_demo_video")):
         demo_results = search_youtube(demo_query)
-        best_demo = pick_best_video(demo_results, "demo")
+        best_demo = pick_best_line_dance_video(
+            demo_results,
+            search_type="demo",
+            dance_title=title,
+            song_title=song_title,
+        )
         if best_demo:
             record["best_demo_video"] = best_demo["url"]
             record["demoUrl"] = best_demo["url"]
@@ -168,7 +169,12 @@ def enrich_record(record, audit_entry):
 
     if not normalize_text(record.get("best_tutorial_video")):
         tutorial_results = search_youtube(tutorial_query)
-        best_tutorial = pick_best_video(tutorial_results, "tutorial")
+        best_tutorial = pick_best_line_dance_video(
+            tutorial_results,
+            search_type="tutorial",
+            dance_title=title,
+            song_title=song_title,
+        )
         if best_tutorial:
             record["best_tutorial_video"] = best_tutorial["url"]
             record["tutorialUrl"] = best_tutorial["url"]

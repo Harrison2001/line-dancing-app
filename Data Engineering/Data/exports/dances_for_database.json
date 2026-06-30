@@ -18,7 +18,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "your-love-amazes-me"
+    "slug": "your-love-amazes-me",
+    "normalizedSongKey": "your love amazes me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "You're a Superstar",
@@ -39,7 +42,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "you-re-a-superstar"
+    "slug": "you-re-a-superstar",
+    "normalizedSongKey": "superstar",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Alice (Tribal Version)",
@@ -60,7 +66,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "alice-tribal-version"
+    "slug": "alice-tribal-version",
+    "normalizedSongKey": "alice",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Another Bar Song",
@@ -81,7 +90,13 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "another-bar-song"
+    "slug": "another-bar-song",
+    "normalizedSongKey": "cowgirl",
+    "sameSongVersionCount": 3,
+    "sameSongSlugs": [
+      "cowgirl",
+      "wild-little-cowgirl"
+    ]
   },
   {
     "title": "Opalite",
@@ -102,7 +117,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "opalite"
+    "slug": "opalite",
+    "normalizedSongKey": "opalite",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Baby Blues Cha",
@@ -123,7 +141,13 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "baby-blues-cha"
+    "slug": "baby-blues-cha",
+    "normalizedSongKey": "baby blues",
+    "sameSongVersionCount": 3,
+    "sameSongSlugs": [
+      "7-31-baby-blues",
+      "dance-the-blues-away"
+    ]
   },
   {
     "title": "Rhumbumbumba",
@@ -144,7 +168,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "rhumbumbumba"
+    "slug": "rhumbumbumba",
+    "normalizedSongKey": "rhumbumbumba",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Choosin' Texas",
@@ -165,7 +192,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "choosin-texas"
+    "slug": "choosin-texas",
+    "normalizedSongKey": "choosin texas",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Sweet Portland Dreams",
@@ -186,7 +216,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "sweet-portland-dreams"
+    "slug": "sweet-portland-dreams",
+    "normalizedSongKey": "sweet dreams",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Wild West & Wicked",
@@ -207,7 +240,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "wild-west-wicked"
+    "slug": "wild-west-wicked",
+    "normalizedSongKey": "wild west and wicked",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Jive All Night",
@@ -228,7 +264,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "jive-all-night"
+    "slug": "jive-all-night",
+    "normalizedSongKey": "because we jive all night long",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Ziggy",
@@ -249,7 +288,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "ziggy"
+    "slug": "ziggy",
+    "normalizedSongKey": "i wanna dance with somebody",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "More Than a Memory",
@@ -270,7 +312,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "more-than-a-memory"
+    "slug": "more-than-a-memory",
+    "normalizedSongKey": "nothing more than a memory",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Teddy's Gone",
@@ -291,7 +336,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "teddy-s-gone"
+    "slug": "teddy-s-gone",
+    "normalizedSongKey": "gone gone gone",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Fierce",
@@ -312,7 +360,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "fierce"
+    "slug": "fierce",
+    "normalizedSongKey": "fierce the sundance kid",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Role Model",
@@ -333,7 +384,12 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "role-model"
+    "slug": "role-model",
+    "normalizedSongKey": "be her",
+    "sameSongVersionCount": 2,
+    "sameSongSlugs": [
+      "hurts-so-bad"
+    ]
   },
   {
     "title": "Fever Dream",
@@ -354,7 +410,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "fever-dream"
+    "slug": "fever-dream",
+    "normalizedSongKey": "fever dream",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Bloody Mary",
@@ -375,7 +434,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "bloody-mary"
+    "slug": "bloody-mary",
+    "normalizedSongKey": "vodka and bloody mary",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Shimmer",
@@ -396,7 +458,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "shimmer"
+    "slug": "shimmer",
+    "normalizedSongKey": "shimmer",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Love Potion 666",
@@ -417,7 +482,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "love-potion-666"
+    "slug": "love-potion-666",
+    "normalizedSongKey": "love potion 666",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Loca Loca",
@@ -438,7 +506,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "loca-loca"
+    "slug": "loca-loca",
+    "normalizedSongKey": "loca loca",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Movimiento",
@@ -459,7 +530,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "movimiento"
+    "slug": "movimiento",
+    "normalizedSongKey": "movimiento",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Wild Little Cowgirl",
@@ -480,7 +554,13 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "wild-little-cowgirl"
+    "slug": "wild-little-cowgirl",
+    "normalizedSongKey": "cowgirl",
+    "sameSongVersionCount": 3,
+    "sameSongSlugs": [
+      "another-bar-song",
+      "cowgirl"
+    ]
   },
   {
     "title": "Fire in the Feet (Fuego en Los Pies)",
@@ -501,7 +581,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "fire-in-the-feet-fuego-en-los-pies"
+    "slug": "fire-in-the-feet-fuego-en-los-pies",
+    "normalizedSongKey": "fuego en los pies",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Stomp 2,3,4",
@@ -522,7 +605,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "stomp-2-3-4"
+    "slug": "stomp-2-3-4",
+    "normalizedSongKey": "stomp 2 3 4",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Cyber Glow",
@@ -543,7 +629,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "cyber-glow"
+    "slug": "cyber-glow",
+    "normalizedSongKey": "24k gold",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "\"A Bar Song\"",
@@ -564,7 +653,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "a-bar-song"
+    "slug": "a-bar-song",
+    "normalizedSongKey": "a bar song",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Hoedown",
@@ -585,7 +677,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "hoedown"
+    "slug": "hoedown",
+    "normalizedSongKey": "hoedown",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Little Miss Rock-a-Round",
@@ -606,7 +701,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "little-miss-rock-a-round"
+    "slug": "little-miss-rock-a-round",
+    "normalizedSongKey": "little miss rock",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Glass of Wine",
@@ -627,7 +725,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "glass-of-wine"
+    "slug": "glass-of-wine",
+    "normalizedSongKey": "cry to me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Bottom of Your Boots",
@@ -648,7 +749,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "bottom-of-your-boots"
+    "slug": "bottom-of-your-boots",
+    "normalizedSongKey": "bottom of your boots",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Dangerous Games",
@@ -669,7 +773,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dangerous-games"
+    "slug": "dangerous-games",
+    "normalizedSongKey": "dangerous games",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Going Blonde",
@@ -690,7 +797,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "going-blonde"
+    "slug": "going-blonde",
+    "normalizedSongKey": "going blonde",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Cowgirl",
@@ -711,7 +821,13 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "cowgirl"
+    "slug": "cowgirl",
+    "normalizedSongKey": "cowgirl",
+    "sameSongVersionCount": 3,
+    "sameSongSlugs": [
+      "another-bar-song",
+      "wild-little-cowgirl"
+    ]
   },
   {
     "title": "Red Dress Rebel",
@@ -732,7 +848,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "red-dress-rebel"
+    "slug": "red-dress-rebel",
+    "normalizedSongKey": "red dress rebel",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Here With Me",
@@ -753,7 +872,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "here-with-me"
+    "slug": "here-with-me",
+    "normalizedSongKey": "where we go",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Gimme That Feeling",
@@ -774,7 +896,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "gimme-that-feeling"
+    "slug": "gimme-that-feeling",
+    "normalizedSongKey": "feel good",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Stay With Me",
@@ -795,7 +920,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "stay-with-me"
+    "slug": "stay-with-me",
+    "normalizedSongKey": "stay with me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Hurts So Bad",
@@ -816,7 +944,12 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "hurts-so-bad"
+    "slug": "hurts-so-bad",
+    "normalizedSongKey": "be her",
+    "sameSongVersionCount": 2,
+    "sameSongSlugs": [
+      "role-model"
+    ]
   },
   {
     "title": "Feel the Passion",
@@ -837,7 +970,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "feel-the-passion"
+    "slug": "feel-the-passion",
+    "normalizedSongKey": "what a feeling",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Adiosito!",
@@ -858,7 +994,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "adiosito"
+    "slug": "adiosito",
+    "normalizedSongKey": "adi s",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "The Vandalist",
@@ -879,7 +1018,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "the-vandalist"
+    "slug": "the-vandalist",
+    "normalizedSongKey": "vandalist",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "He's in a Chevy",
@@ -900,7 +1042,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "he-s-in-a-chevy"
+    "slug": "he-s-in-a-chevy",
+    "normalizedSongKey": "i m in love",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "My Diamond Girl",
@@ -921,7 +1066,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "my-diamond-girl"
+    "slug": "my-diamond-girl",
+    "normalizedSongKey": "my diamond girl",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "If This Day",
@@ -942,7 +1090,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "if-this-day"
+    "slug": "if-this-day",
+    "normalizedSongKey": "if this day",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Stand By Me",
@@ -963,7 +1114,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "stand-by-me"
+    "slug": "stand-by-me",
+    "normalizedSongKey": "stand by me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Hold Me When I Break",
@@ -984,7 +1138,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "hold-me-when-i-break"
+    "slug": "hold-me-when-i-break",
+    "normalizedSongKey": "hold me when i break",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Dance a Little Dirty",
@@ -1005,7 +1162,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dance-a-little-dirty"
+    "slug": "dance-a-little-dirty",
+    "normalizedSongKey": "dance a little dirty",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Shirts and Skirts",
@@ -1026,7 +1186,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "shirts-and-skirts"
+    "slug": "shirts-and-skirts",
+    "normalizedSongKey": "man i feel like a woman",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Strummingbird",
@@ -1047,7 +1210,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "strummingbird"
+    "slug": "strummingbird",
+    "normalizedSongKey": "one more",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "That Honky Tonk Highway",
@@ -1068,7 +1234,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "that-honky-tonk-highway"
+    "slug": "that-honky-tonk-highway",
+    "normalizedSongKey": "honky tonk highway",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Heel, Toe, Rodeo",
@@ -1089,7 +1258,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "heel-toe-rodeo"
+    "slug": "heel-toe-rodeo",
+    "normalizedSongKey": "cowboy up",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Corner Table",
@@ -1110,7 +1282,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "corner-table"
+    "slug": "corner-table",
+    "normalizedSongKey": "you don t have to tell me twice",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "3 Tequila Floor",
@@ -1131,7 +1306,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "3-tequila-floor"
+    "slug": "3-tequila-floor",
+    "normalizedSongKey": "3 tequila floor",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Twenty Two (22)",
@@ -1152,7 +1330,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "twenty-two-22"
+    "slug": "twenty-two-22",
+    "normalizedSongKey": "you look like you love me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Digidi Digidi",
@@ -1173,7 +1354,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "digidi-digidi"
+    "slug": "digidi-digidi",
+    "normalizedSongKey": "digidi digidi",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "DJ's on Fire",
@@ -1194,7 +1378,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dj-s-on-fire"
+    "slug": "dj-s-on-fire",
+    "normalizedSongKey": "djs on fire",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Problematic",
@@ -1215,7 +1402,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "problematic"
+    "slug": "problematic",
+    "normalizedSongKey": "lose control",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Dust Off of Me",
@@ -1236,7 +1426,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dust-off-of-me"
+    "slug": "dust-off-of-me",
+    "normalizedSongKey": "dust off of me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "American Kids",
@@ -1257,7 +1450,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "american-kids"
+    "slug": "american-kids",
+    "normalizedSongKey": "american kids",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Jazz It Up",
@@ -1278,7 +1474,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "jazz-it-up"
+    "slug": "jazz-it-up",
+    "normalizedSongKey": "jazz it up",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Dance The Blues Away",
@@ -1299,7 +1498,13 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dance-the-blues-away"
+    "slug": "dance-the-blues-away",
+    "normalizedSongKey": "baby blues",
+    "sameSongVersionCount": 3,
+    "sameSongSlugs": [
+      "7-31-baby-blues",
+      "baby-blues-cha"
+    ]
   },
   {
     "title": "Baby Steps",
@@ -1320,7 +1525,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "baby-steps"
+    "slug": "baby-steps",
+    "normalizedSongKey": "baby steps",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Footloose",
@@ -1341,7 +1549,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "footloose"
+    "slug": "footloose",
+    "normalizedSongKey": "footloose",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Do Si Dough",
@@ -1362,7 +1573,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "do-si-dough"
+    "slug": "do-si-dough",
+    "normalizedSongKey": "do si dough",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Dance in the Moonlight",
@@ -1383,7 +1597,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dance-in-the-moonlight"
+    "slug": "dance-in-the-moonlight",
+    "normalizedSongKey": "moonlight",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Alligator Smile",
@@ -1404,7 +1621,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "alligator-smile"
+    "slug": "alligator-smile",
+    "normalizedSongKey": "can t keep up",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Blame Texas",
@@ -1425,7 +1645,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "blame-texas"
+    "slug": "blame-texas",
+    "normalizedSongKey": "blame texas",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Rocket to the Sun",
@@ -1446,7 +1669,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "rocket-to-the-sun"
+    "slug": "rocket-to-the-sun",
+    "normalizedSongKey": "what you ve done to me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "The Door",
@@ -1467,7 +1693,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "the-door"
+    "slug": "the-door",
+    "normalizedSongKey": "the door",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Dooset Daram",
@@ -1488,7 +1717,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "dooset-daram"
+    "slug": "dooset-daram",
+    "normalizedSongKey": "dooset daram",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Ah Si!",
@@ -1509,7 +1741,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "ah-si"
+    "slug": "ah-si",
+    "normalizedSongKey": "levantando las manos",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Lonely Drum",
@@ -1530,7 +1765,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "lonely-drum"
+    "slug": "lonely-drum",
+    "normalizedSongKey": "lonely drum",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Do Ya Love Me?",
@@ -1551,7 +1789,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "do-ya-love-me"
+    "slug": "do-ya-love-me",
+    "normalizedSongKey": "do you love me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Wings To Fly",
@@ -1572,7 +1813,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "wings-to-fly"
+    "slug": "wings-to-fly",
+    "normalizedSongKey": "the power of love x i m a",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Mamma Maria",
@@ -1593,7 +1837,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "mamma-maria"
+    "slug": "mamma-maria",
+    "normalizedSongKey": "mamma maria",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Body & Soul",
@@ -1614,7 +1861,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "body-soul"
+    "slug": "body-soul",
+    "normalizedSongKey": "body and soul",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Miles On It",
@@ -1635,7 +1885,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "miles-on-it"
+    "slug": "miles-on-it",
+    "normalizedSongKey": "miles on it",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Give Me a Break !",
@@ -1656,7 +1909,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "give-me-a-break"
+    "slug": "give-me-a-break",
+    "normalizedSongKey": "madness",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "First Time Flyers",
@@ -1677,7 +1933,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "first-time-flyers"
+    "slug": "first-time-flyers",
+    "normalizedSongKey": "do it all over again",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Sticks and Stones",
@@ -1698,7 +1957,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "sticks-and-stones"
+    "slug": "sticks-and-stones",
+    "normalizedSongKey": "sticks and stones",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "A Rattlesnake Kiss",
@@ -1719,7 +1981,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "a-rattlesnake-kiss"
+    "slug": "a-rattlesnake-kiss",
+    "normalizedSongKey": "ain t in kansas anymore",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Honky Tonk Romp",
@@ -1740,7 +2005,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "honky-tonk-romp"
+    "slug": "honky-tonk-romp",
+    "normalizedSongKey": "cheatin on my honky tonk",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Everybody Dance!",
@@ -1761,7 +2029,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "everybody-dance"
+    "slug": "everybody-dance",
+    "normalizedSongKey": "everybody dance",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Come Dance With Me",
@@ -1782,7 +2053,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "come-dance-with-me"
+    "slug": "come-dance-with-me",
+    "normalizedSongKey": "come dance with me",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Chill Factor",
@@ -1803,7 +2077,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "chill-factor"
+    "slug": "chill-factor",
+    "normalizedSongKey": "last night",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "The Last Shanty",
@@ -1824,7 +2101,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "the-last-shanty"
+    "slug": "the-last-shanty",
+    "normalizedSongKey": "the last shanty",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Love You Again",
@@ -1845,7 +2125,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "love-you-again"
+    "slug": "love-you-again",
+    "normalizedSongKey": "if i could love you again",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "We're Good to Go",
@@ -1866,7 +2149,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "we-re-good-to-go"
+    "slug": "we-re-good-to-go",
+    "normalizedSongKey": "good to go",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "7:31 (Baby Blues)",
@@ -1887,7 +2173,13 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "7-31-baby-blues"
+    "slug": "7-31-baby-blues",
+    "normalizedSongKey": "baby blues",
+    "sameSongVersionCount": 3,
+    "sameSongSlugs": [
+      "baby-blues-cha",
+      "dance-the-blues-away"
+    ]
   },
   {
     "title": "Gives Me Shivers",
@@ -1908,7 +2200,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "gives-me-shivers"
+    "slug": "gives-me-shivers",
+    "normalizedSongKey": "shivers",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Hey Caballero",
@@ -1929,7 +2224,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "hey-caballero"
+    "slug": "hey-caballero",
+    "normalizedSongKey": "hey senorita",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Bigger Houses (WDM25)",
@@ -1950,7 +2248,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "bigger-houses-wdm25"
+    "slug": "bigger-houses-wdm25",
+    "normalizedSongKey": "bigger houses",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "The Vibe",
@@ -1971,7 +2272,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "the-vibe"
+    "slug": "the-vibe",
+    "normalizedSongKey": "vibe",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Boot Scootin' Boogie",
@@ -1992,7 +2296,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "boot-scootin-boogie"
+    "slug": "boot-scootin-boogie",
+    "normalizedSongKey": "boot scootin boogie",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "The Wolf",
@@ -2013,7 +2320,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "the-wolf"
+    "slug": "the-wolf",
+    "normalizedSongKey": "the wolf",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Island Seoul",
@@ -2034,7 +2344,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "island-seoul"
+    "slug": "island-seoul",
+    "normalizedSongKey": "island soul",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "West of Fort Worth",
@@ -2055,7 +2368,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "west-of-fort-worth"
+    "slug": "west-of-fort-worth",
+    "normalizedSongKey": "west of fort worth",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Date Nite",
@@ -2076,7 +2392,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 70,
-    "slug": "date-nite"
+    "slug": "date-nite",
+    "normalizedSongKey": "date nite",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Boot In The City",
@@ -2097,7 +2416,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 40,
-    "slug": "boot-in-the-city"
+    "slug": "boot-in-the-city",
+    "normalizedSongKey": "",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "June 2026",
@@ -2118,7 +2440,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 40,
-    "slug": "june-2026"
+    "slug": "june-2026",
+    "normalizedSongKey": "boot in the city",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Roy Verdonk",
@@ -2139,7 +2464,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 40,
-    "slug": "roy-verdonk"
+    "slug": "roy-verdonk",
+    "normalizedSongKey": "boot in the city",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Tim Johnson",
@@ -2160,7 +2488,10 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 40,
-    "slug": "tim-johnson"
+    "slug": "tim-johnson",
+    "normalizedSongKey": "boot in the city",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   },
   {
     "title": "Ivonne Verhagen",
@@ -2181,6 +2512,9 @@
     "best_demo_video": "",
     "best_tutorial_video": "",
     "quality_score": 40,
-    "slug": "ivonne-verhagen"
+    "slug": "ivonne-verhagen",
+    "normalizedSongKey": "boot in the city",
+    "sameSongVersionCount": 0,
+    "sameSongSlugs": []
   }
 ]

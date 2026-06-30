@@ -1,41 +1,29 @@
 require("dotenv").config();
 
+const {
+  pickBestLineDanceVideo,
+  searchLineDanceVideos,
+} = require("./youtubeVideoRanking");
+
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
-async function findDanceVideo(dance) {
+async function findDanceVideo(dance, searchType = "demo") {
   const query = [
-    dance.title,
+    dance.title || dance.danceName,
     dance.songTitle,
     dance.artist,
-    "line dance",
+    searchType === "tutorial" ? "line dance tutorial" : "line dance demo",
   ]
     .filter(Boolean)
     .join(" ");
 
-  const url =
-    `https://www.googleapis.com/youtube/v3/search` +
-    `?part=snippet` +
-    `&type=video` +
-    `&maxResults=5` +
-    `&q=${encodeURIComponent(query)}` +
-    `&key=${YOUTUBE_API_KEY}`;
+  const videos = await searchLineDanceVideos(query, YOUTUBE_API_KEY, 10);
 
-  const response = await fetch(url);
-  const data = await response.json();
-
-  if (!data.items?.length) {
-    return null;
-  }
-
-  const video = data.items[0];
-
-  return {
-    videoId: video.id.videoId,
-    title: video.snippet.title,
-    channelTitle: video.snippet.channelTitle,
-    thumbnail: video.snippet.thumbnails.high?.url,
-    url: `https://www.youtube.com/watch?v=${video.id.videoId}`,
-  };
+  return pickBestLineDanceVideo(videos, {
+    searchType,
+    danceTitle: dance.title || dance.danceName,
+    songTitle: dance.songTitle,
+  });
 }
 
 module.exports = {

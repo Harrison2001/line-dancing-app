@@ -111,6 +111,10 @@ def normalize_dance(record):
         "scrapedAt": str(
             record.get("scrapedAt") or record.get("scraped_at") or ""
         ).strip(),
+
+        "normalizedSongKey": str(record.get("normalizedSongKey", "")).strip(),
+        "sameSongVersionCount": safe_int(record.get("sameSongVersionCount")),
+        "sameSongSlugs": record.get("sameSongSlugs") or [],
     }
 
 

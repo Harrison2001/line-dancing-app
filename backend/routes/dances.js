@@ -41,6 +41,37 @@ router.get("/search", async (req, res) => {
   }
 });
 
+// GET same-song dance versions by id
+router.get("/:id/same-song-versions", async (req, res) => {
+  try {
+    const dance = await Dance.findById(req.params.id);
+
+    if (!dance || dance.isActive === false) {
+      return res.status(404).json({ message: "Dance not found" });
+    }
+
+    if (!dance.normalizedSongKey) {
+      return res.json([]);
+    }
+
+    const sameSongVersions = await Dance.find({
+      _id: { $ne: dance._id },
+      normalizedSongKey: dance.normalizedSongKey,
+      isActive: { $ne: false },
+    })
+      .sort({ sameSongVersionCount: -1, title: 1 })
+      .limit(12)
+      .select(
+        "title danceName slug difficulty style choreographer songTitle artist counts walls sourceName bestDemoVideo bestTutorialVideo thumbnailUrl"
+      );
+
+    res.json(sameSongVersions);
+  } catch (error) {
+    console.error("Failed to fetch same-song versions:", error);
+    res.status(500).json({ message: "Failed to fetch same-song versions" });
+  }
+});
+
 // GET related dances by id
 router.get("/:id/related", async (req, res) => {
   try {

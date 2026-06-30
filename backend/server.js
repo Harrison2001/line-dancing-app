@@ -32,9 +32,17 @@ app.use("/api/follows", followRoutes);
 app.use("/api/onboarding", onboardingRoutes);
 app.use("/api/dances", dancesRoutes);
 
+const {
+  pickBestLineDanceVideo,
+  searchLineDanceVideos,
+} = require("./services/youtubeVideoRanking");
+
 app.get("/api/youtube/search", async (req, res) => {
   try {
     const query = req.query.q;
+    const searchType = req.query.type === "tutorial" ? "tutorial" : "demo";
+    const danceTitle = req.query.danceTitle || "";
+    const songTitle = req.query.songTitle || "";
 
     if (!query) {
       return res.status(400).json({ message: "Search query is required" });
@@ -46,36 +54,35 @@ app.get("/api/youtube/search", async (req, res) => {
       });
     }
 
-    const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=1&q=${encodeURIComponent(
-      query
-    )}&key=${process.env.YOUTUBE_API_KEY}`;
+    const videos = await searchLineDanceVideos(
+      query,
+      process.env.YOUTUBE_API_KEY,
+      10
+    );
 
-    const response = await fetch(youtubeUrl);
-    const data = await response.json();
+    const bestMatch = pickBestLineDanceVideo(videos, {
+      searchType,
+      danceTitle,
+      songTitle,
+    });
 
-    if (!response.ok) {
-      console.error("YouTube API error:", data);
-      return res.status(response.status).json({
-        message: "YouTube API request failed",
-        details: data,
-      });
-    }
-
-    if (!data.items || data.items.length === 0) {
+    if (!bestMatch) {
       return res.json({ videoUrl: "" });
     }
 
-    const videoId = data.items[0].id.videoId;
-
     return res.json({
-      videoUrl: `https://www.youtube.com/embed/${videoId}`,
-      title: data.items[0].snippet.title,
-      channelTitle: data.items[0].snippet.channelTitle,
-      thumbnail: data.items[0].snippet.thumbnails?.high?.url || "",
+      videoUrl: bestMatch.embedUrl,
+      title: bestMatch.title,
+      channelTitle: bestMatch.channelTitle,
+      thumbnail: bestMatch.thumbnail,
+      matchScore: bestMatch.matchScore,
     });
   } catch (error) {
     console.error("YouTube search failed:", error);
-    return res.status(500).json({ message: "YouTube search failed" });
+    return res.status(error.status || 500).json({
+      message: "YouTube search failed",
+      details: error.details,
+    });
   }
 });
 

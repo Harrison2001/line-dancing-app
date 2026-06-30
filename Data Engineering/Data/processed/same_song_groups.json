@@ -1,0 +1,85 @@
+[
+  {
+    "normalizedSongKey": "baby blues",
+    "songTitleExamples": [
+      "baby blues"
+    ],
+    "versionCount": 3,
+    "dances": [
+      {
+        "slug": "baby-blues-cha",
+        "title": "Baby Blues Cha",
+        "choreographer": "Simon Ward",
+        "sourceName": "CopperKnob",
+        "songTitle": "baby blues"
+      },
+      {
+        "slug": "dance-the-blues-away",
+        "title": "Dance The Blues Away",
+        "choreographer": "Lee Hamilton",
+        "sourceName": "CopperKnob",
+        "songTitle": "baby blues"
+      },
+      {
+        "slug": "7-31-baby-blues",
+        "title": "7:31 (Baby Blues)",
+        "choreographer": "Joshua Talbot",
+        "sourceName": "CopperKnob",
+        "songTitle": "baby blues"
+      }
+    ]
+  },
+  {
+    "normalizedSongKey": "cowgirl",
+    "songTitleExamples": [
+      "Cowgirl"
+    ],
+    "versionCount": 3,
+    "dances": [
+      {
+        "slug": "another-bar-song",
+        "title": "Another Bar Song",
+        "choreographer": "Sierra Gil",
+        "sourceName": "CopperKnob",
+        "songTitle": "Cowgirl"
+      },
+      {
+        "slug": "wild-little-cowgirl",
+        "title": "Wild Little Cowgirl",
+        "choreographer": "Ben Murphy",
+        "sourceName": "CopperKnob",
+        "songTitle": "Cowgirl"
+      },
+      {
+        "slug": "cowgirl",
+        "title": "Cowgirl",
+        "choreographer": "Sara Honey-DeLong",
+        "sourceName": "CopperKnob",
+        "songTitle": "Cowgirl"
+      }
+    ]
+  },
+  {
+    "normalizedSongKey": "be her",
+    "songTitleExamples": [
+      "Be Her"
+    ],
+    "versionCount": 2,
+    "dances": [
+      {
+        "slug": "role-model",
+        "title": "Role Model",
+        "choreographer": "Maddison Glover",
+        "sourceName": "CopperKnob",
+        "songTitle": "Be Her"
+      },
+      {
+        "slug": "hurts-so-bad",
+        "title": "Hurts So Bad",
+        "choreographer": "Tina Subia",
+        "sourceName": "CopperKnob",
+        "songTitle": "Be Her"
+      }
+    ]
+  }
+]

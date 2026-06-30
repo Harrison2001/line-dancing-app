@@ -116,6 +116,7 @@ export default function DanceDetailPage() {
 
   const [dance, setDance] = useState<Dance | null>(null);
   const [relatedDances, setRelatedDances] = useState<Dance[]>([]);
+  const [sameSongVersions, setSameSongVersions] = useState<Dance[]>([]);
   const [activeVideo, setActiveVideo] = useState<"demo" | "tutorial">("demo");
 
   const [demoVideoUrl, setDemoVideoUrl] = useState("");
@@ -247,10 +248,9 @@ export default function DanceDetailPage() {
         if (!existingDemoVideo) {
           setIsDemoLoading(true);
 
+          const demoQuery = `${fallbackTitle} ${songName} line dance demo`;
           const demoResponse = await fetch(
-            `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(
-              `${songName} line dance demo`
-            )}`
+            `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(demoQuery)}&type=demo&danceTitle=${encodeURIComponent(fallbackTitle)}&songTitle=${encodeURIComponent(songName)}`
           );
 
           if (isCancelled) return;
@@ -270,10 +270,9 @@ export default function DanceDetailPage() {
         if (!existingTutorialVideo) {
           setIsTutorialLoading(true);
 
+          const tutorialQuery = `${fallbackTitle} ${songName} line dance tutorial`;
           const tutorialResponse = await fetch(
-            `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(
-              `${songName} line dance tutorial`
-            )}`
+            `${API_BASE_URL}/api/youtube/search?q=${encodeURIComponent(tutorialQuery)}&type=tutorial&danceTitle=${encodeURIComponent(fallbackTitle)}&songTitle=${encodeURIComponent(songName)}`
           );
 
           if (isCancelled) return;
@@ -298,6 +297,17 @@ export default function DanceDetailPage() {
         if (relatedResponse.ok) {
           const relatedData: Dance[] = await relatedResponse.json();
           setRelatedDances(relatedData);
+        }
+
+        const sameSongResponse = await fetch(
+          `${API_BASE_URL}/api/dances/${id}/same-song-versions`
+        );
+
+        if (isCancelled) return;
+
+        if (sameSongResponse.ok) {
+          const sameSongData: Dance[] = await sameSongResponse.json();
+          setSameSongVersions(sameSongData);
         }
       } catch (error) {
         if (!isCancelled) {
@@ -556,7 +566,45 @@ export default function DanceDetailPage() {
             </div>
           </section>
 
-          <aside className="h-fit rounded-3xl border border-white/10 bg-white/5 p-5">
+          <aside className="h-fit space-y-5">
+            {sameSongVersions.length > 0 && (
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <h2 className="mb-1 text-xl font-bold">Same Song, Other Versions</h2>
+                <p className="mb-4 text-sm text-gray-500">
+                  Other line dances choreographed to &ldquo;{songName}&rdquo;
+                </p>
+
+                <div className="space-y-3">
+                  {sameSongVersions.map((item) => {
+                    const itemTitle =
+                      item.title || item.danceName || "Untitled Dance";
+
+                    return (
+                      <Link
+                        key={item._id}
+                        href={`/dances/${item._id}`}
+                        className="block rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:bg-white/10"
+                      >
+                        <h3 className="line-clamp-1 font-semibold">{itemTitle}</h3>
+
+                        <p className="mt-1 line-clamp-1 text-sm text-gray-400">
+                          {item.difficulty || "Unknown"}
+                          {item.choreographer ? ` • ${item.choreographer}` : ""}
+                        </p>
+
+                        {item.sourceName && (
+                          <p className="mt-1 line-clamp-1 text-xs text-gray-500">
+                            {item.sourceName}
+                          </p>
+                        )}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
             <h2 className="mb-4 text-xl font-bold">Related Dances</h2>
 
             <div className="space-y-3">
@@ -593,6 +641,7 @@ export default function DanceDetailPage() {
                   No related dances found.
                 </p>
               )}
+            </div>
             </div>
           </aside>
         </div>

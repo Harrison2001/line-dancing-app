@@ -30,6 +30,10 @@ PIPELINE_STEPS = [
         BASE_DIR / "scripts" / "validate" / "validate_final_dance.py",
     ),
     (
+        "Link same-song versions",
+        BASE_DIR / "scripts" / "link" / "link_same_song_versions.py",
+    ),
+    (
         "Enrich YouTube videos",
         BASE_DIR / "scripts" / "enrich" / "enrich_youtube.py",
     ),

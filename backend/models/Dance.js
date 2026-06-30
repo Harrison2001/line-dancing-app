@@ -16,6 +16,12 @@ const danceSchema = new mongoose.Schema(
     choreographer: String,
     songTitle: String,
     artist: String,
+    normalizedSongKey: {
+      type: String,
+      index: true,
+    },
+    sameSongVersionCount: Number,
+    sameSongSlugs: [String],
     difficulty: String,
     level: String,
     counts: Number,
