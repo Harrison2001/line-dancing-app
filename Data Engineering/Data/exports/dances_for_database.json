@@ -15,13 +15,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/XNFN6K7/your-love-amazes-me"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=mKb76KEvPx4",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=eASsF4Fpvsg",
     "quality_score": 70,
     "slug": "your-love-amazes-me",
     "normalizedSongKey": "your love amazes me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=mKb76KEvPx4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/mKb76KEvPx4/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=eASsF4Fpvsg"
   },
   {
     "title": "You're a Superstar",
@@ -39,13 +42,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/H8R7DHW/youre-a-superstar"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=sNzXsldPu0E",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=0QO9B6oKs0M",
     "quality_score": 70,
     "slug": "you-re-a-superstar",
     "normalizedSongKey": "superstar",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=sNzXsldPu0E",
+    "thumbnailUrl": "https://i.ytimg.com/vi/sNzXsldPu0E/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=0QO9B6oKs0M"
   },
   {
     "title": "Alice (Tribal Version)",
@@ -63,13 +69,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/D4ZWH9G/alice-tribal-version"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=5psgHWb2swQ",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=uVAllrZVDIw",
     "quality_score": 70,
     "slug": "alice-tribal-version",
     "normalizedSongKey": "alice",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=5psgHWb2swQ",
+    "thumbnailUrl": "https://i.ytimg.com/vi/5psgHWb2swQ/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=uVAllrZVDIw"
   },
   {
     "title": "Another Bar Song",
@@ -87,8 +96,8 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/7JWW9LL/another-bar-song"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=XqoHGADdeUY",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=FTrsFkKoOH4",
     "quality_score": 70,
     "slug": "another-bar-song",
     "normalizedSongKey": "cowgirl",
@@ -96,7 +105,10 @@
     "sameSongSlugs": [
       "cowgirl",
       "wild-little-cowgirl"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=XqoHGADdeUY",
+    "thumbnailUrl": "https://i.ytimg.com/vi/XqoHGADdeUY/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=FTrsFkKoOH4"
   },
   {
     "title": "Opalite",
@@ -114,13 +126,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/389MQZY/opalite"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=oDwnaUTLA-Q",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=fD9hPesunf0",
     "quality_score": 70,
     "slug": "opalite",
     "normalizedSongKey": "opalite",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=oDwnaUTLA-Q",
+    "thumbnailUrl": "https://i.ytimg.com/vi/oDwnaUTLA-Q/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=fD9hPesunf0"
   },
   {
     "title": "Baby Blues Cha",
@@ -138,8 +153,8 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/N4JCBZB/baby-blues-cha"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=lfF48IPoJQE",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=6-RGiG88Ig4",
     "quality_score": 70,
     "slug": "baby-blues-cha",
     "normalizedSongKey": "baby blues",
@@ -147,7 +162,10 @@
     "sameSongSlugs": [
       "7-31-baby-blues",
       "dance-the-blues-away"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=lfF48IPoJQE",
+    "thumbnailUrl": "https://i.ytimg.com/vi/lfF48IPoJQE/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=6-RGiG88Ig4"
   },
   {
     "title": "Rhumbumbumba",
@@ -165,13 +183,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/8RHKFN8/rhumbumbumba"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=wnJIW0i3FCc",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=VqDv-laR4Fo",
     "quality_score": 70,
     "slug": "rhumbumbumba",
     "normalizedSongKey": "rhumbumbumba",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=wnJIW0i3FCc",
+    "thumbnailUrl": "https://i.ytimg.com/vi/wnJIW0i3FCc/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=VqDv-laR4Fo"
   },
   {
     "title": "Choosin' Texas",
@@ -189,13 +210,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/LRV9X25/choosin-texas"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=pvYL-tucfW4",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=BJr9ErJY7bk",
     "quality_score": 70,
     "slug": "choosin-texas",
     "normalizedSongKey": "choosin texas",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=pvYL-tucfW4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/pvYL-tucfW4/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=BJr9ErJY7bk"
   },
   {
     "title": "Sweet Portland Dreams",
@@ -213,13 +237,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/L6P8PGC/sweet-portland-dreams"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=mt1PDpkiBPM",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=lN3wC16KVeA",
     "quality_score": 70,
     "slug": "sweet-portland-dreams",
     "normalizedSongKey": "sweet dreams",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=mt1PDpkiBPM",
+    "thumbnailUrl": "https://i.ytimg.com/vi/mt1PDpkiBPM/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=lN3wC16KVeA"
   },
   {
     "title": "Wild West & Wicked",
@@ -237,13 +264,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/LB8S443/wild-west-wicked"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=BV-C0Vnnpjg",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=Qr3PNaNauLM",
     "quality_score": 70,
     "slug": "wild-west-wicked",
     "normalizedSongKey": "wild west and wicked",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=BV-C0Vnnpjg",
+    "thumbnailUrl": "https://i.ytimg.com/vi/BV-C0Vnnpjg/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=Qr3PNaNauLM"
   },
   {
     "title": "Jive All Night",
@@ -261,13 +291,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/JCYWTJ7/jive-all-night"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=9PiS1ZbLlis",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=Vu9oDh7XSD0",
     "quality_score": 70,
     "slug": "jive-all-night",
     "normalizedSongKey": "because we jive all night long",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=9PiS1ZbLlis",
+    "thumbnailUrl": "https://i.ytimg.com/vi/9PiS1ZbLlis/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=Vu9oDh7XSD0"
   },
   {
     "title": "Ziggy",
@@ -285,13 +318,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/YTPDD72/ziggy"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=21KKF6sKHUE",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=OcNtDuwiS2c",
     "quality_score": 70,
     "slug": "ziggy",
     "normalizedSongKey": "i wanna dance with somebody",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=21KKF6sKHUE",
+    "thumbnailUrl": "https://i.ytimg.com/vi/21KKF6sKHUE/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=OcNtDuwiS2c"
   },
   {
     "title": "More Than a Memory",
@@ -309,13 +345,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/SF8F8B6/more-than-a-memory"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=7nrU7V8DFvE",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=U-zolz7j4QY",
     "quality_score": 70,
     "slug": "more-than-a-memory",
     "normalizedSongKey": "nothing more than a memory",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=7nrU7V8DFvE",
+    "thumbnailUrl": "https://i.ytimg.com/vi/7nrU7V8DFvE/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=U-zolz7j4QY"
   },
   {
     "title": "Teddy's Gone",
@@ -333,13 +372,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/6L5NRBZ/teddys-gone"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=Tr0pzJmKDJA",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=3sdBgGIRbfE",
     "quality_score": 70,
     "slug": "teddy-s-gone",
     "normalizedSongKey": "gone gone gone",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=Tr0pzJmKDJA",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Tr0pzJmKDJA/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=3sdBgGIRbfE"
   },
   {
     "title": "Fierce",
@@ -357,13 +399,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/S856K88/fierce"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=RVCaJf9d19I",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=MDF4M-rMmaI",
     "quality_score": 70,
     "slug": "fierce",
     "normalizedSongKey": "fierce the sundance kid",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=RVCaJf9d19I",
+    "thumbnailUrl": "https://i.ytimg.com/vi/RVCaJf9d19I/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=MDF4M-rMmaI"
   },
   {
     "title": "Role Model",
@@ -381,15 +426,18 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/R247MW4/role-model"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=Ggv7TMsKY_8",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=kZ4cmL5ySbA",
     "quality_score": 70,
     "slug": "role-model",
     "normalizedSongKey": "be her",
     "sameSongVersionCount": 2,
     "sameSongSlugs": [
       "hurts-so-bad"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=Ggv7TMsKY_8",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Ggv7TMsKY_8/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=kZ4cmL5ySbA"
   },
   {
     "title": "Fever Dream",
@@ -407,13 +455,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/P83Z3TP/fever-dream"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=Co7LzWLW680",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=iqY1oyS5ykA",
     "quality_score": 70,
     "slug": "fever-dream",
     "normalizedSongKey": "fever dream",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=Co7LzWLW680",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Co7LzWLW680/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=iqY1oyS5ykA"
   },
   {
     "title": "Bloody Mary",
@@ -431,13 +482,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/53MP48B/bloody-mary"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=KlqaFwOkQsc",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=KlqaFwOkQsc",
     "quality_score": 70,
     "slug": "bloody-mary",
     "normalizedSongKey": "vodka and bloody mary",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=KlqaFwOkQsc",
+    "thumbnailUrl": "https://i.ytimg.com/vi/KlqaFwOkQsc/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=KlqaFwOkQsc"
   },
   {
     "title": "Shimmer",
@@ -455,13 +509,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/D2XSLTZ/shimmer"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=aKz8I_reYDo",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=aKz8I_reYDo",
     "quality_score": 70,
     "slug": "shimmer",
     "normalizedSongKey": "shimmer",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=aKz8I_reYDo",
+    "thumbnailUrl": "https://i.ytimg.com/vi/aKz8I_reYDo/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=aKz8I_reYDo"
   },
   {
     "title": "Love Potion 666",
@@ -479,13 +536,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/BXVY9W7/love-potion-666"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=7pyMYonWeps",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=EcOZXjUxsik",
     "quality_score": 70,
     "slug": "love-potion-666",
     "normalizedSongKey": "love potion 666",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=7pyMYonWeps",
+    "thumbnailUrl": "https://i.ytimg.com/vi/7pyMYonWeps/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=EcOZXjUxsik"
   },
   {
     "title": "Loca Loca",
@@ -503,13 +563,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/H594TJJ/loca-loca"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=h0C8rj6lIXs",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=J6zGokGiZoY",
     "quality_score": 70,
     "slug": "loca-loca",
     "normalizedSongKey": "loca loca",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=h0C8rj6lIXs",
+    "thumbnailUrl": "https://i.ytimg.com/vi/h0C8rj6lIXs/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=J6zGokGiZoY"
   },
   {
     "title": "Movimiento",
@@ -527,13 +590,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/69SPXJB/movimiento"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=gnvDXnygxNc",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=Q5n0ZcZ4YXA",
     "quality_score": 70,
     "slug": "movimiento",
     "normalizedSongKey": "movimiento",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=gnvDXnygxNc",
+    "thumbnailUrl": "https://i.ytimg.com/vi/gnvDXnygxNc/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=Q5n0ZcZ4YXA"
   },
   {
     "title": "Wild Little Cowgirl",
@@ -551,8 +617,8 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/D2WHY73/wild-little-cowgirl"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=vajCJ7yxSTk",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=KNjyAmyglo4",
     "quality_score": 70,
     "slug": "wild-little-cowgirl",
     "normalizedSongKey": "cowgirl",
@@ -560,7 +626,10 @@
     "sameSongSlugs": [
       "another-bar-song",
       "cowgirl"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=vajCJ7yxSTk",
+    "thumbnailUrl": "https://i.ytimg.com/vi/vajCJ7yxSTk/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=KNjyAmyglo4"
   },
   {
     "title": "Fire in the Feet (Fuego en Los Pies)",
@@ -578,13 +647,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/85GPZR9/fire-in-the-feet-fuego-en-los-pies"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=BUREy2WrI-g",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=iu-A31QcWCY",
     "quality_score": 70,
     "slug": "fire-in-the-feet-fuego-en-los-pies",
     "normalizedSongKey": "fuego en los pies",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=BUREy2WrI-g",
+    "thumbnailUrl": "https://i.ytimg.com/vi/BUREy2WrI-g/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=iu-A31QcWCY"
   },
   {
     "title": "Stomp 2,3,4",
@@ -602,13 +674,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/NP5W4YJ/stomp-234"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=UFr7cXat32I",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=ilZylHFXiZw",
     "quality_score": 70,
     "slug": "stomp-2-3-4",
     "normalizedSongKey": "stomp 2 3 4",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=UFr7cXat32I",
+    "thumbnailUrl": "https://i.ytimg.com/vi/UFr7cXat32I/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=ilZylHFXiZw"
   },
   {
     "title": "Cyber Glow",
@@ -626,13 +701,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/5JYGZQD/cyber-glow"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=OnXpKKzfTvc",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=FMr2LOv27ms",
     "quality_score": 70,
     "slug": "cyber-glow",
     "normalizedSongKey": "24k gold",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=OnXpKKzfTvc",
+    "thumbnailUrl": "https://i.ytimg.com/vi/OnXpKKzfTvc/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=FMr2LOv27ms"
   },
   {
     "title": "\"A Bar Song\"",
@@ -650,13 +728,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/9ZRL2CY/a-bar-song"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=VM34LfIItA0",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=VM34LfIItA0",
     "quality_score": 70,
     "slug": "a-bar-song",
     "normalizedSongKey": "a bar song",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=VM34LfIItA0",
+    "thumbnailUrl": "https://i.ytimg.com/vi/VM34LfIItA0/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=VM34LfIItA0"
   },
   {
     "title": "Hoedown",
@@ -674,13 +755,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/H8Q99YY/hoedown"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=8JlQrLfan3E",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=8JlQrLfan3E",
     "quality_score": 70,
     "slug": "hoedown",
     "normalizedSongKey": "hoedown",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=8JlQrLfan3E",
+    "thumbnailUrl": "https://i.ytimg.com/vi/8JlQrLfan3E/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=8JlQrLfan3E"
   },
   {
     "title": "Little Miss Rock-a-Round",
@@ -698,13 +782,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/DG5N85G/little-miss-rock-a-round"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=mbkRolBCvk8",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=YW8q4nHA1_U",
     "quality_score": 70,
     "slug": "little-miss-rock-a-round",
     "normalizedSongKey": "little miss rock",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=mbkRolBCvk8",
+    "thumbnailUrl": "https://i.ytimg.com/vi/mbkRolBCvk8/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=YW8q4nHA1_U"
   },
   {
     "title": "Glass of Wine",
@@ -722,13 +809,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/26M97QX/glass-of-wine"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=ils3Z7J83yw",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=BquAplsVtGI",
     "quality_score": 70,
     "slug": "glass-of-wine",
     "normalizedSongKey": "cry to me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=ils3Z7J83yw",
+    "thumbnailUrl": "https://i.ytimg.com/vi/ils3Z7J83yw/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=BquAplsVtGI"
   },
   {
     "title": "Bottom of Your Boots",
@@ -746,13 +836,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/N88LSGX/bottom-of-your-boots"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=1UprpBW7qGw",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=4yuOn9YEaXQ",
     "quality_score": 70,
     "slug": "bottom-of-your-boots",
     "normalizedSongKey": "bottom of your boots",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=1UprpBW7qGw",
+    "thumbnailUrl": "https://i.ytimg.com/vi/1UprpBW7qGw/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=4yuOn9YEaXQ"
   },
   {
     "title": "Dangerous Games",
@@ -770,13 +863,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/2RYQQK3/dangerous-games"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=3S8trHcDiJM",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=3dZtO_O0cyA",
     "quality_score": 70,
     "slug": "dangerous-games",
     "normalizedSongKey": "dangerous games",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=3S8trHcDiJM",
+    "thumbnailUrl": "https://i.ytimg.com/vi/3S8trHcDiJM/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=3dZtO_O0cyA"
   },
   {
     "title": "Going Blonde",
@@ -794,13 +890,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/HTCDJ9R/going-blonde"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=lPkpTTDnC4c",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=lPkpTTDnC4c",
     "quality_score": 70,
     "slug": "going-blonde",
     "normalizedSongKey": "going blonde",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=lPkpTTDnC4c",
+    "thumbnailUrl": "https://i.ytimg.com/vi/lPkpTTDnC4c/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=lPkpTTDnC4c"
   },
   {
     "title": "Cowgirl",
@@ -818,8 +917,8 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/NK5CJH5/cowgirl"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=VhAEgSbKUtE",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=sH6b71Da8w0",
     "quality_score": 70,
     "slug": "cowgirl",
     "normalizedSongKey": "cowgirl",
@@ -827,7 +926,10 @@
     "sameSongSlugs": [
       "another-bar-song",
       "wild-little-cowgirl"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=VhAEgSbKUtE",
+    "thumbnailUrl": "https://i.ytimg.com/vi/VhAEgSbKUtE/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=sH6b71Da8w0"
   },
   {
     "title": "Red Dress Rebel",
@@ -845,13 +947,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/KD8ZZFK/red-dress-rebel"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=TA6SgljE-_w",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=NAW8hNbjX4A",
     "quality_score": 70,
     "slug": "red-dress-rebel",
     "normalizedSongKey": "red dress rebel",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=TA6SgljE-_w",
+    "thumbnailUrl": "https://i.ytimg.com/vi/TA6SgljE-_w/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=NAW8hNbjX4A"
   },
   {
     "title": "Here With Me",
@@ -869,13 +974,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/8RK4G33/here-with-me"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=bCMJLu5eXHQ",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=9KZvfXPnS6o",
     "quality_score": 70,
     "slug": "here-with-me",
     "normalizedSongKey": "where we go",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=bCMJLu5eXHQ",
+    "thumbnailUrl": "https://i.ytimg.com/vi/bCMJLu5eXHQ/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=9KZvfXPnS6o"
   },
   {
     "title": "Gimme That Feeling",
@@ -893,13 +1001,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/JPQS3J6/gimme-that-feeling"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=EPNko8NkPeU",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=E9sP_qGRRV4",
     "quality_score": 70,
     "slug": "gimme-that-feeling",
     "normalizedSongKey": "feel good",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=EPNko8NkPeU",
+    "thumbnailUrl": "https://i.ytimg.com/vi/EPNko8NkPeU/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=E9sP_qGRRV4"
   },
   {
     "title": "Stay With Me",
@@ -917,13 +1028,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/M6NYWYJ/stay-with-me"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=xt6xrmyGtB8",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=pk0Dup_Dzeo",
     "quality_score": 70,
     "slug": "stay-with-me",
     "normalizedSongKey": "stay with me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=xt6xrmyGtB8",
+    "thumbnailUrl": "https://i.ytimg.com/vi/xt6xrmyGtB8/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=pk0Dup_Dzeo"
   },
   {
     "title": "Hurts So Bad",
@@ -941,15 +1055,18 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/26XHW7W/hurts-so-bad"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=Xs3QFvFdYzU",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=YrWiQQdrufQ",
     "quality_score": 70,
     "slug": "hurts-so-bad",
     "normalizedSongKey": "be her",
     "sameSongVersionCount": 2,
     "sameSongSlugs": [
       "role-model"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=Xs3QFvFdYzU",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Xs3QFvFdYzU/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=YrWiQQdrufQ"
   },
   {
     "title": "Feel the Passion",
@@ -967,13 +1084,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/3WV7RRF/feel-the-passion"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=H0G4MhpPL-0",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=wL2j19t4C24",
     "quality_score": 70,
     "slug": "feel-the-passion",
     "normalizedSongKey": "what a feeling",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=H0G4MhpPL-0",
+    "thumbnailUrl": "https://i.ytimg.com/vi/H0G4MhpPL-0/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=wL2j19t4C24"
   },
   {
     "title": "Adiosito!",
@@ -991,13 +1111,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/98QVW4W/adiosito"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=K_IoJG3jyl4",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=PXg_146KGtM",
     "quality_score": 70,
     "slug": "adiosito",
     "normalizedSongKey": "adi s",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=K_IoJG3jyl4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/K_IoJG3jyl4/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=PXg_146KGtM"
   },
   {
     "title": "The Vandalist",
@@ -1015,13 +1138,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/ZC4DQ6D/the-vandalist"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=ZKaeCG51ouk",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=PDTP81yhnWk",
     "quality_score": 70,
     "slug": "the-vandalist",
     "normalizedSongKey": "vandalist",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=ZKaeCG51ouk",
+    "thumbnailUrl": "https://i.ytimg.com/vi/ZKaeCG51ouk/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=PDTP81yhnWk"
   },
   {
     "title": "He's in a Chevy",
@@ -1039,13 +1165,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/8626JQ2/hes-in-a-chevy"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=BUCkxk3QGh8",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=BUCkxk3QGh8",
     "quality_score": 70,
     "slug": "he-s-in-a-chevy",
     "normalizedSongKey": "i m in love",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=BUCkxk3QGh8",
+    "thumbnailUrl": "https://i.ytimg.com/vi/BUCkxk3QGh8/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=BUCkxk3QGh8"
   },
   {
     "title": "My Diamond Girl",
@@ -1063,13 +1192,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/Q72Y9LH/my-diamond-girl"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=c1lH-26VHko",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=N-3S5iCmT7I",
     "quality_score": 70,
     "slug": "my-diamond-girl",
     "normalizedSongKey": "my diamond girl",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=c1lH-26VHko",
+    "thumbnailUrl": "https://i.ytimg.com/vi/c1lH-26VHko/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=N-3S5iCmT7I"
   },
   {
     "title": "If This Day",
@@ -1087,13 +1219,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/87GPB28/if-this-day"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=2-F75B5loLU",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=jXZQb6ySZF8",
     "quality_score": 70,
     "slug": "if-this-day",
     "normalizedSongKey": "if this day",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=2-F75B5loLU",
+    "thumbnailUrl": "https://i.ytimg.com/vi/2-F75B5loLU/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=jXZQb6ySZF8"
   },
   {
     "title": "Stand By Me",
@@ -1111,13 +1246,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/62BHLD2/stand-by-me"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=VZo6jvLSa6U",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=M45NomvfYSM",
     "quality_score": 70,
     "slug": "stand-by-me",
     "normalizedSongKey": "stand by me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=VZo6jvLSa6U",
+    "thumbnailUrl": "https://i.ytimg.com/vi/VZo6jvLSa6U/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=M45NomvfYSM"
   },
   {
     "title": "Hold Me When I Break",
@@ -1159,13 +1297,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/DX3HMF4/dance-a-little-dirty"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=DZEl-FAKLSo",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=BWVOV72PPRg",
     "quality_score": 70,
     "slug": "dance-a-little-dirty",
     "normalizedSongKey": "dance a little dirty",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=DZEl-FAKLSo",
+    "thumbnailUrl": "https://i.ytimg.com/vi/DZEl-FAKLSo/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=BWVOV72PPRg"
   },
   {
     "title": "Shirts and Skirts",
@@ -1183,13 +1324,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/2SGVJPC/shirts-and-skirts"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=tZFhLOjgoS0",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=bS6Y0XcUkfk",
     "quality_score": 70,
     "slug": "shirts-and-skirts",
     "normalizedSongKey": "man i feel like a woman",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=tZFhLOjgoS0",
+    "thumbnailUrl": "https://i.ytimg.com/vi/tZFhLOjgoS0/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=bS6Y0XcUkfk"
   },
   {
     "title": "Strummingbird",
@@ -1207,13 +1351,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/Q29FPC4/strummingbird"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=isonOvMuU6s",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=4QXh0Hy9Ypo",
     "quality_score": 70,
     "slug": "strummingbird",
     "normalizedSongKey": "one more",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=isonOvMuU6s",
+    "thumbnailUrl": "https://i.ytimg.com/vi/isonOvMuU6s/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=4QXh0Hy9Ypo"
   },
   {
     "title": "That Honky Tonk Highway",
@@ -1231,13 +1378,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/CB8VKHC/that-honky-tonk-highway"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=2mVQ32zPSeY",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "that-honky-tonk-highway",
     "normalizedSongKey": "honky tonk highway",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=2mVQ32zPSeY",
+    "thumbnailUrl": "https://i.ytimg.com/vi/2mVQ32zPSeY/hqdefault.jpg"
   },
   {
     "title": "Heel, Toe, Rodeo",
@@ -1255,13 +1404,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/DKK9HY6/heel-toe-rodeo"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=kP2lL9Ho_TM",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "heel-toe-rodeo",
     "normalizedSongKey": "cowboy up",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=kP2lL9Ho_TM",
+    "thumbnailUrl": "https://i.ytimg.com/vi/kP2lL9Ho_TM/hqdefault.jpg"
   },
   {
     "title": "Corner Table",
@@ -1303,13 +1454,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/K3PHTPZ/3-tequila-floor"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=xzeGxm72GOo",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=SqpRNIetFZ0",
     "quality_score": 70,
     "slug": "3-tequila-floor",
     "normalizedSongKey": "3 tequila floor",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=xzeGxm72GOo",
+    "thumbnailUrl": "https://i.ytimg.com/vi/xzeGxm72GOo/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=SqpRNIetFZ0"
   },
   {
     "title": "Twenty Two (22)",
@@ -1327,13 +1481,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/C8646RR/twenty-two-22"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=965B3uDg6QA",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=IZMgHfuVilU",
     "quality_score": 70,
     "slug": "twenty-two-22",
     "normalizedSongKey": "you look like you love me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=965B3uDg6QA",
+    "thumbnailUrl": "https://i.ytimg.com/vi/965B3uDg6QA/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=IZMgHfuVilU"
   },
   {
     "title": "Digidi Digidi",
@@ -1399,13 +1556,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/L2X54QL/problematic"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=TM8l8Z5EJJQ",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "problematic",
     "normalizedSongKey": "lose control",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=TM8l8Z5EJJQ",
+    "thumbnailUrl": "https://i.ytimg.com/vi/TM8l8Z5EJJQ/hqdefault.jpg"
   },
   {
     "title": "Dust Off of Me",
@@ -1423,13 +1582,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/HNZR5JY/dust-off-of-me"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=ikKrvFOjakQ",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "dust-off-of-me",
     "normalizedSongKey": "dust off of me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=ikKrvFOjakQ",
+    "thumbnailUrl": "https://i.ytimg.com/vi/ikKrvFOjakQ/hqdefault.jpg"
   },
   {
     "title": "American Kids",
@@ -1495,8 +1656,8 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/C6JVQ4V/dance-the-blues-away"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=6-RGiG88Ig4",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=6-RGiG88Ig4",
     "quality_score": 70,
     "slug": "dance-the-blues-away",
     "normalizedSongKey": "baby blues",
@@ -1504,7 +1665,10 @@
     "sameSongSlugs": [
       "7-31-baby-blues",
       "baby-blues-cha"
-    ]
+    ],
+    "demoUrl": "https://www.youtube.com/watch?v=6-RGiG88Ig4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/6-RGiG88Ig4/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=6-RGiG88Ig4"
   },
   {
     "title": "Baby Steps",
@@ -1522,13 +1686,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/R5NQ2LR/baby-steps"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=Ddc6c0mE4vY",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=ZTm9rSZK1dQ",
     "quality_score": 70,
     "slug": "baby-steps",
     "normalizedSongKey": "baby steps",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=Ddc6c0mE4vY",
+    "thumbnailUrl": "https://i.ytimg.com/vi/Ddc6c0mE4vY/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=ZTm9rSZK1dQ"
   },
   {
     "title": "Footloose",
@@ -1546,13 +1713,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/YWVM4T6/footloose"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=SetYYZro95c",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "footloose",
     "normalizedSongKey": "footloose",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=SetYYZro95c",
+    "thumbnailUrl": "https://i.ytimg.com/vi/SetYYZro95c/hqdefault.jpg"
   },
   {
     "title": "Do Si Dough",
@@ -1642,13 +1811,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/4KCWB4S/blame-texas"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=AZPK_UbgUSo",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "blame-texas",
     "normalizedSongKey": "blame texas",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=AZPK_UbgUSo",
+    "thumbnailUrl": "https://i.ytimg.com/vi/AZPK_UbgUSo/hqdefault.jpg"
   },
   {
     "title": "Rocket to the Sun",
@@ -1810,13 +1981,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/J79NC8Z/wings-to-fly"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=av5i0-GpFis",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=3AgrXh0m9MM",
     "quality_score": 70,
     "slug": "wings-to-fly",
     "normalizedSongKey": "the power of love x i m a",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=av5i0-GpFis",
+    "thumbnailUrl": "https://i.ytimg.com/vi/av5i0-GpFis/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=3AgrXh0m9MM"
   },
   {
     "title": "Mamma Maria",
@@ -1834,13 +2008,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/X7JG6DH/mamma-maria"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=2Ovm_GGWMCs",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=2Ovm_GGWMCs",
     "quality_score": 70,
     "slug": "mamma-maria",
     "normalizedSongKey": "mamma maria",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=2Ovm_GGWMCs",
+    "thumbnailUrl": "https://i.ytimg.com/vi/2Ovm_GGWMCs/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=2Ovm_GGWMCs"
   },
   {
     "title": "Body & Soul",
@@ -1906,13 +2083,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/ZFTM49C/give-me-a-break"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=uYt_UP8cxko",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=khv3vDatTjk",
     "quality_score": 70,
     "slug": "give-me-a-break",
     "normalizedSongKey": "madness",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=uYt_UP8cxko",
+    "thumbnailUrl": "https://i.ytimg.com/vi/uYt_UP8cxko/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=khv3vDatTjk"
   },
   {
     "title": "First Time Flyers",
@@ -1930,13 +2110,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/G4HX329/first-time-flyers"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=8aFaOJ0UenQ",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=0L5QC9ZJkM8",
     "quality_score": 70,
     "slug": "first-time-flyers",
     "normalizedSongKey": "do it all over again",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=8aFaOJ0UenQ",
+    "thumbnailUrl": "https://i.ytimg.com/vi/8aFaOJ0UenQ/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=0L5QC9ZJkM8"
   },
   {
     "title": "Sticks and Stones",
@@ -1954,13 +2137,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/4B7RQTM/sticks-and-stones"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=X4jp_oEcoIA",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=ucUng-70ENc",
     "quality_score": 70,
     "slug": "sticks-and-stones",
     "normalizedSongKey": "sticks and stones",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=X4jp_oEcoIA",
+    "thumbnailUrl": "https://i.ytimg.com/vi/X4jp_oEcoIA/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=ucUng-70ENc"
   },
   {
     "title": "A Rattlesnake Kiss",
@@ -1978,13 +2164,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/24BDZKQ/a-rattlesnake-kiss"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=6-STT_g06EY",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=UU8m9ob7i1o",
     "quality_score": 70,
     "slug": "a-rattlesnake-kiss",
     "normalizedSongKey": "ain t in kansas anymore",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=6-STT_g06EY",
+    "thumbnailUrl": "https://i.ytimg.com/vi/6-STT_g06EY/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=UU8m9ob7i1o"
   },
   {
     "title": "Honky Tonk Romp",
@@ -2002,13 +2191,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/DBPYPR5/honky-tonk-romp"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=YMigvc4I2jI",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=mNfY4t8hL7o",
     "quality_score": 70,
     "slug": "honky-tonk-romp",
     "normalizedSongKey": "cheatin on my honky tonk",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=YMigvc4I2jI",
+    "thumbnailUrl": "https://i.ytimg.com/vi/YMigvc4I2jI/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=mNfY4t8hL7o"
   },
   {
     "title": "Everybody Dance!",
@@ -2026,13 +2218,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/DY2FKX7/everybody-dance"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=frOV8EVpQlE",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=ovbYz7t-T2Y",
     "quality_score": 70,
     "slug": "everybody-dance",
     "normalizedSongKey": "everybody dance",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=frOV8EVpQlE",
+    "thumbnailUrl": "https://i.ytimg.com/vi/frOV8EVpQlE/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=ovbYz7t-T2Y"
   },
   {
     "title": "Come Dance With Me",
@@ -2050,13 +2245,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/9VFPSH2/come-dance-with-me"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=EQ8HF2X9HVw",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=jXEj6JMfj30",
     "quality_score": 70,
     "slug": "come-dance-with-me",
     "normalizedSongKey": "come dance with me",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=EQ8HF2X9HVw",
+    "thumbnailUrl": "https://i.ytimg.com/vi/EQ8HF2X9HVw/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=jXEj6JMfj30"
   },
   {
     "title": "Chill Factor",
@@ -2098,13 +2296,15 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/96R9H5P/the-last-shanty"
     ],
-    "best_demo_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=lJ3ki-8kDH8",
     "best_tutorial_video": "",
     "quality_score": 70,
     "slug": "the-last-shanty",
     "normalizedSongKey": "the last shanty",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=lJ3ki-8kDH8",
+    "thumbnailUrl": "https://i.ytimg.com/vi/lJ3ki-8kDH8/hqdefault.jpg"
   },
   {
     "title": "Love You Again",
@@ -2197,13 +2397,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/QLFNPD9/gives-me-shivers"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=_z-l8u6K95c",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=Eowb16GA9fo",
     "quality_score": 70,
     "slug": "gives-me-shivers",
     "normalizedSongKey": "shivers",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=_z-l8u6K95c",
+    "thumbnailUrl": "https://i.ytimg.com/vi/_z-l8u6K95c/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=Eowb16GA9fo"
   },
   {
     "title": "Hey Caballero",
@@ -2221,13 +2424,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/9GL9JFK/hey-caballero"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=oG5moSIOtww",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=QUIrZILDi3U",
     "quality_score": 70,
     "slug": "hey-caballero",
     "normalizedSongKey": "hey senorita",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=oG5moSIOtww",
+    "thumbnailUrl": "https://i.ytimg.com/vi/oG5moSIOtww/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=QUIrZILDi3U"
   },
   {
     "title": "Bigger Houses (WDM25)",
@@ -2245,13 +2451,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/FYPRFH5/bigger-houses-wdm25"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=DT4zX7XymUY",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=vGST84LcWqY",
     "quality_score": 70,
     "slug": "bigger-houses-wdm25",
     "normalizedSongKey": "bigger houses",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=DT4zX7XymUY",
+    "thumbnailUrl": "https://i.ytimg.com/vi/DT4zX7XymUY/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=vGST84LcWqY"
   },
   {
     "title": "The Vibe",
@@ -2269,13 +2478,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/DKJHK4D/the-vibe"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=U6Wgu3Z9B2Y",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=-uiH_g5ZpRc",
     "quality_score": 70,
     "slug": "the-vibe",
     "normalizedSongKey": "vibe",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=U6Wgu3Z9B2Y",
+    "thumbnailUrl": "https://i.ytimg.com/vi/U6Wgu3Z9B2Y/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=-uiH_g5ZpRc"
   },
   {
     "title": "Boot Scootin' Boogie",
@@ -2293,13 +2505,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/QGCF4T9/boot-scootin-boogie"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=WqQnZvjepMo",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=4jW9PHPIFWo",
     "quality_score": 70,
     "slug": "boot-scootin-boogie",
     "normalizedSongKey": "boot scootin boogie",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=WqQnZvjepMo",
+    "thumbnailUrl": "https://i.ytimg.com/vi/WqQnZvjepMo/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=4jW9PHPIFWo"
   },
   {
     "title": "The Wolf",
@@ -2317,13 +2532,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/93HFRDG/the-wolf"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=NIZXQUwUBvs",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=a2Zi_lBY66s",
     "quality_score": 70,
     "slug": "the-wolf",
     "normalizedSongKey": "the wolf",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=NIZXQUwUBvs",
+    "thumbnailUrl": "https://i.ytimg.com/vi/NIZXQUwUBvs/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=a2Zi_lBY66s"
   },
   {
     "title": "Island Seoul",
@@ -2341,13 +2559,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/BC4W925/island-seoul"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=dqEzuZ1O9z0",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=kCs9_R1trMY",
     "quality_score": 70,
     "slug": "island-seoul",
     "normalizedSongKey": "island soul",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=dqEzuZ1O9z0",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dqEzuZ1O9z0/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=kCs9_R1trMY"
   },
   {
     "title": "West of Fort Worth",
@@ -2365,13 +2586,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/6PT87XJ/west-of-fort-worth"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=oNw721vv2Yc",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=4-zmJyXwmu4",
     "quality_score": 70,
     "slug": "west-of-fort-worth",
     "normalizedSongKey": "west of fort worth",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=oNw721vv2Yc",
+    "thumbnailUrl": "https://i.ytimg.com/vi/oNw721vv2Yc/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=4-zmJyXwmu4"
   },
   {
     "title": "Date Nite",
@@ -2389,13 +2613,16 @@
     "source_links": [
       "https://www.copperknob.co.uk/stepsheets/RXDH363/date-nite"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=M56cgZp01NU",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=_-wmcQ6If3c",
     "quality_score": 70,
     "slug": "date-nite",
     "normalizedSongKey": "date nite",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=M56cgZp01NU",
+    "thumbnailUrl": "https://i.ytimg.com/vi/M56cgZp01NU/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=_-wmcQ6If3c"
   },
   {
     "title": "Boot In The City",
@@ -2413,13 +2640,16 @@
     "source_links": [
       "https://bootstepper.com/dances"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=dZ9ytAcP8bY",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=3qNi0-TKj6E",
     "quality_score": 40,
     "slug": "boot-in-the-city",
     "normalizedSongKey": "",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=dZ9ytAcP8bY",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dZ9ytAcP8bY/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=3qNi0-TKj6E"
   },
   {
     "title": "June 2026",
@@ -2485,13 +2715,16 @@
     "source_links": [
       "https://bootstepper.com/dances"
     ],
-    "best_demo_video": "",
-    "best_tutorial_video": "",
+    "best_demo_video": "https://www.youtube.com/watch?v=FadCEYFE3yI",
+    "best_tutorial_video": "https://www.youtube.com/watch?v=_GAOhyqfogc",
     "quality_score": 40,
     "slug": "tim-johnson",
     "normalizedSongKey": "boot in the city",
     "sameSongVersionCount": 0,
-    "sameSongSlugs": []
+    "sameSongSlugs": [],
+    "demoUrl": "https://www.youtube.com/watch?v=FadCEYFE3yI",
+    "thumbnailUrl": "https://i.ytimg.com/vi/FadCEYFE3yI/hqdefault.jpg",
+    "tutorialUrl": "https://www.youtube.com/watch?v=_GAOhyqfogc"
   },
   {
     "title": "Ivonne Verhagen",

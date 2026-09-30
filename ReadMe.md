@@ -189,3 +189,19 @@ See [docs/features.md](docs/features.md) for the full feature list.
 ## Deployment
 
 TODO: Deployment instructions not yet documented. Target date is August 31, 2026.
+
+## Screenshots
+
+## Screenshots
+
+### Discover Dances
+
+![Discover page](screenshots/discover.png)
+
+### Profile Page
+
+![Profile page](screenshots/profile.png)
+
+### Home
+
+![Home page](screenshots/home.png)
