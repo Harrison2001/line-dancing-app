@@ -192,16 +192,14 @@ TODO: Deployment instructions not yet documented. Target date is August 31, 2026
 
 ## Screenshots
 
-## Screenshots
-
 ### Discover Dances
 
-![Discover page](screenshots/discover.png)
+![Discover page](screenshots/Discoverpage.png)
 
 ### Profile Page
 
-![Profile page](screenshots/profile.png)
+![Profile page](screenshots/Profilepage.png)
 
 ### Home
 
-![Home page](screenshots/home.png)
+![Home page](screenshots/Home.png)
